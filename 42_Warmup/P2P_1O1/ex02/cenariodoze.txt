@@ -1,0 +1,13 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    cenariodoze                                        :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/10/03 18:35:52 by andrefil          #+#    #+#              #
+#    Updated: 2023/10/03 18:43:46 by andrefil         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+B) Se não for especificado que o projeto seja feito numa VM, você testa no SEU Workspaces. Se tiver algum problema técnico, pede para fazer a avaliação em outro momento ou pede para que a avaliada clone o repositório na sua frente e teste no Workspaces dela.

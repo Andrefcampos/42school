@@ -1,0 +1,13 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    cenariotres.txt                                    :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/10/03 16:16:39 by andrefil          #+#    #+#              #
+#    Updated: 2023/10/04 16:31:53 by andrefil         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+Primeiramente tentaria entender, por mim mesmo, o que poderia ter acontecido de um momento para o outro. Após estar tudo tranquilo dentro de mim procuraria a pessoa avaliadora para juntos entendermos o que houve para que nas próximas avaliações eu pudesse melhorar e não cometer os mesmos erros. Se fosse o caso de algum equívoco da parte da avaliadora, entenderia super tranquilamente, pois todo mundo pode cometer erros, inclusive eu mesmo, de outra forma, utilizaria como aprendizado e falaria para a pessoa que estaria tudo bem, pois uma avaliação não precisa ser levada para o lado pessoal, então ela poderia falar abertamente sobre o que não estava de acordo no projeto, pois só assim poderiamos melhorar como pessoas e profissionais.

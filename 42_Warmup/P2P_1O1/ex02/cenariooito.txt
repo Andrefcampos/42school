@@ -1,0 +1,13 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    cenariooito                                        :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/10/03 17:13:17 by andrefil          #+#    #+#              #
+#    Updated: 2023/10/03 17:15:42 by andrefil         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+C) Avisa a avaliadora para que há um erro no seu projeto e pede que todas as questões seguintes sejam marcadas como incorretas, ou que flag de Crash seja utilizada caso pertinente.

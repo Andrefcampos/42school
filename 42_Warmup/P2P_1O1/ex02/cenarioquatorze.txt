@@ -1,0 +1,13 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    cenarioquatorze                                    :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/10/03 18:46:22 by andrefil          #+#    #+#              #
+#    Updated: 2023/10/03 18:50:51 by andrefil         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+B) Explica mesmo que brevemente o conceito por trás do teste e ajuda a avaliadora a executar os comandos, afinal é uma ótima oportunidade para que ela comece a se familiarizar com o que virá pela frente.

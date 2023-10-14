@@ -1,0 +1,13 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    cenariosete                                        :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/10/03 17:09:12 by andrefil          #+#    #+#              #
+#    Updated: 2023/10/03 17:13:10 by andrefil         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+B) Continuaria com a avaliação para verificar como os outros arquivos se comportam e seguiria com a troca, deixando como incorretos os próximos itens que funcionarem.

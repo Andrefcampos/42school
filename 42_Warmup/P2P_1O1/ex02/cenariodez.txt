@@ -1,0 +1,13 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    cenariodez                                         :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/10/03 18:30:10 by andrefil          #+#    #+#              #
+#    Updated: 2023/10/03 18:33:29 by andrefil         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+D) Pede para verificarem juntos o documento da Norma e identifica o item que explica sobre o idioma obrigatório das variáveis. Aceita a decisão e corrige seu código para uma próxima entrega.

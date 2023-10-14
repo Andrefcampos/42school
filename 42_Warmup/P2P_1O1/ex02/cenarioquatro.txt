@@ -1,0 +1,13 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    cenarioquatro.txt                                  :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/10/03 16:47:27 by andrefil          #+#    #+#              #
+#    Updated: 2023/10/04 17:56:16 by andrefil         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+Tentaria propor uma forma de chegarmos a um consenso entre os entendimentos. Se ainda assim não fosse possível, diria a ela para não se preocupar pois é assim mesmo e as vezes uma mesma coisa pode ser vista de várias formas diferente. O que importa é que ambos pudessemos aprender e ver coisas que não estavamos enxergando. 

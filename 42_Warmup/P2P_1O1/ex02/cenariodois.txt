@@ -1,0 +1,13 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    cenariodois.txt                                    :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/10/03 16:09:03 by andrefil          #+#    #+#              #
+#    Updated: 2023/10/04 16:30:22 by andrefil         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+Eu explicaria para a pessoa avaliada que não foi possível verificar todos os exercícios, pois extrapolamos o tempo necessário para avaliação conversando sobre as tarefas anteriores, mas perguntaria gentilmente, explicando a necessidade de olhar todos os exercícios para realizarmos uma avaliação mais contundente e explicaria o quanto seria benéfico para ambos seguirmos todo o precesso independente do tempo necessário. Perguntaria se a pessoa estaria de acordo com essa situaçãoe se estaria tudo bem prosseguirmos. Caso a resposta fosse negativa, explicaria que não poderia avaliar todos os exercícios sem verificá-los antes e isso poderia prejudicá-la e se, ainda assim ela não aceitasse continuar, finalizaria até onde conseguimos avaliar.

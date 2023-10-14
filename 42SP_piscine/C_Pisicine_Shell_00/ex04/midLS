@@ -1,0 +1,5 @@
+ls -tpm
+#  Lista os arquivos dentro do diretório atual. Por padrão, ele mostra apenas os nomes dos arquivos e não mostra os arquivos ocultos. 
+# -t lista por data de modificação (decrescente)
+# -p insere um "/" após o nome do diretório
+# -m separa os diretórios por virgula

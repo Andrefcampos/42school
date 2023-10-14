@@ -1,0 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    cenariocinco.txt                                   :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/10/03 16:54:51 by andrefil          #+#    #+#              #
+#    Updated: 2023/10/04 16:34:48 by andrefil         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+A Pessoa B Poderia chegar, de maneira bem amistosa, informando a Pessoa A que estava se sentindo um pouco nervosa para avaliação e pediria que a Pessoa A compreendesse a situação, mas que iria tentar demostrar tudo de maneira que a Pessoa A pudesse entender no final. A Pessoa A poderia usar da empatia e uma comunicação mais afetuosa e compreensiva, pois é normal algumas pessoas se sentirem nervosas em certas situações e se fosse a primeira vez da Pessoa B, a Pessoa A poderia deixar o ambiente mais tranquilo e mais receptivo usando da descontração e permitindo que a Pessoa B se expressasse sobre o que estava sentindo naquele momento.
+
+Caso a Pessoa B tivesse trapaceado, a Pessoa A conversaria com a Pessoa B de forma amigável e preocupada, deixando trasparecer essa preocupação para a Pessoa B, pois o objetivo das tarefas e avaliações é puramente para o aprendizado mútuo e a trapaça nunca é a solução para esse tipo de situação, mas ainda assim daria conselhos e perguntaria ao final sobre como ela estaria se sentindo sobre isso, caso estivesse chateada com a decisão da marcação de trapassa, a Pessoa A precisaria entender o sentimento da Pessoa B, mas que mesmo diante de um sentimento não amigável precisaria tomar aquela decisão para o bem de ambos e que futuramente a Pessoa B entenderia.

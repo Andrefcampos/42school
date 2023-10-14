@@ -1,0 +1,16 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    cnv.txt                                            :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/10/03 12:47:04 by andrefil          #+#    #+#              #
+#    Updated: 2023/10/04 16:18:21 by andrefil         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+
+A Comunicação Não-Violenta é uma abordagem comunicativa que busca estabelecer conexões mais profundas e construtivas entre as pessoas. Ela se fundamenta em quatro elementos principais destacando a importância da observação objetiva, onde descrevemos fatos sem emitir julgamentos, permitindo uma base sólida para a comunicação. Em seguida, a expressão dos sentimentos assume um papel crucial, encorajando as pessoas a compartilharem suas emoções de maneira autêntica e específica.
+
+Na Comunicação Não-Violenta, é importante entender o que realmente precisamos quando estamos sentindo alguma coisa. Reconhecer que todos compartilhamos necessidades universais ajuda a criar empatia e compreensão mútua. Por último, a ideia é pedir de maneira direta e específica, em vez de só exigir. Isso ajuda as pessoas a trabalharem juntas para encontrar soluções que satisfaçam todo mundo.

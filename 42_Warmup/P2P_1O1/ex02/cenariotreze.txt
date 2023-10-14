@@ -1,0 +1,13 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    cenariotreze                                       :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/10/03 18:43:53 by andrefil          #+#    #+#              #
+#    Updated: 2023/10/03 18:46:13 by andrefil         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+D) Caso você já saiba que não é possível fazer as avaliações em outro momento, seja por indisponibilidade das pessoas avaliadas ou por não saber quem elas são, melhor desmarcar do que fazer uma avaliação ruim somente para cumprir tabela.
