@@ -6,13 +6,13 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 17:07:24 by andrefil          #+#    #+#             */
-/*   Updated: 2023/10/25 18:34:42 by andrefil         ###   ########.fr       */
+/*   Updated: 2023/10/26 02:41:29 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_get_size(long int n)
+static int	ft_get_size(long int n)
 {
 	int	count;
 

@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 16:55:09 by andrefil          #+#    #+#             */
-/*   Updated: 2023/10/25 18:34:42 by andrefil         ###   ########.fr       */
+/*   Updated: 2023/10/26 03:18:59 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,27 @@
 
 char	*ft_strnstr(const char *big, const char *little, int len)
 {
-	int	num;
+	size_t	index;
+	size_t	index_s;
 
-	if (*little == 0)
+	if (!big && !len)
+		return (NULL);
+	if (*little == '\0' || little == big)
 		return ((char *)big);
-	num = ft_strlen(little);
-	if (len == 0)
-		return (0);
-	while (*big && num <= len)
+	index = 0;
+	while (big[index] != '\0')
 	{
-		if (*big == *little && ft_strncmp(big, little, num) == 0)
-			return ((char *)big);
-		++big;
-		--len;
+		index_s = 0;
+		while (big[index + index_s] == little[index_s]
+			&& (index + index_s) < len)
+		{
+			if (big[index + index_s] == '\0' && little[index_s] == '\0')
+				return ((char *)&big[index]);
+			index_s++;
+		}
+		if (little[index_s] == '\0')
+			return ((char *)(big + index));
+		index++;
 	}
 	return (NULL);
 }

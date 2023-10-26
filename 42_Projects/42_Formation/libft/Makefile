@@ -6,7 +6,7 @@
 #    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 11:57:28 by andrefil          #+#    #+#              #
-#    Updated: 2023/10/25 16:00:42 by andrefil         ###   ########.fr        #
+#    Updated: 2023/10/26 02:51:33 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,6 +51,9 @@ OBJS = $(FILES:.c=.o)
 
 all: $(NAME)
 
+.c.o:
+	${CC} ${FLAGS} -c $< -o ${<:.c=.o}
+
 $(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)
 
@@ -62,6 +65,4 @@ fclean: clean
 
 re: fclean all
 
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(FILES)
-	gcc -nostartfiles -shared -o libft.so $(OBJS)
+.PHONY : all clean fclean re

@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 00:24:39 by andrefil          #+#    #+#             */
-/*   Updated: 2023/10/25 18:34:42 by andrefil         ###   ########.fr       */
+/*   Updated: 2023/10/26 03:26:05 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,17 @@
 
 int	ft_strlcpy(char *dest, const char *src, int size)
 {
-	int	count;
+	size_t	index;
 
-	if (!size)
-		return (ft_strlen(src));
-	count = 0;
-	while (src[count] && (count < size -1))
+	if (size != 0)
 	{
-		dest[count] = src[count];
-		count++;
+		index = 0;
+		while (src[index] != '\0' && index < (size -1))
+		{
+			dest[index] = src[index];
+			index++;
+		}
+		dest[index] = '\0';
 	}
-	dest[count] = '\0';
 	return (ft_strlen(src));
 }
