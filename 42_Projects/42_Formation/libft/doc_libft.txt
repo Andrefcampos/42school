@@ -1,0 +1,86 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    doc_libft.txt                                      :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/10/12 04:15:56 by andrefil          #+#    #+#              #
+#    Updated: 2023/10/16 08:45:25 by andrefil         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+1 - ft_isalpha:
+	Função que identifica se o caractere é uma letra do alfabeto;
+
+2- ft_isdigit:
+	Função que identifica se o caractere é número;
+
+3 - ft_alnum:
+	Função que identifica se o caractere é alfanumérico;
+
+4 - ft_isacii:
+	Função que identifica se o caractere está na tabela ascii;
+
+5 - ft_isprint:
+	Função que identifica se o caractere é imprimível;
+
+6 - ft_strlen:
+	Função que retorna o tamanho de uma string;
+
+7 - ft_memset:
+	Função que acrescenta um determinado caractere em num espaço da memória informado;
+
+8 - ft_bzero:
+	Função que substitui por nulo todo o espaço da memória (em uma quantidade informada) de uma variável;
+
+9 - ft_memcpy:
+	Função que copia uma sequência de bytes de uma área de memória para outra. Ela copia n bytes da área de memória de origem para a área de memória de destino;
+
+10 - ft_memmove:
+	Função que copia uma sequência de bytes de uma área de memória para outra, mesmo que as áreas de origem e destino se sobreponham;
+
+11 - ft_strlcy:
+	Função que copia uma string (sequência de caracteres terminada por nulo) da área de memória de origem para a área de memória de destino. Essa função continua a cópia até encontrar o caractere nulo de terminação ('\0') na string de origem, copiando assim a string completa;
+
+12 - ft_strlcat:
+	Função que concatena (anexa) uma string a outra. Ela pega a string de destino e adiciona os caracteres da string de origem ao final da string de destino, continuando até encontrar o caractere nulo de terminação ('\0') na string de origem. A string de destino deve ter espaço suficiente para acomodar a string resultante da concatenação;
+
+13 - ft_toupper:
+	Função que é usada para converter um caractere em maiúscula. Se o caractere passado como argumento for uma letra minúscula, a função retorna a versão em maiúscula desse caractere; caso contrário, o caractere é retornado sem alterações;
+
+14 - ft_tolower:
+	Função que é usada para converter um caractere em minúscula. Se o caractere passado como argumento for uma letra maiúscula, a função retorna a versão em minúscula desse caractere; caso contrário, o caractere é retornado sem alterações;
+
+15 - ft_strchr:
+	Função que é utilizada para encontrar a primeira ocorrência de um caractere em uma string. Ela retorna um ponteiro para a posição do caractere encontrado ou NULL se o caractere não estiver presente na string;
+
+16 - ft_strrchr:
+	Função que é usada para encontrar a última ocorrência de um caractere em uma string. Ela retorna um ponteiro para a posição do último caractere encontrado ou NULL se o caractere não estiver presente na string;
+
+17 - ft_strncmp:
+	Função que compara os primeiros n caracteres de duas strings. Retorna um valor negativo se a primeira string for lexicograficamente menor que a segunda, zero se forem iguais e um valor positivo se a primeira for maior que a segunda. A comparação é limitada aos primeiros n caracteres ou ao caractere nulo de terminação ('\0');
+
+18 - ft_memchr:
+	Função que é usada para procurar a primeira ocorrência de um byte específico em uma área de memória. Retorna um ponteiro para a posição do byte encontrado ou NULL se o byte não estiver presente na área de memória;
+
+19 - ft_memcmp:
+	Função que compara blocos de memória, verificando se os primeiros n bytes de duas áreas de memória são iguais. Retorna um valor negativo se a primeira área for menor, zero se ambas forem iguais e um valor positivo se a primeira for maior que a segunda;
+
+20 - ft_strncmp:
+	Função que cria uma cópia dinamicamente alocada de uma string. Ela aloca memória suficiente para armazenar a string original e copia o conteúdo da string para a nova área de memória. O ponteiro para a nova string é então retornado. É responsabilidade do programador liberar a memória alocada usando free quando não for mais necessária;
+
+21 - ft_atoi:
+	Função que converte uma string representando um número inteiro para seu valor numérico correspondente. Ela analisa os caracteres na string até encontrar o primeiro caractere não numérico ou até o final da string, retornando o valor inteiro correspondente. Se a string não contiver um número válido, a função retorna zero;
+
+22 - ft_strdup:
+	Função que cria uma cópia dinamicamente alocada de uma string. Ela aloca memória suficiente para armazenar a string original e copia o conteúdo da string para a nova área de memória. O ponteiro para a nova string é então retornado. É responsabilidade do programador liberar a memória alocada usando free quando não for mais necessária;
+
+23 - ft_calloc:
+	Função que é usada para alocar dinamicamente um bloco de memória para um número especificado de elementos, inicializando todos os bytes alocados para zero. Ela aceita dois argumentos: o número de elementos que você deseja alocar e o tamanho de cada elemento. Essa função é útil para alocar memória para arrays e estruturas de dados inicializados com zeros. O ponteiro para a área de memória alocada é retornado;
+
+24 - ft_substr:
+	Função que é
+
+25 - ft_strjoin:
+	Função que é
