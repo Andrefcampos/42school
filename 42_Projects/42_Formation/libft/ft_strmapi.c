@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 15:58:13 by andrefil          #+#    #+#             */
-/*   Updated: 2023/10/25 18:34:42 by andrefil         ###   ########.fr       */
+/*   Updated: 2023/10/26 00:30:39 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char	*result;
-	int	i;
+	int		index;
 
 	result = ft_calloc((ft_strlen(s) + 1), sizeof(char));
 	if (!result)
 		return (NULL);
-	i = 0;
-	while (i < ft_strlen(s))
+	index = 0;
+	while (index < ft_strlen(s))
 	{
-		result[i] = f(i, s[i]);
-		i++;
+		result[index] = f(index, s[index]);
+		index++;
 	}
 	return (result);
 }

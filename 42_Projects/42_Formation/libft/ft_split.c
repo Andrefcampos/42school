@@ -6,89 +6,63 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 15:02:32 by andrefil          #+#    #+#             */
-/*   Updated: 2023/10/25 23:36:11 by andrefil         ###   ########.fr       */
+/*   Updated: 2023/10/26 00:26:30 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_count_str(const char *s, char c)
+static int	ft_count_str(const char *s, char c)
 {
 	int	count_words;
 
+	if (!s)
+		return (0);
 	count_words = 0;
 	while (*s)
 	{
 		while (*s == c)
-			++s;
+			s++;
 		if (*s)
-			++count_words;
+			count_words++;
 		while (*s && *s != c)
-			++s;
+			s++;
 	}
-	return (count_words + 1);
+	return (count_words);
 }
 
-void	ft_allocate_str(char **arr, const char *s, char c)
+static void	ft_allocate_str(char **arr, const char *s, char c)
 {
-	const char	*str;
-	char		**arr_str;
+	size_t	len_str;
+	int		index;
+	int		pos_arr;
 
-	arr_str = arr;
-	str = s;
-	while (*str)
+	len_str = 0;
+	index = 0;
+	pos_arr = 0;
+	while (s[index] != '\0')
 	{
-		while (*s == c)
-			s++;
-		str = s;
-		while (*str && *str != c)
-			++str;
-		if (*str == c || str > s)
+		while (s[index] == c && *s)
+			index++;
+		if (s[index] != '\0')
 		{
-			*arr_str = ft_substr(s, 0, str - s);
-			s = str;
-			++arr_str;
+			len_str = 0;
+			while ((s[index + len_str] != c) && (s[index + len_str] != '\0'))
+				len_str++;
+			arr[pos_arr++] = ft_substr(s, index, len_str);
+			index += len_str;
 		}
 	}
-	*arr_str = NULL;
+	arr[pos_arr] = NULL;
 }
 
 char	**ft_split(const char *s, char c)
 {
 	char	**arr_str;
-	int		count_str;
-	int		index;
 
-	count_str = ft_count_str(s, c);
-	arr_str = (char **)mcalloc(sizeof(char *) * count_str + 1);
-	if (!arr_str || !*s)
+	arr_str = (char **)malloc(sizeof(char *) * (ft_count_str(s, c) + 1));
+	if (!arr_str || !s)
 		return (NULL);
-	index = 0;
-	while (index < count_str)
-	{
-
-
-	}
 	ft_allocate_str(arr_str, s, c);
 	return (arr_str);
 }
-
-// #include <stdio.h>
-// #include <stdlib.h>
-
-// int main() {
-//     const char *str = "Split;this,string,with,semicolon";
-//     char **result = ft_split(str, ',');
-
-//     if (result) {
-//         for (int i = 0; result[i] != NULL; i++) {
-//             printf("Token %d: %s\n", i, result[i]);
-//             free(result[i]);
-//         }
-//         free(result);
-//     } else {
-//         printf("Erro na alocação de memória ou divisão da string.\n");
-//     }
-
-//     return 0;
-// }

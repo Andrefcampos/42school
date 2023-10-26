@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 02:25:46 by andrefil          #+#    #+#             */
-/*   Updated: 2023/10/25 18:34:42 by andrefil         ###   ########.fr       */
+/*   Updated: 2023/10/26 00:53:08 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_strlcat(char *dest, const char *src, int size)
 {
-	int	count_dest;
-	int	count_src;
 	char	*ptr;
+	int		count_dest;
+	int		count_src;
 
 	ptr = (char *)src;
 	count_dest = 0;
@@ -30,7 +30,7 @@ int	ft_strlcat(char *dest, const char *src, int size)
 		return (count_dest + ft_strlen(src));
 	while (ptr[count_src])
 	{
-		if (count_src < size - count_dest - 1)
+		if (count_src < (size - count_dest) - 1)
 			*dest++ = ptr[count_src];
 		count_src++;
 	}

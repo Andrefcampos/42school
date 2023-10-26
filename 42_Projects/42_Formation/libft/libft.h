@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:41:34 by andrefil          #+#    #+#             */
-/*   Updated: 2023/10/25 18:34:42 by andrefil         ###   ########.fr       */
+/*   Updated: 2023/10/26 00:28:11 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ int		ft_isalnum(int ch);
 int		ft_isascii(int ch);
 int		ft_isprint(int ch);
 int		ft_atoi(const char *str);
-int	ft_strlcpy(char *dest, const char *src, int size);
-int	ft_strlcat(char *dest, const char *src, int size);
-int	ft_strlen(const char *str);
+int		ft_strlcpy(char *dest, const char *src, int size);
+int		ft_strlcat(char *dest, const char *src, int size);
+int		ft_strlen(const char *str);
 
 #endif
