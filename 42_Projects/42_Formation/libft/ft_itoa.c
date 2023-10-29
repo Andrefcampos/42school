@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 17:07:24 by andrefil          #+#    #+#             */
-/*   Updated: 2023/10/26 02:41:29 by andrefil         ###   ########.fr       */
+/*   Updated: 2023/10/27 15:42:06 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,10 @@ static int	ft_get_size(long int n)
 
 	if (n == 0)
 		return (1);
-	if (n < 0)
-		n = n * -1;
 	count = 0;
 	while (n > 0)
 	{
-		n = n / 10;
+		n /= 10;
 		count++;
 	}
 	return (count);
@@ -38,8 +36,8 @@ char	*ft_itoa(int n)
 	num = n;
 	if (num < 0)
 	{
-		size = ft_get_size(num) + 1;
 		num *= -1;
+		size = ft_get_size(num) + 1;
 	}
 	else
 		size = ft_get_size(num);

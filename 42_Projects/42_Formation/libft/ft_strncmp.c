@@ -6,13 +6,13 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 16:54:54 by andrefil          #+#    #+#             */
-/*   Updated: 2023/10/25 18:34:42 by andrefil         ###   ########.fr       */
+/*   Updated: 2023/10/28 21:48:23 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, int n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	unsigned char	*ptr1;
 	unsigned char	*ptr2;

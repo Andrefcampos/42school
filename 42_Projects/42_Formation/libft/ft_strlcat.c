@@ -6,13 +6,13 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 02:25:46 by andrefil          #+#    #+#             */
-/*   Updated: 2023/10/26 04:56:09 by andrefil         ###   ########.fr       */
+/*   Updated: 2023/10/28 21:47:31 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlcat(char *dest, const char *src, int size)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	size_t	count_dest;
 	size_t	count_src;

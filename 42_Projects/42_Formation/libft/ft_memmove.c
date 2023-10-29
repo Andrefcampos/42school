@@ -6,13 +6,13 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 00:24:25 by andrefil          #+#    #+#             */
-/*   Updated: 2023/10/25 18:34:42 by andrefil         ###   ########.fr       */
+/*   Updated: 2023/10/28 21:49:59 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, int num)
+void	*ft_memmove(void *dest, const void *src, size_t num)
 {
 	if (!dest && !src)
 		return (dest);

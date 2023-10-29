@@ -6,13 +6,13 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 20:24:52 by andrefil          #+#    #+#             */
-/*   Updated: 2023/10/26 06:43:33 by andrefil         ###   ########.fr       */
+/*   Updated: 2023/10/28 21:50:39 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, int len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*sub_str;
 	size_t	index_s;

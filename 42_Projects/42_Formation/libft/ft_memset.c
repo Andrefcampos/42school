@@ -6,13 +6,13 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 19:09:58 by andrefil          #+#    #+#             */
-/*   Updated: 2023/10/26 00:27:21 by andrefil         ###   ########.fr       */
+/*   Updated: 2023/10/28 21:49:27 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *str, int ch, int num)
+void	*ft_memset(void *str, int ch, size_t num)
 {
 	char	*string;
 	int		index;

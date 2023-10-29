@@ -6,13 +6,13 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 00:24:39 by andrefil          #+#    #+#             */
-/*   Updated: 2023/10/26 03:26:05 by andrefil         ###   ########.fr       */
+/*   Updated: 2023/10/28 21:47:45 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlcpy(char *dest, const char *src, int size)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	size_t	index;
 

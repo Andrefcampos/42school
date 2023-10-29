@@ -6,7 +6,7 @@
 #    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 11:57:28 by andrefil          #+#    #+#              #
-#    Updated: 2023/10/26 02:51:33 by andrefil         ###   ########.fr        #
+#    Updated: 2023/10/28 21:40:51 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,18 +47,22 @@ FILES = ft_isalpha.c\
 	ft_putstr_fd.c\
 	ft_putendl_fd.c\
 	ft_putnbr_fd.c
+FILES_BONUS =
 OBJS = $(FILES:.c=.o)
+OBJS_BONUS = $(FILES_BONUS:.c=.o)
 
 all: $(NAME)
 
 .c.o:
 	${CC} ${FLAGS} -c $< -o ${<:.c=.o}
+	ar rcs $(NAME) ${<:.c=.o}
 
 $(NAME): $(OBJS)
-	ar rc $(NAME) $(OBJS)
+
+bonus: $(OBJS_BONUS)
 
 clean:
-	rm -rf $(OBJS)
+	rm -rf $(OBJS) $(OBJS_BONUS)
 
 fclean: clean
 	rm -rf $(NAME)
