@@ -6,12 +6,13 @@
 #    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 11:57:28 by andrefil          #+#    #+#              #
-#    Updated: 2023/10/28 21:40:51 by andrefil         ###   ########.fr        #
+#    Updated: 2023/11/02 04:34:01 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 NAME = libft.a
+INCLUDES = libft.h
 CFLAGS = -Wall -Wextra -Werror
 FILES = ft_isalpha.c\
 	ft_isdigit.c\
@@ -47,19 +48,29 @@ FILES = ft_isalpha.c\
 	ft_putstr_fd.c\
 	ft_putendl_fd.c\
 	ft_putnbr_fd.c
-FILES_BONUS =
 OBJS = $(FILES:.c=.o)
+FILES_BONUS = ft_lstnew_bonus.c\
+	ft_lstadd_front_bonus.c\
+	ft_lstsize_bonus.c\
+	ft_lstlast_bonus.c\
+	ft_lstadd_back_bonus.c\
+	ft_lstdelone_bonus.c\
+	ft_lstclear_bonus.c\
+	ft_lstiter_bonus.c\
+	ft_lstmap_bonus.c
 OBJS_BONUS = $(FILES_BONUS:.c=.o)
 
 all: $(NAME)
 
 .c.o:
-	${CC} ${FLAGS} -c $< -o ${<:.c=.o}
+	${CC} -I $(INCLUDES) ${FLAGS} -c $< -o ${<:.c=.o}
 	ar rcs $(NAME) ${<:.c=.o}
 
 $(NAME): $(OBJS)
 
 bonus: $(OBJS_BONUS)
+
+$(OBJS_BONUS): $(FILES_BONUS)
 
 clean:
 	rm -rf $(OBJS) $(OBJS_BONUS)
