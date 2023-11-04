@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 16:50:46 by andrefil          #+#    #+#             */
-/*   Updated: 2023/10/28 21:49:44 by andrefil         ###   ########.fr       */
+/*   Updated: 2023/11/03 21:50:19 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	*ft_memchr(const void *str, int ch, size_t num)
 	ptr = NULL;
 	s = (unsigned char *)str;
 	c = (unsigned char)ch;
-	while (index < num)
+	while (index < (int)num)
 	{
 		if (s[index] == c)
 		{

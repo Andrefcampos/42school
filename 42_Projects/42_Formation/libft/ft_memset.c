@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 19:09:58 by andrefil          #+#    #+#             */
-/*   Updated: 2023/10/28 21:49:27 by andrefil         ###   ########.fr       */
+/*   Updated: 2023/11/03 21:49:16 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memset(void *str, int ch, size_t num)
 
 	string = (char *)str;
 	index = 0;
-	while (index < num)
+	while (index < (int)num)
 		string[index++] = ch;
 	return (str);
 }

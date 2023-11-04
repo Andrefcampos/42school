@@ -6,7 +6,7 @@
 #    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 11:57:28 by andrefil          #+#    #+#              #
-#    Updated: 2023/11/02 04:34:01 by andrefil         ###   ########.fr        #
+#    Updated: 2023/11/03 21:48:37 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,7 @@ OBJS_BONUS = $(FILES_BONUS:.c=.o)
 all: $(NAME)
 
 .c.o:
-	${CC} -I $(INCLUDES) ${FLAGS} -c $< -o ${<:.c=.o}
+	${CC} -I $(INCLUDES) ${CFLAGS} -c $< -o ${<:.c=.o}
 	ar rcs $(NAME) ${<:.c=.o}
 
 $(NAME): $(OBJS)
