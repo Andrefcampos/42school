@@ -6,14 +6,16 @@
 #    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/23 01:38:41 by andrefil          #+#    #+#              #
-#    Updated: 2023/11/23 02:31:34 by andrefil         ###   ########.fr        #
+#    Updated: 2023/11/27 21:40:01 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 CC = cc
+INCLUDES = ft_printf.h
 FLAGS = -Wall -Wextra -Werror
-FILES = ft_printf.c
+FILES = ft_printf.c \
+	ft_printf_utils.c
 OBJS = $(FILES:.c=.o)
 
 all: $(NAME)
