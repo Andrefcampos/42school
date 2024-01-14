@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 15:18:48 by andrefil          #+#    #+#             */
-/*   Updated: 2024/01/12 18:21:05 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/01/14 06:11:11 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,20 @@
 void	delete_textures(t_content *content)
 {
 	mlx_delete_texture(content->floor_png);
+	mlx_delete_texture(content->tile_png);
 	mlx_delete_texture(content->wall_png);
-	mlx_delete_texture(content->person_png);
-	mlx_delete_texture(content->coin_png);
+	mlx_delete_texture(content->player_png);
+	mlx_delete_texture(content->bone_png);
 	mlx_delete_texture(content->end_png);
 }
 
 void	delete_images(mlx_t *mlx, t_content *content)
 {
 	mlx_delete_image(mlx, content->floor_img);
+	mlx_delete_image(mlx, content->tile_img);
 	mlx_delete_image(mlx, content->wall_img);
-	mlx_delete_image(mlx, content->person_img);
-	mlx_delete_image(mlx, content->coin_img);
+	mlx_delete_image(mlx, content->player_img);
+	mlx_delete_image(mlx, content->bone_img);
 	mlx_delete_image(mlx, content->end_img);
 }
 

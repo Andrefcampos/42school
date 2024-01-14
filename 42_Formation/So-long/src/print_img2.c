@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   print_img2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 19:10:13 by andrefil          #+#    #+#             */
-/*   Updated: 2023/10/28 21:48:50 by andrefil         ###   ########.fr       */
+/*   Created: 2024/01/13 19:58:31 by andrefil          #+#    #+#             */
+/*   Updated: 2024/01/14 05:13:42 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/so_long.h"
 
-void	ft_bzero(void *str, size_t num)
+void	print_floor(t_data *data, int32_t x, int32_t y)
 {
-	ft_memset(str, 0, num);
+	mlx_image_to_window(data->mlx, data->content->floor_img, x, y);
+}
+
+void	print_tile(t_data *data, int32_t x, int32_t y)
+{
+	mlx_image_to_window(data->mlx, data->content->tile_img, x, y);
+}
+
+void	print_wall(t_data *data, int32_t x, int32_t y)
+{
+	mlx_image_to_window(data->mlx, data->content->wall_img, x, y);
 }

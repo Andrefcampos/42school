@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 14:51:28 by andrefil          #+#    #+#             */
-/*   Updated: 2024/01/12 18:16:07 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/01/13 20:07:02 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	init_game(t_data *data)
 {
-	data->mlx = mlx_init((WIDTH_IMG * data->map->count_cols),
-			(HEIGHT_IMG * data->map->count_rows), "so-long (andrefil)", true);
+	data->mlx = mlx_init((SIZE_IMG * data->map->count_cols),
+			(SIZE_IMG * data->map->count_rows), "so-long (andrefil)", true);
 	convert_png_to_texture(data->content);
 	convert_texture_to_image(data->mlx, data->content);
 	resize_image(data->content);
