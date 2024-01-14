@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 16:03:47 by andrefil          #+#    #+#             */
-/*   Updated: 2024/01/14 05:40:56 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/01/14 10:04:22 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,8 @@ int	check_wall_map(t_map *map, char **matrix)
 				|| matrix[y][0] != '1'
 				|| matrix[y][map->count_cols - 1] != '1')
 			{
-				ft_printf("ERROR.");
-				ft_printf("wall elements are not in the required positions.\n");
-				free_allocations(map->buffer, map->matrix);
+				ft_printf("ERROR. Content of the wall invalid.\n");
+				free_allocations(map->buffer, matrix);
 			}
 			x++;
 		}

@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 14:31:31 by andrefil          #+#    #+#             */
-/*   Updated: 2024/01/14 06:19:14 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/01/14 08:35:24 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,7 @@ void	free_allocations(char *buffer, char **matrix)
 void	ft_flood_fill(t_data *data)
 {
 	char	**matrix;
-	int		x;
-	int		y;
 
-	y = 0;
 	matrix = ft_split(data->map->buffer, '\n');
 	check_format_map(data->map, matrix);
 	position_player(data->posix, matrix);

@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 13:20:10 by andrefil          #+#    #+#             */
-/*   Updated: 2024/01/13 23:58:25 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/01/14 08:34:30 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	move_player(mlx_key_data_t keyd, void *param)
 	data->posix->y_plyr = data->content->player_img->instances->y / TILE_SIZE;
 	x = data->posix->x_plyr;
 	y = data->posix->y_plyr;
-	if (keyd.key == MLX_KEY_W && keyd.action == MLX_PRESS
+	if (keyd.key == MLX_KEY_W && keyd.action == MLX_PRESS \
 		&& data->map->matrix[y - 1][x] != '1')
 		up_move(data, x, y);
 	if (keyd.key == MLX_KEY_A && keyd.action == MLX_PRESS

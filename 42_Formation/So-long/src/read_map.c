@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 15:09:15 by andrefil          #+#    #+#             */
-/*   Updated: 2024/01/14 05:41:55 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/01/14 08:26:37 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,13 +69,15 @@ void	read_file(const char *av, t_map *map)
 	{
 		map->read_bytes = read(map->fd, &map->c, 1);
 		if (check_char_str(map->c, "\n01CEP") != 0)
+		{
+			ft_printf("ERROR. Invalid map (NULL or invalid element).\n");
 			exit (EXIT_FAILURE);
+		}
 		map->size_map++;
 	}
 	if (map->size_map < 17)
 	{
-		ft_printf("ERROR.");
-		ft_printf("Invalid map (size smaller than the minimum possible).\n");
+		ft_printf("ERROR. Impossible map valid.\n");
 		exit(EXIT_FAILURE);
 	}
 	close(map->fd);

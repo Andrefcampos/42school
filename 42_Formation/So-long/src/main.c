@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 14:48:13 by andrefil          #+#    #+#             */
-/*   Updated: 2024/01/14 06:12:49 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/01/14 08:18:47 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ static void	check_args(const char *argv, char *str)
 	{
 		if (argv[len_arg] != str[len_str])
 		{
-			ft_printf("%c\n", argv[len_arg]);
 			ft_printf("ERROR. file: %s Invalid extension.\n", argv);
 			exit (EXIT_FAILURE);
 		}
@@ -45,7 +44,7 @@ int32_t	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		ft_printf("ERROR. Invalid quantities files.\n");
+		ft_printf("ERROR. Invalid quantities files.");
 		exit (EXIT_FAILURE);
 	}
 	check_args(argv[1], ".ber");
