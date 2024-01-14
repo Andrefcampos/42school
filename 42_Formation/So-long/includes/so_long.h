@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 14:48:40 by andrefil          #+#    #+#             */
-/*   Updated: 2024/01/14 05:29:56 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/01/14 10:43:22 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,13 @@
 
 # define TILE_SIZE 64
 # define SIZE_IMG 64
-# define PLAYER_L "./images/player_l.png"
-# define PLAYER_R "./images/player_r.png"
-# define FLOOR "./images/floor.png"
-# define TILE "./images/tile.png"
-# define WALL "./images/wall.png"
-# define BONE "./images/bone.png"
-# define END "./images/end.png"
-
-
+# define PLAYER_L "./textures/player_l.png"
+# define PLAYER_R "./textures/player_r.png"
+# define FLOOR "./textures/floor.png"
+# define TILE "./textures/tile.png"
+# define WALL "./textures/wall.png"
+# define BONE "./textures/bone.png"
+# define END "./textures/end.png"
 
 typedef struct s_positions_elements
 {
@@ -59,7 +57,7 @@ typedef struct s_content
 	int					side_player;
 }						t_content;
 
-typedef	struct s_map
+typedef struct s_map
 {
 	char		c;
 	char		*buffer;

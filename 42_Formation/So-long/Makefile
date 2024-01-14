@@ -6,11 +6,11 @@
 #    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/06 14:47:49 by andrefil          #+#    #+#              #
-#    Updated: 2024/01/14 10:26:51 by andrefil         ###   ########.fr        #
+#    Updated: 2024/01/14 10:37:36 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	:= so-long
+NAME	:= so_long
 CC		:= cc
 CFLAGS	:= -Wextra -Wall -Werror -g3 -Wunreachable-code -Ofast
 LIBMLX	:= ./lib/MLX42
