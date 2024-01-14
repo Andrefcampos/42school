@@ -6,7 +6,7 @@
 #    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/06 14:47:49 by andrefil          #+#    #+#              #
-#    Updated: 2024/01/14 09:51:48 by andrefil         ###   ########.fr        #
+#    Updated: 2024/01/14 10:26:51 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,3 +66,4 @@ fclean: clean
 re: clean all
 
 .PHONY: all, clean, fclean, re
+.SILENT:

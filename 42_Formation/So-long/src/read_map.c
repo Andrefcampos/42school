@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 15:09:15 by andrefil          #+#    #+#             */
-/*   Updated: 2024/01/14 08:26:37 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/01/14 10:19:00 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,6 @@ void	read_file(const char *av, t_map *map)
 		}
 		map->size_map++;
 	}
-	if (map->size_map < 17)
-	{
-		ft_printf("ERROR. Impossible map valid.\n");
-		exit(EXIT_FAILURE);
-	}
 	close(map->fd);
 	map->fd = open_file(av);
 	map->buffer = ft_calloc(map->size_map, sizeof(char));
@@ -95,6 +90,12 @@ void	read_file(const char *av, t_map *map)
 void	build_matrix(t_data *data, const char *av)
 {
 	read_file(av, data->map);
+	if (data->map->size_map < 17)
+	{
+		free (data->map->buffer);
+		ft_printf("ERROR. Impossible map valid.\n");
+		exit(EXIT_FAILURE);
+	}
 	check_newlines_map(data->map->buffer);
 	check_dimensions_map(data->map);
 	ft_flood_fill(data);

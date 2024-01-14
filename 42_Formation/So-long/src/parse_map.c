@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 16:03:47 by andrefil          #+#    #+#             */
-/*   Updated: 2024/01/14 10:04:22 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/01/14 10:13:59 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	check_wall_map(t_map *map, char **matrix)
 				|| matrix[y][0] != '1'
 				|| matrix[y][map->count_cols - 1] != '1')
 			{
-				ft_printf("ERROR. Content of the wall invalid.\n");
+				ft_printf("ERROR. Contents of the wall invalid.\n");
 				free_allocations(map->buffer, matrix);
 			}
 			x++;
@@ -68,7 +68,7 @@ int	check_newlines_map(char *buffer)
 	index = 0;
 	if (buffer[0] == '\n')
 	{
-		ft_printf("ERROR. Invalid map (exceeds allowed newline limit).\n");
+		ft_printf("ERROR. Invalid map (exceeds newline limit).\n");
 		free(buffer);
 		exit (EXIT_FAILURE);
 	}
@@ -77,7 +77,7 @@ int	check_newlines_map(char *buffer)
 		if ((buffer[index] == '\n' && buffer[index - 1] != '1')
 			|| (buffer[index] == '\n' && buffer[index + 1] == '\n'))
 		{
-			ft_printf("ERROR. Invalid map (exceeds allowed newline limit).\n");
+			ft_printf("ERROR. Invalid map (exceeds newline limit).\n");
 			free(buffer);
 			exit (EXIT_FAILURE);
 		}

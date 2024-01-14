@@ -1,9 +1,0 @@
-*.swp
-*.o
-*.out
-*.d
-tovog/
-.vscode
-fractol
-fractol_bonus
-valgrind-out.txt
