@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/13 16:54:54 by andrefil          #+#    #+#             */
-/*   Updated: 2024/01/17 16:11:02 by andrefil         ###   ########.fr       */
+/*   Created: 2024/01/17 16:47:01 by andrefil          #+#    #+#             */
+/*   Updated: 2024/01/17 16:49:59 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+# include "../includes/pipex.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	ft_error(char *str)
 {
-	unsigned char	*ptr1;
-	unsigned char	*ptr2;
+	perror(str);
+	exit(EXIT_FAILURE);
+}
 
-	ptr1 = (unsigned char *)s1;
-	ptr2 = (unsigned char *)s2;
-	while (n && *ptr1 == *ptr2 && (*ptr1 || *ptr2))
-	{
-		++ptr1;
-		++ptr2;
-		--n;
-	}
-	if (n)
-		return (*ptr1 - *ptr2);
-	else
-		return (0);
+void	ft_error_cmd()
+{
+	
 }

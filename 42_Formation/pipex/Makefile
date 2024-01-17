@@ -6,7 +6,7 @@
 #    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 16:42:20 by andrefil          #+#    #+#              #
-#    Updated: 2024/01/16 22:07:01 by andrefil         ###   ########.fr        #
+#    Updated: 2024/01/17 15:16:46 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,8 @@ CC			:=	cc
 CFLAGS		:=	-Wextra -Wall -Werror -g3
 
 LIB_DIR		:=	libs/
-HEADERS		+=	$(addprefix $(LIB_DIR), \
-				includes/ ft_printf/ \
+HEADERS		+=	includes/ $(addprefix $(LIB_DIR), \
+				ft_printf/ \
 				libft/ get_next_line/)
 
 OBJS_DIR	:=	objs/
@@ -29,9 +29,9 @@ FILES_DIR	:=	srcs/
 FILES		+=	$(addprefix $(FILES_DIR), \
 				pipex.c)
 
-OBJS		+=	$(FILES:%.c=$(OBJS_DIR)%.o)
+OBJS		+=	$(FILES:$(OBJS_DIR)%.c=%.o)
 
-all:		$(NAME) $(LIBFT) $(PRINTF)
+all:		$(NAME)
 
 $(LIBFT):
 	@$(MAKE) -C $(LIB_DIR)$(LIBFT)
@@ -40,14 +40,15 @@ $(PRINTF):
 	@$(MAKE) -C $(LIB_DIR)$(PRINTF)
 
 $(OBJS_DIR)%.o: %.c
-	mkdir -p $(dir $@)
+	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) -I $(HEADERS) -c $< -o $@
 
-$(NAME):	$(OBJS)
-	@ar rcs $(NAME) $(OBJS) $(LIBS) $(HEADERS)
+$(NAME):	$(OBJS) $(LIBFT) $(PRINTF)
+	@ar rcs $(NAME) $(OBJS)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBS)
 
-bonus:		$(OBJS)
-	@rc rcs $(NAME) $(OBJS) $(LIBS)
+bonus:		$(OBJS) $(LIBFT) $(PRINTF)
+	@ar rcs $(NAME) $(OBJS) $(LIBS)
 
 clean:
 	@rm -rf $(OBJS_DIR)
@@ -60,4 +61,3 @@ fclean:		clean
 re: clean all
 
 .PHONY:		all, clean, fclean, re
-.SILENT:
