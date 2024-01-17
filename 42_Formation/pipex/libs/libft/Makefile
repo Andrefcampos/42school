@@ -6,7 +6,7 @@
 #    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 11:57:28 by andrefil          #+#    #+#              #
-#    Updated: 2024/01/16 19:45:03 by andrefil         ###   ########.fr        #
+#    Updated: 2024/01/16 20:21:31 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,10 +76,10 @@ $(NAME): $(OBJS) $(OBJS_GNL)
 	ar rcs $(NAME) $(OBJS) $(OBJS_GNL)
 
 clean:
-	rm -rf $(OBJS) $(OBJS_GNL)
+	@rm -rf $(OBJS) $(OBJS_GNL)
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
 
 re: fclean all
 

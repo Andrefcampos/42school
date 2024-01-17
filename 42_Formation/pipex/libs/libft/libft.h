@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:41:34 by andrefil          #+#    #+#             */
-/*   Updated: 2023/11/02 04:45:48 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/01/16 20:32:17 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	*ft_memset(void *str, int ch, size_t num);
-void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	*ft_calloc(size_t n, size_t size);
 void	ft_putstr_fd(char *str, int fd);

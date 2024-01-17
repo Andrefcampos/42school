@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andrefil <andrefil@student.org.42sp.br>    +#+  +:+       +#+        */
+/*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 16:43:27 by andrefil          #+#    #+#             */
-/*   Updated: 2024/01/15 16:43:31 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/01/16 21:24:54 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/pipex.h"
+#include "../includes/pipex.h"
 
 int main(int ac, char **av)
 {
