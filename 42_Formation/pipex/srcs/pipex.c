@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 16:43:27 by andrefil          #+#    #+#             */
-/*   Updated: 2024/01/17 17:55:14 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/01/17 20:10:21 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,9 @@ int	main(int argc, char **argv, char **envp)
 	pipex.pid1 = fork();
 	if (pipex.pid1 < 0)
 		ft_error(ERR_FORK);
+	if (pipex.pid1 == 0)
+	{
+
+	}
 	return (0);
 }

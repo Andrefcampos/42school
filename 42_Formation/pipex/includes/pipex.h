@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:02:27 by andrefil          #+#    #+#             */
-/*   Updated: 2024/01/17 18:02:21 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/01/17 18:32:15 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 
 typedef struct	s_pipex
 {
-	int	fd[2];
+	int	tube[2];
 	pid_t	pid1;
 	pid_t	pid2;
 }				t_pipex;

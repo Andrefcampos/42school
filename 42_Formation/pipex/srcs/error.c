@@ -6,11 +6,11 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:47:01 by andrefil          #+#    #+#             */
-/*   Updated: 2024/01/17 16:49:59 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/01/17 20:13:57 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/pipex.h"
+# include "pipex.h"
 
 void	ft_error(char *str)
 {
@@ -20,5 +20,5 @@ void	ft_error(char *str)
 
 void	ft_error_cmd()
 {
-	
+
 }
