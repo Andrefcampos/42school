@@ -28,5 +28,6 @@ int	main(int argc, char **argv, char **envp)
 		ft_error(ERR_PIPEFD);
 		exit(EXIT_FAILURE);
 	}
+	ft_proces(t_pipex pipex, char **envp, char **argv);
 	return (0);
 }
