@@ -6,11 +6,11 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 16:43:27 by andrefil          #+#    #+#             */
-/*   Updated: 2024/01/19 20:37:35 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/01/20 01:51:54 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/pipex.h"
+#include "pipex.h"
 
 int	main(int argc, char **argv, char **envp)
 {
