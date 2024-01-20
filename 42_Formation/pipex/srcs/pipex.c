@@ -12,6 +12,16 @@
 
 #include "pipex.h"
 
+void	ft_process(t_pipex pipex, char **envp, char **argv)
+{
+	process_child(pipex.fd[],pipex.pipefd, argv, envp);
+	process_child(pipex.fd[],pipex.pipefd, argv, envp);
+	close(pipex.pipefd[0]);
+	close(pipex.pipefd[1]);
+	waitpid(-1, NULL, 0);
+	waitpid(-1, NULL, 0);
+}
+
 int	main(int argc, char **argv, char **envp)
 {
 	t_pipex	pipex;
@@ -28,6 +38,6 @@ int	main(int argc, char **argv, char **envp)
 		ft_error(ERR_PIPEFD);
 		exit(EXIT_FAILURE);
 	}
-	ft_proces(t_pipex pipex, char **envp, char **argv);
+	ft_process(pipex, envp, argv);
 	return (0);
 }
