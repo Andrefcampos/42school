@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:02:27 by andrefil          #+#    #+#             */
-/*   Updated: 2024/01/17 18:32:15 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/01/19 20:47:17 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,24 @@
 # define ERR_INPUT "Invalid number of arguments.\n"
 # define ERR_INFILE "Infile.\n"
 # define ERR_OUTFILE "Outfile.\n"
-# define ERR_PIPE "Pipe.\n"
+# define ERR_PIPEFD "Pipefd error.\n"
 # define ERR_CMD "Command not found.\n"
 # define ERR_FORK "Fork error.\n"
+# define ERR_ENVP "Wrong arguments. try: ./pipex file1 cmd1 cmd2 file2.\n"
 
 typedef struct	s_pipex
 {
-	int	tube[2];
+	char	*path;
+	char	**paths;
+	char	*cmd;
+
+	int		pipefd[2];
+	int		fd[2];
 	pid_t	pid1;
 	pid_t	pid2;
 }				t_pipex;
 
 void	ft_error(char *str);
+void	free_matrix(char **matrix);
 
 #endif
