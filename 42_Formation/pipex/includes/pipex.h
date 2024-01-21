@@ -39,7 +39,7 @@ typedef struct	s_pipex
 	char	*path;
 	char	**paths;
 	char	*cmd;
-
+	int		process;	
 	int		pipefd[2];
 	int		fd[2];
 	pid_t	pid1;

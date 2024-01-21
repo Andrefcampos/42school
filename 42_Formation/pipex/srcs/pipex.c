@@ -22,6 +22,23 @@ void	ft_process(t_pipex pipex, char **envp, char **argv)
 	waitpid(-1, NULL, 0);
 }
 
+void	dp_cl_process(int fd, int *pipefd, int child)
+{
+	if (child == 1)
+	{
+		dup2(fd, STDIN_FILENO);
+		dup2(pipefd[child], STDOUT_FILENO);
+	}
+	if (child == 0)
+	{
+		dup2(fd, STOUT_FILENO);
+		dup2(pipefd[child], STDIN_FILENO);
+	}
+	close(pipefd[0]);
+	close(pipefd[1]);
+	close(fd);
+}
+
 int	main(int argc, char **argv, char **envp)
 {
 	t_pipex	pipex;
