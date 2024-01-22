@@ -63,17 +63,29 @@ void	process_child(t_pipex pipex, char **argv, char **envp, int child)
 	execve(pipex.cmd, pipex.cmd_args, envp);
 }
 
-int	ft_fork(t_pipex pipex, char **av, char **evp)
+int	fork_process(t_pipex pipex, char **av, char **evp)
 {
+	pipex.paths = find_env(evp);
+	pipex.cmd_paths = ft_split(pipex.paths, 0x3A);
 	pipex.pid1 = fork();
 	if (pipex.pid1 < 0)
 		return(error);
 	else if (pipex.pid1 == 0)
+	{
+		pipex.infile = open(av[2], O_RDONLY);
+		if (pipex.infile < 0)
+			return (ft_error());
 		process_child(pipex, av, evp, ONE);
+	}
 	pipex.pid2 = fork();
 	if (pipex.pid2 < 0)
 		return (error);
 	else if (pipex.pid2 == 0)
+	{
+		pipex.outfile = open(av[4], O_TRUNC | O_CREAT | O_RDWR, 0000644);
+		if (pipex.outfile < 0)
+			return (ft_error());
 		process_child(pipex, av, evp, TWO);
-
+	}
+	return ();
 }
