@@ -37,12 +37,22 @@ char	*get_cmd(char **paths, char *cmd)
 	return (NULL);
 }
 
-void	process_child(t_pipex pipex, char **argv, char **envp)
+void	process_child(t_pipex pipex, char **argv, char **envp, int child)
 {
-	dup2(pipex.pipefd[1], 1);
-	close(pipex.pipefd[0]);
-	dup2(pipex.infile, 0);
-	pipex.cmd_args = ft_split(argv[2], 0x20);
+	if (child == ONE)
+	{
+		dup2(pipex.pipefd[1], 1);
+		close(pipex.pipefd[0]);
+		dup2(pipex.infile, 0);
+		pipex.cmd_args = ft_split(argv[2], 0x20);
+	}
+	if (child == TWO)
+	{
+		dup2(pipex.pipefd[0], 0);
+		close(pipex.pipefd[1]);
+		dup2(pipex.outfile, 1);
+		pipex.cmd_args = ft_split(argv[3], 0x20);
+	}
 	pipex.cmd = get_cmd(pipex.cmd_paths, pipex.cmd_args[0]);
 	if (!pipex.cmd)
 	{
@@ -53,3 +63,17 @@ void	process_child(t_pipex pipex, char **argv, char **envp)
 	execve(pipex.cmd, pipex.cmd_args, envp);
 }
 
+int	ft_fork(t_pipex pipex, char **av, char **evp)
+{
+	pipex.pid1 = fork();
+	if (pipex.pid1 < 0)
+		return(error);
+	else if (pipex.pid1 == 0)
+		process_child(pipex, av, evp, ONE);
+	pipex.pid2 = fork();
+	if (pipex.pid2 < 0)
+		return (error);
+	else if (pipex.pid2 == 0)
+		process_child(pipex, av, evp, TWO);
+
+}
