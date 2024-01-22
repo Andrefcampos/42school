@@ -50,10 +50,6 @@ int	main(int argc, char **argv, char **envp)
 
 	if (argc != 5)
 		return(ft_error(ERR_INPUT, 2));
-	pipex.infile = open(argv[1], O_RDONLY);
-	if (pipe.infile < 0)
-		ft_error(ERR_INFILE);
-
 	if (pipe(pipex.pipefd) < 0)
 	{
 		ft_error(ERR_PIPEFD);
