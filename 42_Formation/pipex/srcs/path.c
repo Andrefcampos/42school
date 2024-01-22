@@ -12,33 +12,44 @@
 
 # include "pipex.h"
 
-void	search_paths(char **paths, char **envp)
+char	*find_env(char **envp)
 {
-	int	index;
-
-	index = 0;
-	while (!ft_strncmp(*envp[index++], "PATH", 4));
-		;
-	paths = ft_split(*envp[index] + 5, ':');
+	while (ft_strncmp("PATH", *envp, 4));
+		envp++;
+	return (*envp + 5);
 }
 
-void	get_cmd(t_pipex pipex, char **envp)
+char	*get_cmd(char **paths, char *cmd)
 {
-	int	index;
+	char	*temp;
+	char	*path;
 
-	index = 0;
-	search_paths(pipex.paths, envp);
-	while (pipex.paths[index])
+	while (*paths)
 	{
-		pipex.path = ft_strjoin(pipex.paths[index], '/');
-		pipex.path = ft_strjoin(pipex.path, pipex.cmd);
-		if (!access(pipex.path, F_OK))
-		{
-			free_matrix(pipex.paths);
-			return (pipex.path);
-		}
-		free(pipex.path);
-		index++;
+		temp = ft_strjoin(*paths, 0x2F);
+		path = ft_strjoin(tmp, cmd);
+		free(temp);
+		if (access(path, F_OK) == 0)
+			return (path);
+		free(path);
+		paths++;
 	}
-	free_matrix(pipex.paths);
+	return (NULL);
 }
+
+void	process_child(t_pipex pipex, char **argv, char **envp)
+{
+	dup2(pipex.pipefd[1], 1);
+	close(pipex.pipefd[0]);
+	dup2(pipex.infile, 0);
+	pipex.cmd_args = ft_split(argv[2], 0x20);
+	pipex.cmd = get_cmd(pipex.cmd_paths, pipex.cmd_args[0]);
+	if (!pipex.cmd)
+	{
+		child_free(&pipex);
+		msg(ERR_CMD);
+		exit(1);
+	}
+	execve(pipex.cmd, pipex.cmd_args, envp);
+}
+

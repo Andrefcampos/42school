@@ -22,6 +22,11 @@ void	ft_process(t_pipex pipex, char **envp, char **argv)
 	waitpid(-1, NULL, 0);
 }
 
+void	process_child(char **argv, char**envp)
+{
+
+}
+
 void	dp_cl_process(int fd, int *pipefd, int child)
 {
 	if (child == 1)
@@ -44,12 +49,11 @@ int	main(int argc, char **argv, char **envp)
 	t_pipex	pipex;
 
 	if (argc != 5)
-	{
-		ft_printf("%s", ERR_INPUT);
-		return (2);
-	}
-	if (!envp || envp[0][0] == '\0')
-		ft_error(ERR_ENVP);
+		return(ft_error(ERR_INPUT, 2));
+	pipex.infile = open(argv[1], O_RDONLY);
+	if (pipe.infile < 0)
+		ft_error(ERR_INFILE);
+
 	if (pipe(pipex.pipefd) < 0)
 	{
 		ft_error(ERR_PIPEFD);

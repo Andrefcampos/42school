@@ -36,14 +36,15 @@
 
 typedef struct	s_pipex
 {
-	char	*path;
-	char	**paths;
-	char	*cmd;
-	int		process;	
-	int		pipefd[2];
-	int		fd[2];
 	pid_t	pid1;
 	pid_t	pid2;
+	int		pipefd[2];
+	char	*paths;
+	char	**cmd_paths;
+	char	*cmd;
+	char	**cmd_args;
+	int		infile;
+	int		outfile;
 }				t_pipex;
 
 void	ft_error(char *str);
