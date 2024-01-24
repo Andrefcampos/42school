@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:02:27 by andrefil          #+#    #+#             */
-/*   Updated: 2024/01/24 13:59:27 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/01/24 18:41:07 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,14 @@ typedef struct	s_pipex
 	int		outfile;
 }				t_pipex;
 
-void	free_matrix(char **matrix);
 void	close_pipefd(int *pipefd);
+void	free_matrix(char **matrix);
+void	find_env(char **envp, char **cmd_paths);
+void	process_child_one(t_pipex pipex, char *argv, char **envp);
+void	process_child_two(t_pipex pipex, char *argv, char **envp);
 int		fork_process(t_pipex pipex, char **av, char **evp);
 int		ft_error(char *str, int fd);
+void	wait_pid(t_pipex *pipex);
+char	*get_cmd(char **cmd_paths, char *cmd, char **envp);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:47:01 by andrefil          #+#    #+#             */
-/*   Updated: 2024/01/24 14:56:08 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/01/24 15:41:14 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,9 @@
 
 int	ft_error(char *str, int fd)
 {
-	perror(str);
+	ft_putendl_fd(str, fd);
 	return (EXIT_FAILURE);
 }
-
-// void	ft_error_cmd()
-// {
-// }
 
 void	free_matrix(char **matrix)
 {
@@ -29,13 +25,4 @@ void	free_matrix(char **matrix)
 	y = 0;
 	while (matrix[y])
 		free(matrix[y++]);
-}
-
-void	close_pipefd(int *pipefd)
-{
-	int	index;
-
-	index = 0;
-	while (pipefd[index])
-		close(pipefd[index++]);
 }
