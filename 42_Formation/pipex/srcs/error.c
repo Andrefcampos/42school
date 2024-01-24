@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:47:01 by andrefil          #+#    #+#             */
-/*   Updated: 2024/01/24 13:59:11 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/01/24 14:56:08 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ void	free_matrix(char **matrix)
 
 void	close_pipefd(int *pipefd)
 {
-	close (pipefd[0]);
-	close (pipefd[1]);
+	int	index;
+
+	index = 0;
+	while (pipefd[index])
+		close(pipefd[index++]);
 }
