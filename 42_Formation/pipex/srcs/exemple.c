@@ -1,55 +1,23 @@
+
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
+#include "../libs/libft/libft.h"
 
-int main() {
-    int pipefd[2];
-    pid_t pid;
+char	*find_env(char **envp)
+{
+	int	index;
 
-    // Cria o pipe
-    if (pipe(pipefd) == -1) {
-        perror("pipe");
-        exit(EXIT_FAILURE);
-    }
+	index = 0;
+	while (ft_strncmp("PATH", envp[index], 4))
+		index++;
+	return (envp[index]);
+}
 
-    // Cria um novo processo
-    pid = fork();
+int	main(int ac, char **av, char **envp)
+{
+	char *args;
 
-    if (pid == -1) {
-        perror("fork");
-        exit(EXIT_FAILURE);
-    }
-
-    if (pid == 0) {
-        // Código executado pelo processo filho
-
-        // Fecha a extremidade de escrita, pois o processo filho irá apenas ler
-        close(pipefd[1]);
-
-        // Lê os dados do pipe
-        char buffer[50];
-        read(pipefd[0], buffer, sizeof(buffer));
-
-        // Exibe a mensagem lida
-        printf("Processo Filho: Mensagem Recebida: %s\n", buffer);
-
-        // Fecha a extremidade de leitura
-        close(pipefd[0]);
-    } else {
-        // Código executado pelo processo pai
-
-        // Fecha a extremidade de leitura, pois o processo pai irá apenas escrever
-        close(pipefd[0]);
-
-        // Envia uma mensagem ao processo filho
-        const char *mensagem = "Olá, Processo Filho!";
-		printf("%s: %d\n", mensagem, pipefd[1]);
-		return (0);
-        // write(pipefd[1], mensagem, strlen(mensagem) + 1);
-
-        // Fecha a extremidade de escrita
-        close(pipefd[1]);
-    }
-
-    return 0;
+	args = find_env(envp);
+	printf ("%s\n\n", args++);
+	return (0);
 }

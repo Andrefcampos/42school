@@ -6,22 +6,21 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:47:01 by andrefil          #+#    #+#             */
-/*   Updated: 2024/01/20 01:54:06 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/01/24 13:59:11 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "pipex.h"
 
-void	ft_error(char *str)
+int	ft_error(char *str, int fd)
 {
 	perror(str);
-	exit(EXIT_FAILURE);
+	return (EXIT_FAILURE);
 }
 
-void	ft_error_cmd()
-{
-
-}
+// void	ft_error_cmd()
+// {
+// }
 
 void	free_matrix(char **matrix)
 {
@@ -30,4 +29,10 @@ void	free_matrix(char **matrix)
 	y = 0;
 	while (matrix[y])
 		free(matrix[y++]);
+}
+
+void	close_pipefd(int *pipefd)
+{
+	close (pipefd[0]);
+	close (pipefd[1]);
 }

@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:02:27 by andrefil          #+#    #+#             */
-/*   Updated: 2024/01/19 20:47:17 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/01/24 13:59:27 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@
 # define ERR_CMD "Command not found.\n"
 # define ERR_FORK "Fork error.\n"
 # define ERR_ENVP "Wrong arguments. try: ./pipex file1 cmd1 cmd2 file2.\n"
+# define ONE 1
+# define TWO 2
 
 typedef struct	s_pipex
 {
@@ -47,7 +49,9 @@ typedef struct	s_pipex
 	int		outfile;
 }				t_pipex;
 
-void	ft_error(char *str);
 void	free_matrix(char **matrix);
+void	close_pipefd(int *pipefd);
+int		fork_process(t_pipex pipex, char **av, char **evp);
+int		ft_error(char *str, int fd);
 
 #endif
