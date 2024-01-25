@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:02:27 by andrefil          #+#    #+#             */
-/*   Updated: 2024/01/24 18:41:07 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/01/25 20:10:24 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,22 +41,16 @@ typedef struct	s_pipex
 	pid_t	pid1;
 	pid_t	pid2;
 	int		pipefd[2];
-	char	*paths;
-	char	**cmd_paths;
-	char	*cmd;
-	char	**cmd_args;
 	int		infile;
 	int		outfile;
 }				t_pipex;
 
-void	close_pipefd(int *pipefd);
 void	free_matrix(char **matrix);
-void	find_env(char **envp, char **cmd_paths);
-void	process_child_one(t_pipex pipex, char *argv, char **envp);
-void	process_child_two(t_pipex pipex, char *argv, char **envp);
-int		fork_process(t_pipex pipex, char **av, char **evp);
-int		ft_error(char *str, int fd);
-void	wait_pid(t_pipex *pipex);
-char	*get_cmd(char **cmd_paths, char *cmd, char **envp);
+char	**find_env(char **envp);
+void	ft_not_cmd(int *pipefd, int fd, char **cmd);
+int		ft_process(t_pipex pipex, char **argv, char **envp);
+void	process_child(t_pipex pipex, int process);
+void	ft_error(char *str);
+char	*get_cmd(char *cmd, char **envp);
 
 #endif

@@ -6,93 +6,95 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:57:20 by andrefil          #+#    #+#             */
-/*   Updated: 2024/01/24 19:30:52 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/01/25 20:08:44 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	process_child_one(t_pipex pipex, char *argv, char **envp)
+static void	process_child_one(t_pipex pipex, char **argv, char **envp)
 {
-	pipex.cmd_args = ft_split(argv, ' ');
-	pipex.cmd = get_cmd(pipex.cmd_paths, pipex.cmd_args[0], envp);
-	printf("%s\n", pipex.cmd);
-	if (pipex.cmd_args[0] != NULL && pipex.cmd)
-	{
-		dup2(pipex.infile, STDIN_FILENO);
-		dup2(pipex.pipefd[1], STDOUT_FILENO);
-		close_pipefd(pipex.pipefd);
-		close(pipex.infile);
-		execve(pipex.cmd, pipex.cmd_args, envp);
-	}
-	else
-	{
-		free(pipex.cmd);
-		close_pipefd(pipex.pipefd);
-		close(pipex.infile);
-		free_matrix(pipex.cmd_args);
-		ft_error(ERR_CMD, 2);
-	}
-}
+	pid_t	pid;
+	char	**cmd;
+	char	*cmd_path;
 
-void	process_child_two(t_pipex pipex, char *argv, char **envp)
-{
-	pipex.cmd_args = ft_split(argv, ' ');
-	pipex.cmd = get_cmd(pipex.cmd_paths, pipex.cmd_args[0], envp);
-	printf("%s\n", pipex.cmd);
-	if (pipex.cmd_args[0] != NULL && pipex.cmd)
-	{
-		dup2(pipex.outfile, STDOUT_FILENO);
-		dup2(pipex.pipefd[0], STDIN_FILENO);
-		close_pipefd(pipex.pipefd);
-		close(pipex.outfile);
-		execve(pipex.cmd, pipex.cmd_args, envp);
-	}
-	else
-	{
-		free(pipex.cmd);
-		close_pipefd(pipex.pipefd);
-		close(pipex.outfile);
-		free_matrix(pipex.cmd_args);
-		ft_error(ERR_CMD, 2);
-	}
-}
-
-int	fork_process(t_pipex pipex, char **argv, char **envp)
-{
-	pipex.pid1 = fork();
-	if (pipex.pid1 < 0)
-		return(ft_error(ERR_FORK, 2));
-	else if (pipex.pid1 == 0)
+	pid = fork();
+	if (pid < 0)
+		ft_error(ERR_FORK);
+	if (pid == 0)
 	{
 		pipex.infile = open(argv[1], O_RDONLY);
 		if (pipex.infile < 0)
-			return (ft_error(ERR_INFILE, 2));
-		process_child_one(pipex, argv[2], envp);
+			ft_error(ERR_INFILE);
+		cmd = ft_split(argv[2], ' ');
+		cmd_path = get_cmd(cmd[0], envp);
+		if (cmd[0] != NULL && cmd_path)
+		{
+			process_child(pipex, ONE);
+			execve(cmd_path, cmd, envp);
+		}
+		else
+		{
+			free_matrix(cmd);
+			ft_not_cmd(pipex.pipefd, pipex.infile, cmd);
+		}
 	}
-	pipex.pid2 = fork();
-	if (pipex.pid2 < 0)
-		return (ft_error(ERR_FORK, 2));
-	else if (pipex.pid2 == 0)
+}
+
+static void	process_child_two(t_pipex pipex, char **argv, char **envp)
+{
+	pid_t	pid;
+	char	**cmd;
+	char	*cmd_path;
+
+	pid = fork();
+	if (pid < 0)
+		ft_error(ERR_FORK);
+	if (pid == 0)
 	{
-		pipex.outfile = open(argv[4], O_TRUNC | O_CREAT | O_RDWR, 0000644);
+		pipex.outfile = open(argv[4], O_WRONLY | O_CREAT | O_TRUNC, 0644);
 		if (pipex.outfile < 0)
-			return (ft_error(ERR_OUTFILE, 2));
-		process_child_two(pipex, argv[3], envp);
+			ft_error(ERR_INFILE);
+		cmd = ft_split(argv[3], ' ');
+		cmd_path = get_cmd(cmd[0], envp);
+		if (cmd[0] != NULL && cmd_path)
+		{
+			process_child(pipex, TWO);
+			execve(cmd_path, cmd, envp);
+		}
+		else
+		{
+			free_matrix(cmd);
+			ft_not_cmd(pipex.pipefd, pipex.infile, cmd);
+		}
 	}
-	close_pipefd(pipex.pipefd);
-	wait_pid(&pipex);
+}
+
+void	process_child(t_pipex pipex, int process)
+{
+	if (process == ONE)
+	{
+		dup2(pipex.pipefd[1], STDOUT_FILENO);
+		close(pipex.pipefd[0]);
+		dup2(pipex.infile, STDIN_FILENO);
+		close(pipex.infile);
+	}
+	else if (process == ONE)
+	{
+		dup2(pipex.pipefd[0], STDIN_FILENO);
+		close(pipex.pipefd[1]);
+		dup2(pipex.outfile, STDOUT_FILENO);
+		close(pipex.outfile);
+	}
+}
+
+int	ft_process(t_pipex pipex, char **argv, char **envp)
+{
+	process_child_one(pipex, argv, envp);
+	process_child_two(pipex, argv, envp);
+	close(pipex.infile);
+	close(pipex.outfile);
+	waitpid(-1, NULL, 0);
+	waitpid(-1, NULL, 0);
 	return (0);
-}
-
-void	close_pipefd(int *pipefd)
-{
-	close(pipefd[0]);
-	close(pipefd[1]);
-}
-
-void	wait_pid(t_pipex *pipex)
-{
-	waitpid(pipex->pid1, NULL, 0);
-	waitpid(pipex->pid2, NULL, 0);
 }
