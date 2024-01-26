@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:57:20 by andrefil          #+#    #+#             */
-/*   Updated: 2024/01/25 20:08:44 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/01/25 21:14:21 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	process_child(t_pipex pipex, int process)
 		dup2(pipex.infile, STDIN_FILENO);
 		close(pipex.infile);
 	}
-	else if (process == ONE)
+	else if (process == TWO)
 	{
 		dup2(pipex.pipefd[0], STDIN_FILENO);
 		close(pipex.pipefd[1]);
@@ -92,9 +92,5 @@ int	ft_process(t_pipex pipex, char **argv, char **envp)
 {
 	process_child_one(pipex, argv, envp);
 	process_child_two(pipex, argv, envp);
-	close(pipex.infile);
-	close(pipex.outfile);
-	waitpid(-1, NULL, 0);
-	waitpid(-1, NULL, 0);
 	return (0);
 }

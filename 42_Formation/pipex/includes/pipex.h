@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:02:27 by andrefil          #+#    #+#             */
-/*   Updated: 2024/01/25 20:10:24 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/01/25 22:52:54 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@
 # include <sys/stat.h>
 # include <sys/types.h>
 # include <sys/wait.h>
-# include "../libs/ft_printf/ft_printf.h"
-# include "../libs/get_next_line/get_next_line.h"
-# include "../libs/libft/libft.h"
+# include <libft.h>
+# include <printf.h>
 
 # define ERR_INPUT "Invalid number of arguments.\n"
 # define ERR_INFILE "Infile.\n"

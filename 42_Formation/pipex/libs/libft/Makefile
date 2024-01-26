@@ -6,13 +6,13 @@
 #    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 11:57:28 by andrefil          #+#    #+#              #
-#    Updated: 2024/01/24 15:48:51 by andrefil         ###   ########.fr        #
+#    Updated: 2024/01/25 22:43:59 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 NAME = libft.a
-INCLUDES = -I . -I ../get_next_line/
+INCLUDES = -I .
 CFLAGS = -Wall -Wextra -Werror -g3
 FILES = \
 			ft_isalpha.c \
@@ -60,23 +60,16 @@ FILES = \
 			ft_lstmap.c
 OBJS += $(FILES:%.c=%.o)
 
-FILES_DIR_GNL := ../get_next_line/
-FILES_GNL += $(addprefix $(FILES_DIR_GNL), \
-			get_next_line.c \
-			get_next_line_utils.c)
-
-OBJS_GNL += $(FILES_GNL:%.c=%.o)
-
 all: $(NAME)
 
 %.o: %.c
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-$(NAME): $(OBJS) $(OBJS_GNL)
-	@ar rcs $(NAME) $(OBJS) $(OBJS_GNL)
+$(NAME): $(OBJS)
+	@ar rcs $(NAME) $(OBJS)
 
 clean:
-	@rm -rf $(OBJS) $(OBJS_GNL)
+	@rm -rf $(OBJS)
 
 fclean: clean
 	@rm -rf $(NAME)

@@ -36,12 +36,11 @@ $(OBJS_DIR)%.o: $(FILES_DIR)%.c
 	$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
 
 $(NAME): LIBFTX PRINTFX $(OBJS)
-	ar rcs $(NAME) $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBS)
 
 bonus: LIBFTX PRINTFX $(OBJS)
-	ar rcs $(NAME) $(OBJS) $(LIBS)
-
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBS)
+	
 clean:
 	@rm -rf $(OBJS_DIR)
 	@$(MAKE) clean -C $(LIB_DIR)$(PRINTF)
