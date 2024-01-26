@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:57:20 by andrefil          #+#    #+#             */
-/*   Updated: 2024/01/25 21:14:21 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/01/26 15:29:02 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,59 +14,45 @@
 
 static void	process_child_one(t_pipex pipex, char **argv, char **envp)
 {
-	pid_t	pid;
 	char	**cmd;
 	char	*cmd_path;
 
-	pid = fork();
-	if (pid < 0)
-		ft_error(ERR_FORK);
-	if (pid == 0)
+	pipex.infile = open(argv[1], O_RDONLY);
+	if (pipex.infile < 0)
+		ft_error(ERR_INFILE);
+	cmd = ft_split(argv[2], ' ');
+	cmd_path = get_cmd(cmd[0], envp);
+	if (cmd[0] != NULL && cmd_path)
 	{
-		pipex.infile = open(argv[1], O_RDONLY);
-		if (pipex.infile < 0)
-			ft_error(ERR_INFILE);
-		cmd = ft_split(argv[2], ' ');
-		cmd_path = get_cmd(cmd[0], envp);
-		if (cmd[0] != NULL && cmd_path)
-		{
-			process_child(pipex, ONE);
-			execve(cmd_path, cmd, envp);
-		}
-		else
-		{
-			free_matrix(cmd);
-			ft_not_cmd(pipex.pipefd, pipex.infile, cmd);
-		}
+		process_child(pipex, ONE);
+		execve(cmd_path, cmd, envp);
+	}
+	else
+	{
+		free_matrix(cmd);
+		ft_not_cmd(pipex.pipefd, pipex.infile, cmd);
 	}
 }
 
 static void	process_child_two(t_pipex pipex, char **argv, char **envp)
 {
-	pid_t	pid;
 	char	**cmd;
 	char	*cmd_path;
 
-	pid = fork();
-	if (pid < 0)
-		ft_error(ERR_FORK);
-	if (pid == 0)
+	pipex.outfile = open(argv[4], O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	if (pipex.outfile < 0)
+		ft_error(ERR_INFILE);
+	cmd = ft_split(argv[3], ' ');
+	cmd_path = get_cmd(cmd[0], envp);
+	if (cmd[0] != NULL && cmd_path)
 	{
-		pipex.outfile = open(argv[4], O_WRONLY | O_CREAT | O_TRUNC, 0644);
-		if (pipex.outfile < 0)
-			ft_error(ERR_INFILE);
-		cmd = ft_split(argv[3], ' ');
-		cmd_path = get_cmd(cmd[0], envp);
-		if (cmd[0] != NULL && cmd_path)
-		{
-			process_child(pipex, TWO);
-			execve(cmd_path, cmd, envp);
-		}
-		else
-		{
-			free_matrix(cmd);
-			ft_not_cmd(pipex.pipefd, pipex.infile, cmd);
-		}
+		process_child(pipex, TWO);
+		execve(cmd_path, cmd, envp);
+	}
+	else
+	{
+		free_matrix(cmd);
+		ft_not_cmd(pipex.pipefd, pipex.infile, cmd);
 	}
 }
 
@@ -90,7 +76,15 @@ void	process_child(t_pipex pipex, int process)
 
 int	ft_process(t_pipex pipex, char **argv, char **envp)
 {
-	process_child_one(pipex, argv, envp);
-	process_child_two(pipex, argv, envp);
+	pipex.pid1 = fork();
+	if (pipex.pid1 < 0)
+		ft_error(ERR_FORK);
+	else if (pipex.pid1 == 0)
+		process_child_one(pipex, argv, envp);
+	pipex.pid2 = fork();
+	if (pipex.pid2 < 0)
+		ft_error(ERR_FORK);
+	else if (pipex.pid2 == 0)
+		process_child_two(pipex, argv, envp);
 	return (0);
 }
