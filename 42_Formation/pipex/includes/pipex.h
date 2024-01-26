@@ -35,7 +35,7 @@
 # define ONE 1
 # define TWO 2
 
-typedef struct	s_pipex
+typedef struct s_pipex
 {
 	pid_t	pid1;
 	pid_t	pid2;
