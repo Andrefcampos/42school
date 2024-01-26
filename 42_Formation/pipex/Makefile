@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/01/26 16:49:53 by andrefil          #+#    #+#              #
+#    Updated: 2024/01/26 16:49:54 by andrefil         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME		:=	pipex
 PRINTF		:=	ft_printf
 LIBFT		:=	libft
@@ -40,7 +52,7 @@ $(NAME): LIBFTX PRINTFX $(OBJS)
 
 bonus: LIBFTX PRINTFX $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBS)
-	
+
 clean:
 	@rm -rf $(OBJS_DIR)
 	@$(MAKE) clean -C $(LIB_DIR)$(PRINTF)
