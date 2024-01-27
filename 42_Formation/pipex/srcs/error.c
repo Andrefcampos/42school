@@ -18,20 +18,20 @@ void	ft_error(char *str)
 	exit (EXIT_FAILURE);
 }
 
-void	free_matrix(char **matrix)
+void	free_matrix(char ***matrix)
 {
 	int	y;
 
 	y = 0;
-	while (matrix[y])
-		free(matrix[y++]);
+	while (matrix[0][y])
+		free(matrix[0][y++]);
+	free(matrix[0]);
 }
 
-void	ft_not_cmd(int *pipefd, int fd, char **cmd)
+void	ft_not_cmd(int *pipefd, int fd)
 {
 	close(pipefd[1]);
 	close(pipefd[0]);
 	close(fd);
-	free_matrix(cmd);
 	ft_error(ERR_CMD);
 }

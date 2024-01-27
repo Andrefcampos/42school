@@ -44,9 +44,9 @@ typedef struct s_pipex
 	int		outfile;
 }				t_pipex;
 
-void	free_matrix(char **matrix);
+void	free_matrix(char ***matrix);
 char	**find_env(char **envp);
-void	ft_not_cmd(int *pipefd, int fd, char **cmd);
+void	ft_not_cmd(int *pipefd, int fd);
 int		ft_process(t_pipex pipex, char **argv, char **envp);
 void	process_child(t_pipex pipex, int process);
 void	ft_error(char *str);

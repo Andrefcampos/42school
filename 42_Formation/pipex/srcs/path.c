@@ -26,6 +26,7 @@ char	**find_env(char **envp)
 
 char	*get_cmd(char *cmd, char **envp)
 {
+	char	*temp;
 	char	*path;
 	char	**paths;
 	int		index;
@@ -34,16 +35,17 @@ char	*get_cmd(char *cmd, char **envp)
 	paths = find_env(envp);
 	while (paths[index])
 	{
-		path = ft_strjoin(paths[index], "/");
-		path = ft_strjoin(path, cmd);
+		temp = ft_strjoin(paths[index], "/");
+		path = ft_strjoin(temp, cmd);
+		free(temp);
 		if (!access(path, F_OK | X_OK))
 		{
-			free_matrix(paths);
+			free_matrix(&paths);
 			return (path);
 		}
 		free(path);
 		index++;
 	}
-	free_matrix(paths);
+	free_matrix(&paths);
 	return (0);
 }

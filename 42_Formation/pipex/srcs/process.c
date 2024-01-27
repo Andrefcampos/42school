@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:57:20 by andrefil          #+#    #+#             */
-/*   Updated: 2024/01/26 15:29:02 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/01/26 20:57:11 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,18 @@ static void	process_child_one(t_pipex pipex, char **argv, char **envp)
 	if (cmd[0] != NULL && cmd_path)
 	{
 		process_child(pipex, ONE);
-		execve(cmd_path, cmd, envp);
+		if (execve(cmd_path, cmd, envp) < 0)
+		{
+			free(cmd_path);
+			free_matrix(&cmd);
+			ft_error(ERR_CMD);
+		}
 	}
 	else
 	{
-		free_matrix(cmd);
-		ft_not_cmd(pipex.pipefd, pipex.infile, cmd);
+		free_matrix(&cmd);
+		ft_not_cmd(pipex.pipefd, pipex.infile);
+		free(cmd_path);
 	}
 }
 
@@ -47,12 +53,18 @@ static void	process_child_two(t_pipex pipex, char **argv, char **envp)
 	if (cmd[0] != NULL && cmd_path)
 	{
 		process_child(pipex, TWO);
-		execve(cmd_path, cmd, envp);
+		if (execve(cmd_path, cmd, envp) < 0)
+		{
+			free(cmd_path);
+			free_matrix(&cmd);
+			ft_error(ERR_CMD);
+		}
 	}
 	else
 	{
-		free_matrix(cmd);
-		ft_not_cmd(pipex.pipefd, pipex.infile, cmd);
+		free(cmd_path);
+		free_matrix(&cmd);
+		ft_not_cmd(pipex.pipefd, pipex.outfile);
 	}
 }
 
