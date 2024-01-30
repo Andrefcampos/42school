@@ -6,16 +6,20 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:47:01 by andrefil          #+#    #+#             */
-/*   Updated: 2024/01/25 20:12:44 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/01/30 16:00:13 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	ft_error(char *str)
+void	ft_error(char *str, int status, char *error)
 {
-	perror(str);
-	exit (EXIT_FAILURE);
+	dup2(STDERR_FILENO, STDOUT_FILENO);
+	ft_printf("./pipex %s: %s\n", str, error);
+	close(STDIN_FILENO);
+	close(STDOUT_FILENO);
+	close(STDERR_FILENO);
+	exit (status);
 }
 
 void	free_matrix(char ***matrix)
@@ -28,10 +32,15 @@ void	free_matrix(char ***matrix)
 	free(matrix[0]);
 }
 
-void	ft_not_cmd(int *pipefd, int fd)
+void	free_and_close(int *pipefd, char **cmd, char *cmd_path)
 {
-	close(pipefd[1]);
+	ft_close_pipefd(pipefd);
+	free(cmd_path);
+	free_matrix(&cmd);
+}
+
+void	ft_close_pipefd(int *pipefd)
+{
 	close(pipefd[0]);
-	close(fd);
-	ft_error(ERR_CMD);
+	close(pipefd[1]);
 }

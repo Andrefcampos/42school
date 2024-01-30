@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:26:39 by andrefil          #+#    #+#             */
-/*   Updated: 2024/01/25 19:50:08 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/01/30 15:29:02 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*get_cmd(char *cmd, char **envp)
 		temp = ft_strjoin(paths[index], "/");
 		path = ft_strjoin(temp, cmd);
 		free(temp);
-		if (!access(path, F_OK | X_OK))
+		if (access(path, F_OK | X_OK) == 0)
 		{
 			free_matrix(&paths);
 			return (path);
@@ -47,5 +47,5 @@ char	*get_cmd(char *cmd, char **envp)
 		index++;
 	}
 	free_matrix(&paths);
-	return (0);
+	return (NULL);
 }
