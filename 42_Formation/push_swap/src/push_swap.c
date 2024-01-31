@@ -11,3 +11,15 @@
 /* ************************************************************************** */
 
 #include <push_swap.h>
+
+int main(int argc, char **argv)
+{
+  int index;
+
+  index == 0;
+  while (index < argc)
+  {
+    
+  }
+  return (0);
+}
