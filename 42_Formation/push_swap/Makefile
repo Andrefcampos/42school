@@ -6,7 +6,7 @@
 #    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/29 15:20:31 by andrefil          #+#    #+#              #
-#    Updated: 2024/01/30 18:08:58 by andrefil         ###   ########.fr        #
+#    Updated: 2024/01/31 15:52:47 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ all: LIBFTX $(NAME)
 LIBFTX:
 	@$(MAKE) -C libs/libft
 
-$(OBJS_DIR)%.o: $(FILES_DIR)%.C
+$(OBJS_DIR)%.o: $(FILES_DIR)%.c
 	mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS)
 
