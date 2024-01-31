@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:41:34 by andrefil          #+#    #+#             */
-/*   Updated: 2024/01/16 20:32:17 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/01/31 17:35:24 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ char	*ft_itoa(int n);
 int		ft_strncmp(const char *str1, const char *str2, size_t num);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_atoi(const char *str);
+long	ft_atol(const char *nstr);
 int		ft_lstsize(t_list *lst);
 int		ft_toupper(int ch);
 int		ft_tolower(int ch);
