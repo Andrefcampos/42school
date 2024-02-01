@@ -1,0 +1,6 @@
+NAME		:=	pipex
+all: LIBFTX PRINTFX $(NAME)
+$(NAME): $(OBJS)
+	@$(CC) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME)
+# 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBS)
+	@rm -f $(NAME)
