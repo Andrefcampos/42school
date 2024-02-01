@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:47:01 by andrefil          #+#    #+#             */
-/*   Updated: 2024/01/30 16:00:13 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/01/31 19:35:29 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_error(char *str, int status, char *error)
 {
 	dup2(STDERR_FILENO, STDOUT_FILENO);
-	ft_printf("./pipex %s: %s\n", str, error);
+	ft_printf("pipex %s: %s\n", str, error);
 	close(STDIN_FILENO);
 	close(STDOUT_FILENO);
 	close(STDERR_FILENO);

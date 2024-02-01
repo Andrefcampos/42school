@@ -6,7 +6,7 @@
 #    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/26 16:49:53 by andrefil          #+#    #+#              #
-#    Updated: 2024/01/29 22:53:04 by andrefil         ###   ########.fr        #
+#    Updated: 2024/01/31 20:08:33 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ FILES_DIR	:=	srcs/
 FILES		+=	$(addprefix $(FILES_DIR), \
 				pipex.c \
 				path.c \
-				process.c \
+				proccess.c \
 				error.c)
 
 OBJS		+=	$(addprefix $(OBJS_DIR), $(FILES:$(FILES_DIR)%.c=%.o))

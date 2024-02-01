@@ -6,46 +6,67 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:26:39 by andrefil          #+#    #+#             */
-/*   Updated: 2024/01/30 15:29:02 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/02/01 17:03:13 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-char	**find_env(char **envp)
+static void	ft_strrplc(char *str, char old, char new)
 {
-	char	**paths;
-	int		index;
+	size_t	index;
 
+	if (!str)
+		return ;
 	index = 0;
-	while (ft_strncmp("PATH", envp[index], 4))
-		index++;
-	paths = ft_split(envp[index] + 5, ':');
-	return (paths);
-}
-
-char	*get_cmd(char *cmd, char **envp)
-{
-	char	*temp;
-	char	*path;
-	char	**paths;
-	int		index;
-
-	index = 0;
-	paths = find_env(envp);
-	while (paths[index])
+	while (str[index])
 	{
-		temp = ft_strjoin(paths[index], "/");
-		path = ft_strjoin(temp, cmd);
-		free(temp);
-		if (access(path, F_OK | X_OK) == 0)
-		{
-			free_matrix(&paths);
-			return (path);
-		}
-		free(path);
+		if (str[index] == old)
+			str[index] = new;
 		index++;
 	}
-	free_matrix(&paths);
-	return (NULL);
+}
+
+void	valid_sign(char *argv, char ***split_cmd)
+{
+	int	index;
+	char	signal;
+
+	index = 0;
+	signal = 0;
+	while (argv && argv[index])
+	{
+		if (signal && argv[index] == signal)
+			signal = 0;
+		if (!signal && (argv[index] == '\"' \
+			|| argv[index] == '\''))
+		{
+			signal = argv[index];
+			argv[index] = 32;
+		}
+		else if (signal && argv[index] == 32)
+			argv[index] = 26;
+		index++;
+	}
+	*split_cmd = ft_split(argv, 32);
+	index = 0;
+	while (*split_cmd[index])
+		ft_strrplc(**(split_cmd[index++]), 26, 32);
+	free(argv);
+}
+
+void	get_cmd(t_pipex **pipex, char *argv)
+{
+	t_cmd	*cmd;
+	char	**parse_cmd;
+
+	if (!pipex || !argv)
+		return ;
+	cmd = (t_cmd *) ft_calloc(1, sizeof(t_cmd));
+	if (!cmd)
+		return ;
+	valid_sign(ft_strdup(argv), &parse_cmd);
+	cmd->bin = *parse_cmd;
+	cmd->flag = parse_cmd;
+	(*pipex)->cmd = cmd;
 }
