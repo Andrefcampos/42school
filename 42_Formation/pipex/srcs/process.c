@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:57:20 by andrefil          #+#    #+#             */
-/*   Updated: 2024/02/01 16:52:53 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/02/02 16:33:44 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,30 @@
 static void	exec_cmd(t_pipex *pipex, char *argv)
 {
 	int		index;
-	char	*tmp;
+	char	*temp;
 	char	*path;
 
 	index = 0;
 	get_cmd(&pipex, argv);
-
+	while (pipex->path[index])
+	{
+		temp = ft_strjoin(pipex->path[index++], "/");
+		path = ft_strjoin(temp, pipex->cmd->bin);
+		free(temp);
+		if (path && access(path, F_OK | X_OK) == 0 \
+			&& execve(path, pipex->cmd->flag, pipex->envp) < 0)
+		{
+			free (path);
+			ft_error(pipex->cmd->bin, 126, strerror(errno));
+		}
+		free(path);
+	}
+	if (pipex->cmd->bin && access(pipex->cmd->bin, F_OK) == 0)
+		if (execve(pipex->cmd->bin, pipex->cmd->flag, pipex->envp) < 0)
+			ft_error(pipex->cmd->bin, 126, strerror(errno));
+	if (pipex->cmd->bin && pipex->cmd->bin[0] == '/')
+		ft_error(pipex->cmd->bin, 0, "No such file or directory");
+	ft_error(pipex->cmd->bin, 127, "command not found");
 }
 
 void	process_child(t_pipex *pipex, int child)
@@ -58,7 +76,7 @@ int	ft_process(t_pipex *pipex)
 	int	status;
 
 	status = 0;
-	if (pipe(pipex->path) < 0)
+	if (pipe(pipex->pipefd) < 0)
 		ft_error(ERR_PIPEFD, 130, strerror(errno));
 	pipex->pid = fork();
 	if (pipex->pid < 0)

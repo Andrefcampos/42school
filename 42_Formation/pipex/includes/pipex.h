@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:02:27 by andrefil          #+#    #+#             */
-/*   Updated: 2024/02/01 16:53:06 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/02/02 15:57:46 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,16 +54,20 @@ struct	s_pipex
 	char	*file2;
 	char	*cmd_arg1;
 	char	*cmd_arg2;
+	char	**envp;
 	t_cmd	*cmd;
 };
 
+// Functions about strings
 char	**split_env(char **envp, char *str);
 void	get_cmd(t_pipex **pipex, char *argv);
-void	valid_sign(char *argv, char ***split_cmd)
+void	valid_sign(char *argv, char ***split_cmd);
+
+// Functions about process
 int		ft_process(t_pipex *pipex);
 void	process_child(t_pipex *pipex, int process);
 
-// funcions close and free
+// functions close and free
 void	ft_close_pipefd(int *pipefd);
 void	free_and_close(int *pipefd, char **cmd, char *cmd_path);
 void	ft_error(char *str, int status, char *error);

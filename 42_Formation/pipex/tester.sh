@@ -7,8 +7,8 @@ echo -e "banana\nmaça\npera\npessego\nuva" > c
 echo -e "\n\033[0;95mMANDATORY\033[0m"
 echo -e "\n\033[0;93m01. Invalid infile:\033[0m"
 echo -e "\033[0;92m< a grep a | grep b > /dev/null\033[0m"
-< a grep a | grep b > /dev/null 
-echo $? 
+< a grep a | grep b > /dev/null
+echo $?
 ./pipex a "grep a" "grep b" b > /dev/null
 echo $?
 sleep 1

@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:26:39 by andrefil          #+#    #+#             */
-/*   Updated: 2024/02/01 17:03:13 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/02/02 17:37:48 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,16 @@ void	valid_sign(char *argv, char ***split_cmd)
 			|| argv[index] == '\''))
 		{
 			signal = argv[index];
-			argv[index] = 32;
+			argv[index] = ' ';
 		}
-		else if (signal && argv[index] == 32)
-			argv[index] = 26;
+		else if (signal && argv[index] == ' ')
+			argv[index] = 0x1A;
 		index++;
 	}
-	*split_cmd = ft_split(argv, 32);
+	*split_cmd = ft_split(argv, ' ');
 	index = 0;
 	while (*split_cmd[index])
-		ft_strrplc(**(split_cmd[index++]), 26, 32);
+		ft_strrplc(*(split_cmd[index++]), 0x1A, ' ');
 	free(argv);
 }
 
