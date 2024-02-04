@@ -6,13 +6,13 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:57:20 by andrefil          #+#    #+#             */
-/*   Updated: 2024/02/02 16:33:44 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/02/03 21:17:51 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-static void	exec_cmd(t_pipex *pipex, char *argv)
+static void	exec_cmd(t_pipex *pipex, char *argv, char **envp)
 {
 	int		index;
 	char	*temp;
@@ -20,76 +20,89 @@ static void	exec_cmd(t_pipex *pipex, char *argv)
 
 	index = 0;
 	get_cmd(&pipex, argv);
-	while (pipex->path[index])
+	while (pipex->path && pipex->path[index])
 	{
-		temp = ft_strjoin(pipex->path[index++], "/");
+		temp = ft_strjoin(pipex->path[index], "/");
 		path = ft_strjoin(temp, pipex->cmd->bin);
 		free(temp);
 		if (path && access(path, F_OK | X_OK) == 0 \
-			&& execve(path, pipex->cmd->flag, pipex->envp) < 0)
+			&& execve(path, pipex->cmd->flag, envp) < 0)
 		{
 			free (path);
-			ft_error(pipex->cmd->bin, 126, strerror(errno));
+			ft_error(pipex, pipex->cmd->bin, strerror(errno), 127);
 		}
+		index++;
 		free(path);
 	}
 	if (pipex->cmd->bin && access(pipex->cmd->bin, F_OK) == 0)
-		if (execve(pipex->cmd->bin, pipex->cmd->flag, pipex->envp) < 0)
-			ft_error(pipex->cmd->bin, 126, strerror(errno));
+		if (execve(pipex->cmd->bin, pipex->cmd->flag, envp) < 0)
+			ft_error(pipex, pipex->cmd->bin, strerror(errno), 126);
 	if (pipex->cmd->bin && pipex->cmd->bin[0] == '/')
-		ft_error(pipex->cmd->bin, 0, "No such file or directory");
-	ft_error(pipex->cmd->bin, 127, "command not found");
+		ft_error(pipex, pipex->cmd->bin, "No such file or directory", 0);
+	ft_error(pipex, pipex->cmd->bin, "command not found", 127);
 }
 
-void	process_child(t_pipex *pipex, int child)
+static void	open_fd(t_pipex *pipex, int child)
 {
 	if (child == ONE)
 	{
 		pipex->infile = open(pipex->file1, O_RDONLY, 0644);
 		{
 			if (pipex->infile < 0)
-				ft_error(pipex->file1, 1, strerror(errno));
+				ft_error(pipex, pipex->file1, strerror(errno), 1);
 		}
-		dup2(pipex->pipefd[1], STDOUT_FILENO);
-		dup2(pipex->infile, STDIN_FILENO);
-		close(pipex->infile);
-		ft_close_pipefd(pipex->pipefd);
-		exec_cmd(pipex, pipex->cmd_arg1);
 	}
 	else if (child == TWO)
 	{
 		pipex->outfile = open(pipex->file2, O_RDWR | O_CREAT | O_TRUNC, 0644);
 		{
 			if (pipex->outfile < 0)
-				ft_error(pipex->file2, 1, strerror(errno));
+				ft_error(pipex, pipex->file2, strerror(errno), 1);
 		}
-		dup2(pipex->pipefd[0], STDIN_FILENO);
-		dup2(pipex->outfile, STDOUT_FILENO);
-		close(pipex->outfile);
-		ft_close_pipefd(pipex->pipefd);
-		exec_cmd(pipex, pipex->cmd_arg2);
 	}
 }
 
-int	ft_process(t_pipex *pipex)
+void	process_child(t_pipex *pipex, char **argv, int child, char **envp)
+{
+	if (child == ONE)
+	{
+		open_fd(pipex, child);
+		dup2(pipex->pipefd[1], STDOUT_FILENO);
+		dup2(pipex->infile, STDIN_FILENO);
+		close(pipex->infile);
+	}
+	else if (child == TWO)
+	{
+		open_fd(pipex, child);
+		dup2(pipex->pipefd[0], STDIN_FILENO);
+		dup2(pipex->outfile, STDOUT_FILENO);
+		close(pipex->outfile);
+	}
+	ft_close_pipefd(pipex->pipefd);
+	exec_cmd(pipex, argv[child + 1], envp);
+}
+
+int	ft_process(t_pipex *pipex, char **argv, char **envp)
 {
 	int	status;
+	int	process;
 
 	status = 0;
+	process = 1;
 	if (pipe(pipex->pipefd) < 0)
-		ft_error(ERR_PIPEFD, 130, strerror(errno));
-	pipex->pid = fork();
-	if (pipex->pid < 0)
-		ft_error(ERR_FORK, 0, "Failed to initiate");
-	else if (pipex->pid == 0)
-		process_child(pipex, ONE);
-	pipex->pid = fork();
-	if (pipex->pid < 0)
-		ft_error(ERR_FORK, 0, "Failed to initiate");
-	else if (pipex->pid == 0)
-		process_child(pipex, TWO);
+		ft_error(pipex, ERR_PIPEFD, strerror(errno), 130);
+	while (process <= 2)
+	{
+		pipex->pid = fork();
+		if (pipex->pid < 0)
+			ft_error(pipex, ERR_FORK, "Failed to initiate", 0);
+		else if (pipex->pid == 0)
+			process_child(pipex, argv, process, envp);
+		process++;
+	}
 	ft_close_pipefd(pipex->pipefd);
-	waitpid(-1, &status, WUNTRACED);
+	waitpid(pipex->pid, &status, 0);
+	free_pipex(pipex);
 	if (WIFEXITED(status))
 		return (WEXITSTATUS(status));
 	return (status);
