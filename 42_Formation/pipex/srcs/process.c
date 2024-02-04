@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:57:20 by andrefil          #+#    #+#             */
-/*   Updated: 2024/02/03 22:24:07 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/02/03 22:26:25 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,11 +84,10 @@ void	process_child(t_pipex *pipex, char **argv, int child, char **envp)
 
 int	ft_process(t_pipex *pipex, char **argv, char **envp)
 {
-	pipex->status = 0;
-	pipex->process = 1;
 	if (pipe(pipex->pipefd) < 0)
 		ft_error(pipex, ERR_PIPEFD, strerror(errno), 130);
-	while (pipex->process <= 2)
+	pipex->process = ONE;
+	while (pipex->process <= TWO)
 	{
 		pipex->pid = fork();
 		if (pipex->pid < 0)
@@ -98,6 +97,7 @@ int	ft_process(t_pipex *pipex, char **argv, char **envp)
 		pipex->process++;
 	}
 	ft_close_pipefd(pipex->pipefd);
+	pipex->status = 0;
 	waitpid(pipex->pid, &pipex->status, 0);
 	free_pipex(pipex);
 	free(pipex->file1);
