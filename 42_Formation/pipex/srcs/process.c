@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:57:20 by andrefil          #+#    #+#             */
-/*   Updated: 2024/02/03 22:21:41 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/02/03 22:24:07 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,28 +84,25 @@ void	process_child(t_pipex *pipex, char **argv, int child, char **envp)
 
 int	ft_process(t_pipex *pipex, char **argv, char **envp)
 {
-	int	status;
-	int	process;
-
-	status = 0;
-	process = 1;
+	pipex->status = 0;
+	pipex->process = 1;
 	if (pipe(pipex->pipefd) < 0)
 		ft_error(pipex, ERR_PIPEFD, strerror(errno), 130);
-	while (process <= 2)
+	while (pipex->process <= 2)
 	{
 		pipex->pid = fork();
 		if (pipex->pid < 0)
 			ft_error(pipex, ERR_FORK, "Failed to initiate", 0);
 		else if (pipex->pid == 0)
-			process_child(pipex, argv, process, envp);
-		process++;
+			process_child(pipex, argv, pipex->process, envp);
+		pipex->process++;
 	}
 	ft_close_pipefd(pipex->pipefd);
-	waitpid(pipex->pid, &status, 0);
+	waitpid(pipex->pid, &pipex->status, 0);
 	free_pipex(pipex);
 	free(pipex->file1);
 	free(pipex->file2);
-	if (WIFEXITED(status))
-		return (WEXITSTATUS(status));
-	return (status);
+	if (WIFEXITED(pipex->status))
+		return (WEXITSTATUS(pipex->status));
+	return (pipex->status);
 }

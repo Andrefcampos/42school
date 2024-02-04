@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:02:27 by andrefil          #+#    #+#             */
-/*   Updated: 2024/02/03 20:42:35 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/02/03 22:22:54 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ struct	s_pipex
 	char	**path;
 	char	*file1;
 	char	*file2;
+	int		process;
+	int		status;
 	t_cmd	*cmd;
 };
 
