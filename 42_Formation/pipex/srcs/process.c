@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 14:57:20 by andrefil          #+#    #+#             */
-/*   Updated: 2024/02/03 21:17:51 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/02/03 22:21:41 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,8 @@ int	ft_process(t_pipex *pipex, char **argv, char **envp)
 	ft_close_pipefd(pipex->pipefd);
 	waitpid(pipex->pid, &status, 0);
 	free_pipex(pipex);
+	free(pipex->file1);
+	free(pipex->file2);
 	if (WIFEXITED(status))
 		return (WEXITSTATUS(status));
 	return (status);
