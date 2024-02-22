@@ -6,7 +6,7 @@
 #    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/29 15:20:31 by andrefil          #+#    #+#              #
-#    Updated: 2024/01/31 15:52:47 by andrefil         ###   ########.fr        #
+#    Updated: 2024/02/22 16:58:26 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ CFLAGS		:=	-Wextra -Wall -Werror -g3
 
 FILES_DIR	:=	src/
 FILES		+= $(addprefix $(FILES_DIR), \
-				push_swap.c)
+				push_swap.c \
+				utils.c)
 
 OBJS_DIR	:=	objs/
 OBJS		+=	$(addprefix $(OBJS_DIR), $(FILES:$(FILES_DIR)%.c=%.o))

@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 17:27:27 by andrefil          #+#    #+#             */
-/*   Updated: 2024/01/31 17:34:22 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/01/31 18:44:23 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ long	ft_atol(const char *nstr)
 	count = 0;
 	signal = 1;
 	result = 0;
-	while (nstr[count] == ' ' || nstr[count] >= 9 && nstr[count] <= 13)
+	while (nstr[count] == ' ' || (nstr[count] >= 9 && nstr[count] <= 13))
 		count++;
 	if (nstr[count] == '-' || nstr[count] == '+')
 	{

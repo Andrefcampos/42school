@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/29 15:20:43 by andrefil          #+#    #+#             */
-/*   Updated: 2024/02/22 16:32:17 by andrefil         ###   ########.fr       */
+/*   Created: 2024/02/22 16:58:05 by andrefil          #+#    #+#             */
+/*   Updated: 2024/02/22 18:37:22 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include <push_swap.h>
 
-# include <libft.h>
-# include <stdio.h>
-# include <limits.h>
-# include <stdlib.h>
-
-typedef struct s_numlst	t_numlst;
-struct	s_numlst
+void	creat_node(t_node *node, int content)
 {
-	int			num;
-	int			index;
-	t_numlst	*next;
-};
+	if (!content)
+		return ;
+	node = malloc(sizeof(t_node));
+	node->val = content;
+	node->next = NULL;
+}
 
-typedef struct s_node	t_node;
-struct	s_node
+void	add_node_in_back(t_node **node, int content)
 {
-	int			val;
-	t_node		*next;
-	t_node		*prev;
-};
-
-#endif
+	if (!content)
+		return ;
+	while (*node)
+		*node = (*node)->next;
+	(*node)->val = content;
+}
