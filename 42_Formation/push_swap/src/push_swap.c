@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 18:06:53 by andrefil          #+#    #+#             */
-/*   Updated: 2024/02/22 16:56:04 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/02/26 18:08:30 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,10 @@
 
 int main(int argc, char **argv)
 {
-	t_node	*a;
-	t_node	*b;
-
-	a->val = NULL;
-	b->val = NULL;
-	if (argc > 1)
+	if (argc >= 2)
 	{
-
+		check_params(argc, argv);
+		stack = 
 	}
-
 	return (0);
 }

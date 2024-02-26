@@ -6,36 +6,33 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 16:58:05 by andrefil          #+#    #+#             */
-/*   Updated: 2024/02/23 17:17:03 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/02/26 15:51:23 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	create_node(t_node **node, int content)
+t_node	*new_node(long nbr)
 {
-	if (!content)
-		return ;
+	t_node	*node;
 
+	if (!nbr)
+		return ;
+	node = malloc(sizeof(t_node));
+	if (!node)
+		return (NULL);
+	node->val = nbr;
+	node->next = NULL;
+	node->prev = node;
+	return (node);
 }
 
-void	add_node_in_back(t_node **node, int content)
+t_node	*node_last(t_node *node)
 {
 	t_node	*last;
-	t_node	*new;
 
-	if (!content)
-		return ;
-	if (!(*node))
-	{
-		creat_node(node, content);
-		return ;
-	}
-	last = *node;
-	while (last != *node)
+	last = node;
+	while (last->next != node)
 		last = last->next;
-	creat_node(new, content);
-	new->prev = last;
-	node = new;
-	free(new);
+	return (last);
 }
