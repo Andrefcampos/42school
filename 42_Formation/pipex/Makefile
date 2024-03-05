@@ -6,7 +6,7 @@
 #    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/26 16:49:53 by andrefil          #+#    #+#              #
-#    Updated: 2024/02/02 16:16:21 by andrefil         ###   ########.fr        #
+#    Updated: 2024/02/05 11:22:04 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,4 +65,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all bonus clean fclean re LIBFTX FT_PRINTF
-.SILENT:
+

@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:26:39 by andrefil          #+#    #+#             */
-/*   Updated: 2024/02/02 17:37:48 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/02/05 11:56:18 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	ft_strrplc(char *str, char old, char new)
 
 void	valid_sign(char *argv, char ***split_cmd)
 {
-	int	index;
+	int		index;
 	char	signal;
 
 	index = 0;
@@ -57,16 +57,16 @@ void	valid_sign(char *argv, char ***split_cmd)
 
 void	get_cmd(t_pipex **pipex, char *argv)
 {
-	t_cmd	*cmd;
+	t_cmd	*cmd_temp;
 	char	**parse_cmd;
 
 	if (!pipex || !argv)
 		return ;
-	cmd = (t_cmd *) ft_calloc(1, sizeof(t_cmd));
-	if (!cmd)
+	cmd_temp = (t_cmd *) ft_calloc(1, sizeof(t_cmd));
+	if (!cmd_temp)
 		return ;
 	valid_sign(ft_strdup(argv), &parse_cmd);
-	cmd->bin = *parse_cmd;
-	cmd->flag = parse_cmd;
-	(*pipex)->cmd = cmd;
+	cmd_temp->bin = *parse_cmd;
+	cmd_temp->flag = parse_cmd;
+	(*pipex)->cmd = cmd_temp;
 }

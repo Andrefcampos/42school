@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 16:43:27 by andrefil          #+#    #+#             */
-/*   Updated: 2024/02/03 21:10:16 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/02/05 11:20:29 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,5 @@ int	main(int argc, char **argv, char **envp)
 	}
 	pipex = ft_pipex();
 	pipex->path = split_env(envp);
-	pipex->n_args = argc - 1;
-	pipex->file1 = ft_strdup(argv[1]);
-	pipex->file2 = ft_strdup(argv[4]);
 	return (ft_process(pipex, argv, envp));
 }

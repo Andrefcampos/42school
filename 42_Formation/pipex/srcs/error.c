@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:47:01 by andrefil          #+#    #+#             */
-/*   Updated: 2024/02/03 22:20:12 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/02/05 13:44:30 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,8 @@ void	free_pipex(t_pipex *pipex)
 		return ;
 	if (pipex->path)
 		free_matrix(&pipex->path);
-	// if (pipex->cmd)
-	// {
-	// 	free (pipex->cmd->bin);
-	// 	if (pipex->cmd->flag)
-	// 		free_matrix(&pipex->cmd->flag);
-	// }
 }
+
 void	free_matrix(char ***matrix)
 {
 	int	y;
@@ -46,6 +41,7 @@ void	free_matrix(char ***matrix)
 	while (matrix[0][y])
 		free(matrix[0][y++]);
 	free(matrix[0]);
+	matrix = 0;
 }
 
 void	ft_close_pipefd(int *pipefd)

@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:02:27 by andrefil          #+#    #+#             */
-/*   Updated: 2024/02/03 22:22:54 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/02/05 13:49:07 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,7 @@ struct	s_pipex
 	int		pipefd[2];
 	int		infile;
 	int		outfile;
-	int		n_args;
 	char	**path;
-	char	*file1;
-	char	*file2;
 	int		process;
 	int		status;
 	t_cmd	*cmd;
@@ -64,12 +61,13 @@ void	valid_sign(char *argv, char ***split_cmd);
 
 // Functions about process
 int		ft_process(t_pipex *pipex, char **argv, char **envp);
-void	process_child(t_pipex *pipex,char **argv, int process, char **envp);
+void	process_child(t_pipex *pipex, char **argv, int process, char **envp);
 
 // functions close and free
+void	free_cmd(t_cmd *cmd);
 void	free_pipex(t_pipex *pipex);
+void	free_matrix(char ***matrix);
 void	ft_close_pipefd(int *pipefd);
 void	ft_error(t_pipex *pipex, char *str, char *error, int status);
-void	free_matrix(char ***matrix);
 
 #endif

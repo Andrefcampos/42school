@@ -6,14 +6,14 @@
 #    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/29 15:20:31 by andrefil          #+#    #+#              #
-#    Updated: 2024/02/22 16:58:26 by andrefil         ###   ########.fr        #
+#    Updated: 2024/03/04 18:54:32 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:=	push_swap
 
-INCLUDES	:=	-I ./includes
-HEADERS		:=	$(INCLUDES) -I libs/libft
+INCLUDES	:=	includes/ libs/libft/ 
+CPPFLAGS	:=	$(addprefix -I,$(INCLUDES)) -MMD -MP 
 LIBS		:=	./libs/libft/libft.a
 
 CC			:=	cc
@@ -34,10 +34,10 @@ LIBFTX:
 
 $(OBJS_DIR)%.o: $(FILES_DIR)%.c
 	mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS)
+	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $< 
 
 $(NAME): $(OBJS)
-	@$(CC) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME)
+	@$(CC) $(OBJS) $(LIBS) -o $(NAME)
 
 clean:
 	@rm -rf $(OBJS_DIR)
