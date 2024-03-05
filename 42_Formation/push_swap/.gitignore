@@ -1,1 +1,5 @@
+// ignore all types files:
 *.json
+
+// ignore this dir:
+list_enc/
