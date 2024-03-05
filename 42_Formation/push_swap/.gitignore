@@ -2,4 +2,4 @@
 *.json
 
 // ignore this dir:
-/list_enc/*
+list_enc/
