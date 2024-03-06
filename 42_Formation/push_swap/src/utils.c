@@ -6,33 +6,13 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 16:58:05 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/05 18:57:27 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/06 16:31:46 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 #include <libft.h>
 #include <stdio.h>
-
-int	check_args(char **av)
-{
-	int	y;
-	int	x;
-
-	y = 1;
-	while (av[y])
-	{
-		x = 0;
-		while (av[y][x])
-		{
-			if (!ft_isdigit(av[y][x]))
-				return (0);
-			x++;
-		}
-		y++;
-	}
-	return (1);
-}
 
 t_node	*create_node(int data)
 {
@@ -64,7 +44,7 @@ void	list_add_next_last(t_node **head, t_node *new_node)
 	upd->next = new_node;
 }
 
-void	list_add_next_front(t_node **head, t_node *new_node)
+void	list_add_next_first(t_node **head, t_node *new_node)
 {
 	if (!new_node)
 		return ;
