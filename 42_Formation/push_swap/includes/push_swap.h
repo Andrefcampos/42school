@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 15:20:43 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/06 20:40:56 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/06 21:49:25 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,8 @@ void	print_list(t_node **list);
 
 //Order List:
 void	order_three_num(t_node **stack_a);
+
+//Check ordenations:
+int		check_orders(t_node **stack_a);
 
 #endif
