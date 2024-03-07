@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 18:06:53 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/06 20:48:07 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/06 21:59:39 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int ac, char **av)
 	//t_node	*b;
 	int		i;
 
-	if (ac < 2)
+	if (ac == 2)
 	{
 		ft_putendl_fd("Erro", 2);
 		exit(EXIT_FAILURE);
@@ -41,7 +41,7 @@ int	main(int ac, char **av)
 	if (a)
 		print_list(&a);
 	order_three_num(&a);
-	ft_putendl_fd("ordenação:", 1);
+	ft_putendl_fd("ordenacao:", 1);
 	if (a)
 		print_list(&a);
 //	print_list(&b);
