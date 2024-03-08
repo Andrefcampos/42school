@@ -6,14 +6,12 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:30:33 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/08 04:24:36 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/08 16:18:33 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <limits.h>
 #include <push_swap.h>
 #include <libft.h>
-#include <stdlib.h>
 
 int	check_args(char **av)
 {
@@ -83,4 +81,26 @@ void	create_list(char **av, t_node **stack)
 		list_add_next_last(stack, create_node(ft_atol(av[y])));
 		y++;
 	}
+}
+
+int	check_orders(t_node **head)
+{
+	t_node	*temp;
+	t_node	*current_node;
+	
+	if (!*head || !(*head)->next)
+		return (1);
+	current_node = *head;
+	while (current_node)
+	{
+		temp = current_node->next;
+		while (temp)
+		{
+			if (current_node->num > temp->num)
+				return (0);
+			temp = temp->next;
+		}
+		current_node = current_node->next;
+	}
+	return (1);
 }

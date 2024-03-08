@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 15:20:43 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/08 03:10:40 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/08 17:17:24 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@ struct s_data
 {
 	t_node	*a;
 	t_node	*b;
-	int		max;
-	int		min;
+	int		max_a;
+	int		max_b;
+	int		min_a;
+	int		min_b;
 	int		moves;
 };
 
@@ -38,12 +40,14 @@ int		check_args_dup(char **av);
 
 //Initiation:
 void	init_data(t_data **data);
+int		min_node(t_node **head);
+int		max_node(t_node **head);
 
 // Ordernation:
 void	push_swap(int ac, char **av, t_data *data);
 
 //Order List:
-int		order_three_num(t_data *data);
+void		order_three_num(t_data *data);
 
 //Manipulation linked list:
 void	create_list(char **av, t_node **stack);

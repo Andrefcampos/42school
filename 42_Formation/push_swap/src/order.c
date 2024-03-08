@@ -6,10 +6,11 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:27:35 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/08 04:40:39 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/08 17:21:52 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <push_swap.h>
 
 void	push_swap(int ac, char **av, t_data *data)
@@ -18,47 +19,44 @@ void	push_swap(int ac, char **av, t_data *data)
 	{
 		create_list(av, &data->a);
 		order_three_num(data);
-		print_list(&data->a);
 		return ;
 	}
 }
 
-int	order_three_num(t_data *data)
+void	order_three_num(t_data *data)
 {
 	if (!data->a || !data->a->next)
-		return (0) ;
+		return ;
 	if (data->a->num > data->a->next->num)
+	{
 		swap_first_second_node(&data->a);
+		ft_putendl_fd("sa", 1);
+	}
 	if (data->a->next->next)
 	{
 		if (data->a->num > data->a->next->next->num)
+		{
 			swap_last_first_node(&data->a);
+			ft_putendl_fd("ra", 1);
+		}
 		if (data->a->next->num > data->a->next->next->num)
+		{
 			rotate_all_stack(&data->a);
+			ft_putendl_fd("rra", 1);
+		}
 	}
 	if (!check_orders(&data->a))
 		order_three_num(data);
-	return (1) ;
+	else
+		return ;
 }
 
-int	check_orders(t_node **head)
+void	order_five_num(t_data *data)
 {
-	t_node	*temp;
-	t_node	*current_node;
-	
-	if (!*head || !(*head)->next)
-		return (1);
-	current_node = *head;
-	while (current_node)
+	if (!data->a || !data->a->next)
+		return ;
+	if (data->a->num > data->a->next->num)
 	{
-		temp = current_node->next;
-		while (temp)
-		{
-			if (current_node->num > temp->num)
-				return (0);
-			temp = temp->next;
-		}
-		current_node = current_node->next;
-	}
-	return (1);
+		swap_first_second_node(&data->a);
+	}	
 }
