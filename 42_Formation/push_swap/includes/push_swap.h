@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 15:20:43 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/06 21:49:25 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/08 03:10:40 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,32 @@ struct s_node
   t_node	*prev;
 };
 
+typedef struct s_data	t_data;
+struct s_data
+{
+	t_node	*a;
+	t_node	*b;
+	int		max;
+	int		min;
+	int		moves;
+};
+
 //Check arguments passed for param:
+void	validate_args(int ac, char **av);
 int		check_args(char **av);
 int		check_args_dup(char **av);
 
+//Initiation:
+void	init_data(t_data **data);
+
+// Ordernation:
+void	push_swap(int ac, char **av, t_data *data);
+
+//Order List:
+int		order_three_num(t_data *data);
+
 //Manipulation linked list:
+void	create_list(char **av, t_node **stack);
 t_node	*create_node(int data);
 void	list_add_next_last(t_node **head, t_node *new_node);
 void	list_add_next_first(t_node **head, t_node *new_node);
@@ -37,12 +58,10 @@ void	swap_first_second_node(t_node **head);
 void	swap_last_first_node(t_node **head);
 void	swap_second_last_node(t_node **head);
 void	send_in_list(t_node **stack1, t_node **stack2);
+void	rotate_all_stack(t_node **head);
 
 //Print all nodes in list:
 void	print_list(t_node **list);
-
-//Order List:
-void	order_three_num(t_node **stack_a);
 
 //Check ordenations:
 int		check_orders(t_node **stack_a);

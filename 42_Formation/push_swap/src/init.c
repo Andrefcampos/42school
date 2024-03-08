@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/30 18:06:53 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/08 02:50:08 by andrefil         ###   ########.fr       */
+/*   Created: 2024/03/08 01:23:05 by andrefil          #+#    #+#             */
+/*   Updated: 2024/03/08 01:51:03 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
 #include <push_swap.h>
+#include <stdlib.h>
 
-int	main(int ac, char **av)
+void	init_data(t_data **data)
 {
-	t_data	*data;
-
-	validate_args(ac, av);
-	init_data(&data);
-	push_swap(ac, av, data);
-	return (0);
+	*data = (t_data *)malloc(sizeof(t_data));
+	if (!data)
+		return ;
+	(*data)->a = NULL;
+	(*data)->b = NULL;
+	(*data)->min = 0;
+	(*data)->max = 0;
+	(*data)->moves = 0;
 }

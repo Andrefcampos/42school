@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 14:49:20 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/06 19:08:55 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/07 19:48:40 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	send_in_list(t_node **stack1, t_node **stack2)
 		return;
 	if ((*stack1)->next == NULL)
 	{
-	list_add_next_first(stack2, *stack1);
+		list_add_next_first(stack2, *stack1);
 		*stack1 = NULL;
 		return;
 	}
