@@ -6,12 +6,11 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:27:35 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/08 03:19:17 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/08 04:40:39 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
-#include <stdio.h>
 
 void	push_swap(int ac, char **av, t_data *data)
 {
@@ -22,7 +21,6 @@ void	push_swap(int ac, char **av, t_data *data)
 		print_list(&data->a);
 		return ;
 	}
-
 }
 
 int	order_three_num(t_data *data)
