@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:27:35 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/08 03:15:14 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/08 03:17:15 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,13 @@ int	order_three_num(t_data *data)
 		return (0) ;
 	if (data->a->num > data->a->next->num)
 		swap_first_second_node(&data->a);
-	if (data->a->num > data->a->next->next->num)
-		swap_last_first_node(&data->a);
-	if (data->a->next->num > data->a->next->next->num)
-		rotate_all_stack(&data->a);
+	if (data->a->next->next)
+	{
+		if (data->a->num > data->a->next->next->num)
+			swap_last_first_node(&data->a);
+		if (data->a->next->num > data->a->next->next->num)
+			rotate_all_stack(&data->a);
+	}
 	if (!check_orders(&data->a))
 		order_three_num(data);
 	return (1) ;
