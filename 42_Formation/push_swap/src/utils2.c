@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:30:33 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/08 03:09:48 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/08 03:21:03 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,6 @@ void	validate_args(int ac, char **av)
 {
 	if (ac == 2)
 		exit(EXIT_SUCCESS);
-	else if (ac == 3)
-	{
-		ft_putendl_fd("Erro", 2);
-		exit(EXIT_FAILURE);
-	}
 	else if (!check_args(av) || !check_args_dup(av))
 	{
 		ft_putendl_fd("Erro", 2);

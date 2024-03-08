@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:27:35 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/08 03:17:15 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/08 03:19:17 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	push_swap(int ac, char **av, t_data *data)
 	{
 		create_list(av, &data->a);
 		order_three_num(data);
+		print_list(&data->a);
 		return ;
 	}
 
