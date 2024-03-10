@@ -6,49 +6,48 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:27:35 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/08 17:21:52 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/10 06:18:11 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <push_swap.h>
+#include <libft.h>
 
 void	push_swap(int ac, char **av, t_data *data)
 {
 	if (ac < 5)
 	{
 		create_list(av, &data->a);
-		order_three_num(data);
-		return ;
+		data->max_a = max_node(&data->a);
+		sort_three_num(data);
+		if (check_sort(&data->a))
+			return ;
+		else
+		{
+			ft_putendl_fd("deu merda", 1);
+			return ;
+		}
 	}
 }
 
-void	order_three_num(t_data *data)
+void	sort_three_num(t_data *data)
 {
-	if (!data->a || !data->a->next)
-		return ;
-	if (data->a->num > data->a->next->num)
+	if (data->a->num == data->max_a)
 	{
-		swap_first_second_node(&data->a);
-		ft_putendl_fd("sa", 1);
+		if (data->a->next->num > data->a->next->next->num)
+			reverse_rotate(&data->a, "rra");
+		if (!check_sort(&data->a))
+			rotate(&data->a, "ra");
 	}
-	if (data->a->next->next)
+	else if (data->a->next->num == data->max_a)
 	{
 		if (data->a->num > data->a->next->next->num)
-		{
-			swap_last_first_node(&data->a);
-			ft_putendl_fd("ra", 1);
-		}
-		if (data->a->next->num > data->a->next->next->num)
-		{
-			rotate_all_stack(&data->a);
-			ft_putendl_fd("rra", 1);
-		}
+			rotate(&data->a, "ra");
+		if (!check_sort(&data->a))
+			reverse_rotate(&data->a, "rra");
 	}
-	if (!check_orders(&data->a))
-		order_three_num(data);
-	else
-		return ;
+	if (data->a->num > data->a->next->num)
+		swap(&data->a, "sa");
 }
 
 void	order_five_num(t_data *data)

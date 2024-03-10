@@ -1,38 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   moves.c                                            :+:      :+:    :+:   */
+/*   clear.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/07 14:49:20 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/10 05:47:58 by andrefil         ###   ########.fr       */
+/*   Created: 2024/03/09 20:07:13 by andrefil          #+#    #+#             */
+/*   Updated: 2024/03/10 05:31:03 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
-#include <libft.h>
+#include <stdlib.h>
 
-void	swap(t_node **stack, char *move)
+void	free_data(t_data **data)
 {
-	swap_first_second_node(stack);
-	ft_putendl_fd(move, 1);
+	if ((*data)->a)
+		list_clear(&(*data)->a);
+	if ((*data)->b)
+		list_clear(&(*data)->b);
+	free(*data);
 }
 
-void	push(t_node **stack_1, t_node **stack_2, char *move)
+void	list_clear(t_node **head)
 {
-	send_in_list(stack_1, stack_2);
-	ft_putendl_fd(move, 1);
-}
+	t_node	*current;
+	t_node	*next;
 
-void	rotate(t_node **stack, char *move)
-{
-	send_first_to_last(stack);
-	ft_putendl_fd(move, 1);
-}
-
-void	reverse_rotate(t_node **stack, char *move)
-{
-	rotate_all_list(stack);
-	ft_putendl_fd(move, 1);
+	if (*head)
+	{
+		current = *head;
+		while (current)
+		{
+			next = current->next;
+			if (current->prev != NULL)
+				current->prev = NULL;
+			free(current);
+			current = NULL;
+			current = next;
+		}
+	}
+	*head = NULL;
 }

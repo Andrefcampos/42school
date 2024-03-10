@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 16:58:05 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/06 16:31:46 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/10 05:47:34 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_node	*create_node(int data)
 {
 	t_node	*set;
 
-	set = malloc(sizeof(t_node));
+	set = ft_calloc(1, sizeof(t_node));
 	if (!set)
 		return (NULL);
 	set->num = data;
@@ -77,6 +77,20 @@ void	del_one_node(t_node **head, int val)
 		temp->prev->next = temp->next;
 	if (temp->next != NULL)
 		temp->next->prev = temp->prev;
+}
+
+void	rotate_all_list(t_node **head)
+{
+	t_node	*upd;
+	t_node	*temp;
+	
+	if (!*head || !(*head)->next)
+		return ;
+	temp = *head;
+	upd = NULL;
+	while (temp)
+		send_in_list(&temp, &upd);
+	*head = upd;
 }
 
 void	print_list(t_node **list)

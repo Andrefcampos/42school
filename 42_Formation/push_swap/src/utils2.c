@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:30:33 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/08 16:18:33 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/10 05:45:58 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	create_list(char **av, t_node **stack)
 	}
 }
 
-int	check_orders(t_node **head)
+int	check_sort(t_node **head)
 {
 	t_node	*temp;
 	t_node	*current_node;

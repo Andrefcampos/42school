@@ -6,7 +6,7 @@
 #    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/29 15:20:31 by andrefil          #+#    #+#              #
-#    Updated: 2024/03/08 01:33:14 by andrefil         ###   ########.fr        #
+#    Updated: 2024/03/09 21:01:10 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,10 @@ FILES_DIR	:=	src/
 FILES		+= $(addprefix $(FILES_DIR), \
 				push_swap.c \
 				init.c \
+				clear.c \
 				utils.c \
 				utils2.c \
+				utils3.c \
 				moves.c \
 				moves2.c \
 				order.c)
