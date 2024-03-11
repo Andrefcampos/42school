@@ -6,7 +6,7 @@
 #    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/29 15:20:31 by andrefil          #+#    #+#              #
-#    Updated: 2024/03/09 21:01:10 by andrefil         ###   ########.fr        #
+#    Updated: 2024/03/10 22:42:38 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ FILES		+= $(addprefix $(FILES_DIR), \
 				utils.c \
 				utils2.c \
 				utils3.c \
+				utils4.c \
 				moves.c \
 				moves2.c \
 				order.c)

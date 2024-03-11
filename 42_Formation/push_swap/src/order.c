@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:27:35 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/10 06:38:49 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/11 02:18:52 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,9 @@ void	push_swap(int ac, char **av, t_data *data)
 		create_list(av, &data->a);
 		data->max_a = max_node(&data->a);
 		sort_three_num(data);
-		if (check_sort(&data->a))
-			return ;
-		else
-		{
-			ft_putendl_fd("deu merda", 1);
-			return ;
-		}
+		return ;
 	}
+	sort_all_num(data);
 }
 
 void	sort_three_num(t_data *data)
@@ -53,12 +48,14 @@ void	sort_three_num(t_data *data)
 		swap(&data->a, "sa");
 }
 
-void	order_five_num(t_data *data)
+void	sort_all_num(t_data *data)
 {
-	if (!data->a || !data->a->next)
-		return ;
-	if (data->a->num > data->a->next->num)
+	retain_last_three(data);
+	sort_three_num(data);
+	while (data->b)
 	{
-		swap_first_second_node(&data->a);
-	}	
+
+	}
+	if (!check_sort(data->a))
+		shift_stack(&data->a);
 }
