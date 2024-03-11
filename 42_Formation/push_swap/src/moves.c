@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 14:49:20 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/10 05:47:58 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/11 08:16:53 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ void	rotate(t_node **stack, char *move)
 
 void	reverse_rotate(t_node **stack, char *move)
 {
-	rotate_all_list(stack);
+	send_last_to_first(stack);
 	ft_putendl_fd(move, 1);
 }

@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 15:29:52 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/10 05:48:27 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/11 08:17:32 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	rotate_double(t_node **stack_1, t_node **stack_2)
 
 void	reverse_rotate_double(t_node **stack_1, t_node **stack_2)
 {
-	rotate_all_list(stack_1);
-	rotate_all_list(stack_2);
+	send_last_to_first(stack_1);
+	send_last_to_first(stack_2);
 	ft_putendl_fd("rrr", 1);
 }
 

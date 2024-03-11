@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 18:06:53 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/10 00:24:43 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/11 08:24:37 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int ac, char **av)
 	validate_args(ac, av);
 	init_data(&data);
 	push_swap(ac, av, data);
-	print_list(&data->a);
+//	print_list(&data->a);
 	free_data(&data);
 	return (0);
 }

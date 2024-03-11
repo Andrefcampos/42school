@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 16:58:05 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/10 05:47:34 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/11 08:15:38 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,18 +79,27 @@ void	del_one_node(t_node **head, int val)
 		temp->next->prev = temp->prev;
 }
 
-void	rotate_all_list(t_node **head)
+void send_last_to_first(t_node **head)
 {
-	t_node	*upd;
-	t_node	*temp;
-	
-	if (!*head || !(*head)->next)
-		return ;
-	temp = *head;
-	upd = NULL;
-	while (temp)
-		send_in_list(&temp, &upd);
-	*head = upd;
+	t_node	*first;
+	t_node	*last;
+	t_node	*second_last;
+ 
+	if (*head == NULL || (*head)->next == NULL)
+		return;
+	first = *head;
+	last = *head;
+	second_last = NULL;
+	while (last->next != NULL)
+	{
+		second_last = last;
+		last = last->next;
+	}
+	last->next = first;
+	first->prev = last;
+	last->prev = NULL;
+	second_last->next = NULL;
+	*head = last;
 }
 
 void	print_list(t_node **list)

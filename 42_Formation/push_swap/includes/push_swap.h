@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 15:20:43 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/10 23:35:15 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/11 08:16:29 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int		size_stack(t_node **stack);
 void	swap_first_second_node(t_node **head);
 void	send_first_to_last(t_node **head);
 void	send_in_list(t_node **stack1, t_node **stack2);
-void	rotate_all_list(t_node **head);
+void	send_last_to_first(t_node **head);
 
 //Movements:
 void	swap(t_node **stack, char *move);
