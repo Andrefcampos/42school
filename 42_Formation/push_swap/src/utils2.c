@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:30:33 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/11 09:43:03 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/11 09:46:21 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,18 +68,6 @@ void	validate_args(int ac, char **av)
 	{
 		ft_putendl_fd("Error", 2);
 		exit(EXIT_FAILURE);
-	}
-}
-
-void	create_list(char **av, t_node **stack)
-{
-	int	y;
-
-	y = 1;
-	while (av[y])
-	{
-		list_add_next_last(stack, create_node(ft_atol(av[y])));
-		y++;
 	}
 }
 

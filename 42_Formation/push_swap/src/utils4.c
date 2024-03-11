@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 22:43:04 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/11 09:39:49 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/11 10:18:04 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,30 +47,33 @@ t_node	*list_last(t_node **stack)
 	return (last);
 }
 
-void	retain_last_three(t_data *data)
+void	create_list(char **av, t_node **stack)
 {
-	int	pushed;
-	int	index;
-	int	size_list;
+	int	y;
 
-	pushed = 0;
-	index = 0;
-	size_list = data->size_a;
-	while (size_list > 6 && index < size_list && pushed < (size_list / 2))
+	y = 1;
+	while (av[y])
 	{
-		data->size_a = size_stack(&data->a);
-		if (data->size_a >= (size_list / 2)) //corrigir o comparador de a.
-		{
-			push(&data->a, &data->b, "pb");
-			pushed++;
-		}
-		else
-			rotate(&data->a, "ra");
-		index++;
-	}
-	while ((size_list - pushed) > 3)
-	{
-		push(&data->a, &data->b, "pb");
-		pushed++;
+		list_add_next_last(stack, create_node(ft_atol(av[y])));
+		y++;
 	}
 }
+
+/*void	get_index(t_node **stack)
+{
+	t_node	*temp;
+	int		index;
+
+	temp = *stack;
+	index = 2;
+	while (index <= max_node(stack))
+	{
+		if (temp->num == max_node(stack))
+			temp->index = size_stack(stack);
+		if (temp->num == min_node(stack))
+			temp->index = 1;
+		if (temp->index != 0)
+			temp = temp->next;
+		index++;
+	}
+}*/
