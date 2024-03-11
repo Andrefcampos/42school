@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 22:43:04 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/11 02:41:08 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/11 09:39:49 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,11 @@ void	retain_last_three(t_data *data)
 
 	pushed = 0;
 	index = 0;
-	size_list = size_stack(&data->a);
+	size_list = data->size_a;
 	while (size_list > 6 && index < size_list && pushed < (size_list / 2))
 	{
 		data->size_a = size_stack(&data->a);
-		if (data->size_a <= (size_list / 2))
+		if (data->size_a >= (size_list / 2)) //corrigir o comparador de a.
 		{
 			push(&data->a, &data->b, "pb");
 			pushed++;

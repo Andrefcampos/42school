@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 15:20:43 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/11 08:16:29 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/11 09:39:32 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@
 typedef struct s_node t_node;
 struct s_node
 {
-  int		num;
-  t_node	*next;
-  t_node	*prev;
+	int		num;
+	int		index;
+	t_node	*next;
+	t_node	*prev;
 };
 
 typedef struct s_data	t_data;
@@ -41,12 +42,12 @@ int		check_args(char **av);
 int		check_args_dup(char **av);
 
 //Initiation:
-void	init_data(t_data **data);
+void	init_data(t_data **data, char **av);
 int		min_node(t_node **head);
 int		max_node(t_node **head);
 
 // Sort:
-void	push_swap(int ac, char **av, t_data *data);
+void	push_swap(int ac, t_data *data);
 
 //Sort List:
 void	sort_three_num(t_data *data);

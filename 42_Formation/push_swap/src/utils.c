@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 16:58:05 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/11 08:15:38 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/11 09:41:32 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,25 +58,6 @@ void	list_add_next_first(t_node **head, t_node *new_node)
 	if (new_node->prev != NULL)
 		new_node->prev = NULL;
 	*head = new_node;
-}
-
-void	del_one_node(t_node **head, int val)
-{
-	t_node	*temp;
-
-	if (!*head || (*head)->next == NULL)
-		return ;
-	temp = *head;
-	while (temp && temp->num != val)
-		temp = temp->next;
-	if (temp == NULL)
-		return ;
-	if (temp == *head)
-		*head = temp->next;
-	if (temp->prev != NULL)
-		temp->prev->next = temp->next;
-	if (temp->next != NULL)
-		temp->next->prev = temp->prev;
 }
 
 void send_last_to_first(t_node **head)

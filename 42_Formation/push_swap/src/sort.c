@@ -6,23 +6,20 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:27:35 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/11 08:21:45 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/11 09:39:38 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 #include <libft.h>
 
-void	push_swap(int ac, char **av, t_data *data)
+void	push_swap(int ac, t_data *data)
 {
 	if (ac < 5)
-	{
-		create_list(av, &data->a);
-		data->max_a = max_node(&data->a);
 		sort_three_num(data);
-		return ;
-	}
-	//sort_all_num(data);
+	else
+		//sort_all_num(data);
+	return ;
 }
 
 void	sort_three_num(t_data *data)
@@ -48,4 +45,10 @@ void	sort_three_num(t_data *data)
 	}
 	if (!check_sort(data->a))
 		shift_stack(&data->a);
+}*/
+
+/*void	shift_stack(t_data *data)
+{
+	
+
 }*/
