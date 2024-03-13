@@ -6,7 +6,7 @@
 #    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/29 15:20:31 by andrefil          #+#    #+#              #
-#    Updated: 2024/03/13 02:33:12 by andrefil         ###   ########.fr        #
+#    Updated: 2024/03/13 11:15:28 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,9 @@ FILES		+= $(addprefix $(FILES_DIR), \
 				moves.c \
 				moves2.c \
 				sort.c \
+				sort2.c \
+				sort_a.c \
+				sort_b.c \
 				validate.c)
 
 OBJS_DIR	:=	objs/

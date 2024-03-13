@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:27:35 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/12 15:37:56 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/13 11:31:04 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,51 +16,81 @@
 void	push_swap(int ac, t_stack *stack)
 {
 	if (ac < 5)
-		sort_three_num(stack);
+		sort_three(&stack->a);
+	else if (ac < 6)
+		sort_four();
+	else if (ac < 7)
+		sort_five();
 	//else
-		//sort_all_num(stack);
+		//sort(stack);
 }
 
-void	sort_three_num(t_stack *stack)
+void	sort_three(t_node **head)
 {
-	if (stack->a->next->next)
+	if ((*head)->next->next)
 	{
-		if (stack->a->num == max_node(&stack->a))
-			rotate(&stack->a, "ra");
-		else if (stack->a->next->num == max_node(&stack->a))
-			reverse_rotate(&stack->a, "rra");
+		if ((*head)->num == max_node(head, 3))
+			rotate(head, "ra");
+		else if ((*head)->next->num == max_node(head, 3))
+			reverse_rotate(head, "rra");
 	}
-	if (stack->a->num > stack->a->next->num)
-		swap(&stack->a, "sa");
+	if ((*head)->num > (*head)->next->num)
+		swap(head, "sa");
 }
 
-void	retain_last_three(t_stack *stack)
-{
-	int	pushed;
-	int	index;
-	int	size_list;
 
-	pushed = 0;
-	index = 0;
-	size_list = stack->size_a;
-	while (size_list > 6 && index < size_list && pushed < (size_list / 2))
+void	sort_all(t_stack **stack, char c, int size)
+{
+	if (check_sort_stacks(stack, c, size))
+		return ;
+	if (c == 'A')
 	{
-		stack->size_a = size_stack(&stack->a);
-		if (stack->a->num <= mid_node(&stack->a))
-		{
-			push(&stack->a, &stack->b, "pb");
-			pushed++;
-		}
+		if (!check_n_sort(&(*stack)->a, c, size))
+			sort_handle_a(stack, size);
 		else
-			rotate(&stack->a, "ra");
-		index++;
+			return ;
 	}
-	while ((size_list - pushed) > 3)
+	else
 	{
-		push(&stack->a, &stack->b, "pb");
-		pushed++;
+		if (!check_n_sort(&(*stack)->b, c, size))
+			sort_handle_b(stack, size);
+		else
+		{
+			push(&(*stack)->b, &(*stack)->a, "pb");
+			return ;
+		}
 	}
+	sort_all(stack, 'A', ((size / 2) + (size % 2)));
+	sort_all(stack, 'B', (size / 2));
 }
+
+
+// void	retain_last_three(t_stack *stack)
+// {
+// 	int	pushed;
+// 	int	index;
+// 	int	list_size;
+// 
+// 	pushed = 0;
+// 	index = 0;
+// 	list_size = stack->size_a;
+// 	while (list_size > 6 && index < list_size && pushed < (list_size / 2))
+// 	{
+// 		if (stack->a->num <= mid_node(&stack->a))
+// 		{
+// 			push(&stack->a, &stack->b, "pb");
+// 			pushed++;
+// 		}
+// 		else
+// 			rotate(&stack->a, "ra");
+// 		index++;
+// 	}
+// 	while ((list_size - pushed) > 3)
+// 	{
+// 		push(&stack->a, &stack->b, "pb");
+// 		pushed++;
+// 	}
+// }
 
 /*void	sort_all_num(t_stack *stack)
 {

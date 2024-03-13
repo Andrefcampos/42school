@@ -6,22 +6,22 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 22:43:04 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/13 02:28:19 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/13 06:03:59 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 #include <libft.h>
 
-int	size_stack(t_node **stack)
+int	size_list(t_node **head)
 {
 	int		index;
 	t_node	*temp;
 	
 	index = 0;
-	if (!*stack)
+	if (!*head)
 		return (index);
-	temp = *stack;
+	temp = *head;
 	while (temp)
 	{
 		index++;
@@ -30,59 +30,64 @@ int	size_stack(t_node **stack)
 	return (index);
 }
 
-int	max_node(t_node **head)
+int	max_node(t_node **head, int size)
 {
 	t_node	*temp;
 	int		max;
 
 	temp = *head;
 	max = temp->num;
-	while (temp)
+	while (temp && size--)
 	{
-		if (max <= temp->num)
+		if (max < temp->num)
 			max = temp->num;
-		temp = temp->next;
+		if (temp->next)
+			temp = temp->next;
 	}
 	return (max);
 }
 
-int	min_node(t_node **head)
+int	min_node(t_node **head, int size)
 {
 	t_node	*temp;
-	int	min;
+	int		min;
 
 	temp = *head;
 	min = temp->num;
-	while (temp)
+	while (temp && size--)
 	{
-		if (min >= temp->num)
-		min = temp->num;
-	temp = temp->next;
+		if (min > temp->num)
+			min = temp->num;
+		if (temp->next)
+			temp = temp->next;
 	}
 	return (min);
 }
 
-int	mid_node(t_node **stack)
+int	mid_node(t_node *head, int range, int size)
 {
 	t_node	*temp;
-	t_node	*head;
 	int		index;
 	int		mid_n;
+	int		big_n;
+	int		small_n;
 
-	if (!*stack || !(*stack)->next)
+	if (!head || !(head)->next)
 		return (0);
-	head = *stack;
-	temp = NULL;
-	index = 0;
-	mid_n = 0;
-	list_copy(&head, &temp);
-	while (index <= ((size_stack(&head) / 2) + (size_stack(&head) % 2)))
+	big_n = max_node(&head, size);
+	small_n = min_node(&head, size);
+	while (--range)
 	{
-		del_one_node(&temp, max_node(&temp));
-		del_one_node(&temp, min_node(&temp));
-		index++;
+		mid_n = small_n;
+		temp = head;
+		index = 0;
+		while (temp && index++ < size)
+		{
+			if (temp->num > mid_n && temp->num < big_n)
+				mid_n = temp->num;
+			temp = temp->next;
+		}
+		big_n = mid_n;
 	}
-	mid_n = max_node(&temp);
-	list_clear(&temp);
 	return (mid_n);
 }

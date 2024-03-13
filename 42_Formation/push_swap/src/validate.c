@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 02:28:40 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/13 02:30:10 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/13 08:25:51 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,22 @@ int	check_sort(t_node **head)
 			temp = temp->next;
 		}
 		current_node = current_node->next;
+	}
+	return (1);
+}
+
+int	check_n_sort(t_node **head, char c, int size)
+{
+	t_node *temp;
+
+	temp = *head;
+	while (temp && --size)
+	{
+		if (c == 'A' && temp->next && temp->num > temp->next->num)
+			return (0);
+		else if (temp->next && temp->num < temp->next->num)
+			return (0);
+		temp = temp->next;
 	}
 	return (1);
 }

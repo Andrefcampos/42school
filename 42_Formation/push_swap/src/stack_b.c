@@ -1,25 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   stack_b.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/08 01:23:05 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/13 03:16:18 by andrefil         ###   ########.fr       */
+/*   Created: 2024/03/13 11:18:13 by andrefil          #+#    #+#             */
+/*   Updated: 2024/03/13 11:18:23 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
-#include <libft.h>
 
-void	init_stack(t_stack **stack, char **av)
-{
-	*stack = (t_stack *)ft_calloc(1, sizeof(t_stack));
-	if (!stack)
-		return ;
-	create_list(av, &(*stack)->a);
-	(*stack)->size_a = size_list(&(*stack)->a);
-	(*stack)->b = NULL;
-	(*stack)->size_b = size_list(&(*stack)->b);
-}
+

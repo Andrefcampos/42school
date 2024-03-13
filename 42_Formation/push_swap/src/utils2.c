@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:30:33 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/13 02:29:49 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/13 04:17:37 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,28 @@ void	print_list(t_node **list)
 	}
 }
 
-void list_copy(t_node **stack, t_node **s_dest)
+void	listcopy(t_node **head, t_node **s_dest)
 {
 	t_node *temp;
 
-	temp = *stack;
+	if (!*head)
+		return ;
+	temp = *head;
 	while (temp && temp->next != NULL)
+	{
+		list_add_next_last(s_dest, create_node(temp->num));
+		temp = temp->next;
+	}
+}
+
+void	listncopy(t_node **head, t_node **s_dest, int n)
+{
+	t_node *temp;
+
+	if (!*head)
+		return ;
+	temp = *head;
+	while (temp && --n)
 	{
 		list_add_next_last(s_dest, create_node(temp->num));
 		temp = temp->next;
