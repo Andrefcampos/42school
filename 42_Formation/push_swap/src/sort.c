@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:27:35 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/13 19:19:48 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/13 19:47:47 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	push_swap(int ac, t_stack *stack)
 		sort_four(&stack);
 	else if (ac < 7)
 		sort_five(&stack);
-	else if (ac > 6)
+	else
 		sort_a(&stack, &count, size_list(&stack->a));
 }
 
@@ -84,14 +84,14 @@ void	sort_all(t_stack **stack, char c, int size)
 	if (c == 'A')
 	{
 		if (!check_n_sort(&(*stack)->a, c, size))
-			sort_handle_a(stack, size);
+			sort_stack_a(stack, size);
 		else
 			return ;
 	}
 	else
 	{
 		if (!check_n_sort(&(*stack)->b, c, size))
-			sort_handle_b(stack, size);
+			sort_stack_b(stack, size);
 		else
 		{
 			push(&(*stack)->b, &(*stack)->a, "pb");

@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 15:20:43 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/13 19:14:30 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/13 19:48:32 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ void	sort_five(t_stack **stack);
 void	sort_three_a(t_node **head_b, t_node **head_a);
 void	sort_three_b(t_node **head_b, t_node **head_a);
 void	sort_all(t_stack **stack, char c, int size);
-void	sort_handle_a(t_stack **stack, int size);
-void	sort_handle_b(t_stack **stack, int size);
+void	sort_stack_a(t_stack **stack, int size); /*falta fazer*/
+void	sort_stack_b(t_stack **stack, int size); /*falta fazer*/
 void	restore_a(t_stack **stack, t_var *vars, int *count);
 
 //Manipulation linked list:
