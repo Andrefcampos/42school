@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 15:20:43 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/13 11:15:51 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/13 18:15:14 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,23 @@ int		check_args_dup(char **av);
 
 //Initiation:
 void	init_stack(t_stack **stack, char **av);
+void	init_vars(t_node **stack, t_var *vars, int size);
 
 // Sort:
 void	push_swap(int ac, t_stack *stack);
+void	sort_a(t_stack **stack, int *count, int size);
 void	divide_stack_a(t_stack **stack, t_var *vars, int *times);
-
-//Sort List:
+void	restore_a(t_stack **stack, t_var *vars, int *count);
+void	sort_b(t_stack **stack, int *count, int size);
+void	restore_b(t_stack **stack, t_var *vars);
+void	divide_stack_b(t_stack **stack, t_var *vars, int *times);
 void	sort_three(t_node **head);
 void	sort_three_a(t_node **head_b, t_node **head_a);
 void	sort_three_b(t_node **head_b, t_node **head_a);
 void	sort_all(t_stack **stack, char c, int size);
 void	sort_handle_a(t_stack **stack, int size);
 void	sort_handle_b(t_stack **stack, int size);
+void	restore_a(t_stack **stack, t_var *vars, int *count);
 //void	sort_a(t_stack **stack, int size);
 //void	sort_b(t_stack **stack, int size);
 
@@ -93,8 +98,12 @@ void	rotate_double(t_node **head1, t_node **head2);
 void	reverse_rotate_double(t_node **head1, t_node **head2);
 /*void	retain_last_three(t_stack *head);*/
 
-//Print all nodes in list:
+//Utils functions:
 void	print_list(t_node **head);
+void	list_iter(t_node **lst, char *s, \
+		void (*f)(t_node **, char *), int size);
+void	stacks_iter(t_node **lst1, t_node **lst2, \
+		void (*f)(t_node **, t_node **), int size);
 
 //Check sort:
 int		check_sort(t_node **head);

@@ -6,20 +6,20 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 20:07:13 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/10 05:31:03 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/13 18:18:32 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 #include <stdlib.h>
 
-void	free_data(t_data **data)
+void	free_stack(t_stack **stack)
 {
-	if ((*data)->a)
-		list_clear(&(*data)->a);
-	if ((*data)->b)
-		list_clear(&(*data)->b);
-	free(*data);
+	if ((*stack)->a)
+		list_clear(&(*stack)->a);
+	if ((*stack)->b)
+		list_clear(&(*stack)->b);
+	free(*stack);
 }
 
 void	list_clear(t_node **head)
