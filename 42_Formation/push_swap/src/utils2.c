@@ -6,89 +6,74 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:30:33 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/11 09:46:21 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/13 02:29:49 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 #include <libft.h>
+#include <stdio.h>
 
-int	check_args(char **av)
-{
-	int	y;
-	int	x;
-
-	y = 1;
-	if (av[y] == NULL || ft_strlen(av[y]) == 0)
-		return (0);
-	while (av[y])
-	{
-		x = 0;
-		while (av[y][x])
-		{
-			if (av[y][0] == '-' || av[y][0] == '+' || ft_isdigit(av[y][x]))
-				x++;
-			else if (!ft_isdigit(av[y][x]))
-			return (0);
-		}
-		y++;
-	}
-	if (ft_strlen(av[y - 1]) == 0)
-		return (0);
-	return (1);
-}
-
-int	check_args_dup(char **av)
-{
-	int		y;
-	int		x;
-
-	y = 1;
-	while (av[y])
-	{
-		if (ft_atol(av[y]) > INT_MAX || ft_atol(av[y]) < INT_MIN)
-			return (0);
-		x = y + 1;
-		while (av[x])
-		{
-			if (ft_atol(av[y]) == ft_atol(av[x]))
-				return (0);
-			x++;
-		}
-		y ++;
-	}
-	return (1);
-}
-
-void	validate_args(int ac, char **av)
-{
-	if (ac == 2 && check_args(av))
-		exit(EXIT_SUCCESS);
-	else if (ac == 1 || !check_args(av) || !check_args_dup(av))
-	{
-		ft_putendl_fd("Error", 2);
-		exit(EXIT_FAILURE);
-	}
-}
-
-int	check_sort(t_node **head)
+t_node	*list_last(t_node **stack)
 {
 	t_node	*temp;
-	t_node	*current_node;
-	
-	if (!*head || !(*head)->next)
-		return (1);
-	current_node = *head;
-	while (current_node)
+	t_node	*last;
+
+	if (!*stack || !(*stack)->next)
+		return (*stack);
+	temp = *stack;
+	last = NULL;
+	while (temp)
 	{
-		temp = current_node->next;
-		while (temp)
-		{
-			if (current_node->num > temp->num)
-				return (0);
-			temp = temp->next;
-		}
-		current_node = current_node->next;
+		last = temp;
+		temp = temp->next;
 	}
-	return (1);
+	return (last);
 }
+
+void	print_list(t_node **list)
+{
+	t_node	*temp;
+
+	if (!*list)
+		return ;
+	temp = *list;
+	while (temp)
+	{
+		printf("nó: %d\n", temp->num);
+		temp = temp->next;
+	}
+}
+
+void list_copy(t_node **stack, t_node **s_dest)
+{
+	t_node *temp;
+
+	temp = *stack;
+	while (temp && temp->next != NULL)
+	{
+		list_add_next_last(s_dest, create_node(temp->num));
+		temp = temp->next;
+	}
+}
+
+void	del_one_node(t_node **head, int val)
+{
+	t_node	*temp;
+
+	if (!*head || (*head)->next == NULL)
+		return ;
+	temp = *head;
+	while (temp && temp->num != val)
+		temp = temp->next;
+	if (temp == NULL)
+		return ;
+	if (temp == *head)
+		*head = temp->next;
+	if (temp->prev != NULL)
+		temp->prev->next = temp->next;
+	if (temp->next != NULL)
+		temp->next->prev = temp->prev;
+	free (temp);
+}
+

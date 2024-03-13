@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 16:58:05 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/11 09:41:32 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/13 02:25:32 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 #include <libft.h>
 #include <stdio.h>
 
-t_node	*create_node(int data)
+t_node	*create_node(int stack)
 {
 	t_node	*set;
 
 	set = ft_calloc(1, sizeof(t_node));
 	if (!set)
 		return (NULL);
-	set->num = data;
+	set->num = stack;
 	set->prev = NULL;
 	set->next = NULL;
 	return (set);
@@ -83,16 +83,15 @@ void send_last_to_first(t_node **head)
 	*head = last;
 }
 
-void	print_list(t_node **list)
+void	create_list(char **av, t_node **stack)
 {
-	t_node	*temp;
+	int	y;
 
-	if (!*list)
-		return ;
-	temp = *list;
-	while (temp)
+	y = 1;
+	while (av[y])
 	{
-		printf("nó: %d\n", temp->num);
-		temp = temp->next;
+		list_add_next_last(stack, create_node(ft_atol(av[y])));
+		y++;
 	}
 }
+
