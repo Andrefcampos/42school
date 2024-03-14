@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 15:20:43 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/13 19:48:32 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/14 16:20:22 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,24 +48,24 @@ int		check_args_dup(char **av);
 
 //Initiation:
 void	init_stack(t_stack **stack, char **av);
-void	init_vars(t_node **stack, t_var *vars, int size);
+void	init_vars(t_node *stack, t_var *vars, int size);
 
 // Sort:
-void	push_swap(int ac, t_stack *stack);
+void	push_swap(int ac, t_stack **stack);
 void	sort_a(t_stack **stack, int *count, int size);
 void	divide_stack_a(t_stack **stack, t_var *vars, int *times);
 void	restore_a(t_stack **stack, t_var *vars, int *count);
 void	sort_b(t_stack **stack, int *count, int size);
 void	restore_b(t_stack **stack, t_var *vars);
 void	divide_stack_b(t_stack **stack, t_var *vars, int *times);
-void	sort_three(t_node **head);
+void	sort_three(t_node **head, int size);
 void	sort_four(t_stack **stack);
 void	sort_five(t_stack **stack);
-void	sort_three_a(t_node **head_b, t_node **head_a);
-void	sort_three_b(t_node **head_b, t_node **head_a);
+void	sort_three_a(t_stack **stack);
+void	sort_three_b(t_stack **stack);
 void	sort_all(t_stack **stack, char c, int size);
-void	sort_stack_a(t_stack **stack, int size); /*falta fazer*/
-void	sort_stack_b(t_stack **stack, int size); /*falta fazer*/
+void	sort_stack_a(t_stack **stack, int size);
+void	sort_stack_b(t_stack **stack, int size);
 void	restore_a(t_stack **stack, t_var *vars, int *count);
 
 //Manipulation linked list:
@@ -90,7 +90,7 @@ void	send_last_to_first(t_node **head);
 
 //Movements:
 void	swap(t_node **head, char *move);
-void	push(t_node **head1, t_node **head2, char *move);
+void	push(t_stack **stack, char *move);
 void	rotate(t_node **head, char *move);
 void	reverse_rotate(t_node **head, char *move);
 void	swap_double(t_node **head1, t_node **head2);
@@ -104,6 +104,8 @@ void	list_iter(t_node **lst, char *s, \
 		void (*f)(t_node **, char *), int size);
 void	stacks_iter(t_node **lst1, t_node **lst2, \
 		void (*f)(t_node **, t_node **), int size);
+void	stack_iter(t_stack **stack, char *move, \
+		void (*f)(t_stack **, char *), int size);
 
 //Check sort:
 int		check_sort(t_node **head);

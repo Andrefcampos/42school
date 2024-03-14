@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 11:18:13 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/13 18:14:42 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/14 12:26:24 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ void	sort_b(t_stack **stack, int *count, int size)
 	t_var	vars;
 	
 	(*count)++;
-	if (size > 8)
+	if (size < 8)
 	{
 		sort_all(stack, 'B', size);
 		return ;
 	}
-	init_vars(&(*stack)->b, &vars, size);
+	init_vars((*stack)->b, &vars, size);
 	while (size--)
 		divide_stack_b(stack, &vars, &size);
 	sort_a(stack, count, vars.pa - vars.ra);
@@ -54,7 +54,7 @@ void	divide_stack_b(t_stack **stack, t_var *vars, int *times)
 		&& (*stack)->b->next->num <= vars->small_pivot \
 		&& (*stack)->b->num <= vars->big_pivot)
 	{
-		push(&(*stack)->b, &(*stack)->a, "pa");
+		push(stack, "pa");
 		vars->pa++;
 		rotate_double(&(*stack)->a, &(*stack)->b);
 		vars->ra++;
@@ -68,7 +68,7 @@ void	divide_stack_b(t_stack **stack, t_var *vars, int *times)
 		vars->rb++;
 		return ;
 	}
-	push(&(*stack)->b, &(*stack)->a, "pa");
+	push(stack, "pa");
 	vars->pa++;
 	if ((*stack)->a->num <= vars->big_pivot)
 	{

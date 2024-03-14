@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 16:52:32 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/13 14:49:16 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/14 15:18:26 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	send_in_list(t_node **stack1, t_node **stack2)
 	t_node	*first_stack1;
 	t_node	*current_node;
 
-	if (*stack1 == NULL || stack2 == NULL)
+	if (*stack1 == NULL || stack1 == NULL)
 		return;
 	if ((*stack1)->next == NULL)
 	{
@@ -106,6 +106,19 @@ void	stacks_iter(t_node **lst1, t_node **lst2, \
 	while (index < size)
 	{
 		(*f)(lst1, lst2);
+		index++;
+	}
+}
+
+void	stack_iter(t_stack **stack, char *move, \
+		void (*f)(t_stack **, char *), int size)
+{
+	int	index;
+
+	index = 0;
+	while (index < size)
+	{
+		(*f)(stack, move);
 		index++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 18:06:53 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/12 15:35:33 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/14 12:42:15 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int ac, char **av)
 
 	validate_args(ac, av);
 	init_stack(&stack, av);
-	push_swap(ac, stack);
+	push_swap(ac, &stack);
 	print_list(&stack->a);
 	free_stack(&stack);
 	return (0);

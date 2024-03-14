@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 22:43:04 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/13 06:03:59 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/14 12:58:35 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int	max_node(t_node **head, int size)
 	t_node	*temp;
 	int		max;
 
+	if (!*head)
+		return (0);
 	temp = *head;
 	max = temp->num;
 	while (temp && size--)
@@ -52,6 +54,8 @@ int	min_node(t_node **head, int size)
 	t_node	*temp;
 	int		min;
 
+	if (!*head)
+		return (0);
 	temp = *head;
 	min = temp->num;
 	while (temp && size--)
@@ -68,7 +72,7 @@ int	mid_node(t_node *head, int range, int size)
 {
 	t_node	*temp;
 	int		index;
-	int		mid_n;
+	int		min;
 	int		big_n;
 	int		small_n;
 
@@ -78,16 +82,16 @@ int	mid_node(t_node *head, int range, int size)
 	small_n = min_node(&head, size);
 	while (--range)
 	{
-		mid_n = small_n;
+		min = small_n;
 		temp = head;
 		index = 0;
 		while (temp && index++ < size)
 		{
-			if (temp->num > mid_n && temp->num < big_n)
-				mid_n = temp->num;
+			if (temp->num > min && temp->num < big_n)
+				min = temp->num;
 			temp = temp->next;
 		}
-		big_n = mid_n;
+		big_n = min;
 	}
-	return (mid_n);
+	return (min);
 }

@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 14:49:20 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/11 08:16:53 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/14 12:37:54 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,22 @@ void	swap(t_node **stack, char *move)
 	ft_putendl_fd(move, 1);
 }
 
-void	push(t_node **stack_1, t_node **stack_2, char *move)
+void	push(t_stack **stack, char *move)
 {
-	send_in_list(stack_1, stack_2);
+	if (move[1] == 'b' && (*stack)->a)
+	{
+		send_in_list(&(*stack)->a, &(*stack)->b);
+		(*stack)->size_a--;
+		(*stack)->size_b++;
+	}
+	else if (move[1] == 'a' && (*stack)->b)
+	{
+		send_in_list(&(*stack)->b, &(*stack)->a);
+		(*stack)->size_a++;
+		(*stack)->size_b--;
+	}
+	else
+		return ;
 	ft_putendl_fd(move, 1);
 }
 
