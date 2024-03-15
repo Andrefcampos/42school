@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 09:50:55 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/14 21:05:27 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/15 16:22:37 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	sort_a(t_stack **stack, int *count, int size)
 
 	if (size < 8)
 	{
-		sort_all(stack, 'A', size);
+		sort_stacks(stack, 'A', size);
 		return ;
 	}
 	init_vars((*stack)->a, &vars, size);
@@ -39,7 +39,7 @@ void	divide_stack_a(t_stack **stack, t_var *vars, int *times)
 	{
 		push(stack, "pb");
 		vars->pb++;
-		rotate_double(&(*stack)->a, &(*stack)->b);
+		rotate(stack, "rr");
 		vars->ra++;
 		vars->rb++;
 		(*times)--;
@@ -47,15 +47,15 @@ void	divide_stack_a(t_stack **stack, t_var *vars, int *times)
 	}
 	if ((*stack)->a->num > vars->big_pivot)
 	{
-		rotate(&(*stack)->a, "ra");
+		rotate(stack, "ra");
 		vars->ra++;
 		return ;
 	}
 	push(stack, "pb");
 	vars->pb++;
-	if ((*stack)->b->num > vars->small_pivot)
+	if ((*stack)->b->num < vars->small_pivot)
 	{
-		rotate(&(*stack)->b, "rb");
+		rotate(stack, "rb");
 		vars->rb++;
 	}
 }
@@ -70,19 +70,19 @@ void	restore_a(t_stack **stack, t_var *vars, int *count)
 		rrr = vars->rb;
 		rrx = vars->ra - rrr;
 		if ((*count) > 0)
-			list_iter(&(*stack)->a, "rra", reverse_rotate, rrx);
+			stack_iter(stack, "rra", reverse_rotate, rrx);
 		else
-			list_iter(&(*stack)->b, "rrb", reverse_rotate, rrr);
+			stack_iter(stack, "rrb", reverse_rotate, rrr);
 	}
 	else
 	{
 		rrr = vars->ra;
 		rrx = vars->rb - rrr;
 		if ((*count) > 0)
-			list_iter(&(*stack)->b, "rrb", reverse_rotate, rrx);
+			stack_iter(stack, "rrb", reverse_rotate, rrx);
 		else
-			list_iter(&(*stack)->b, "rrb", reverse_rotate, vars->rb);
+			stack_iter(stack, "rrb", reverse_rotate, vars->rb);
 	}
 	if ((*count) > 0)
-		stacks_iter(&(*stack)->a, &(*stack)->b, reverse_rotate_double, rrr);
+			stack_iter(stack, "rrr", reverse_rotate, rrr);
 }

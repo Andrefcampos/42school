@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 11:18:13 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/14 18:09:42 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/15 16:22:25 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	sort_b(t_stack **stack, int *count, int size)
 	(*count)++;
 	if (size < 8)
 	{
-		sort_all(stack, 'B', size);
+		sort_stacks(stack, 'B', size);
 		return ;
 	}
 	init_vars((*stack)->b, &vars, size);
@@ -40,15 +40,15 @@ void	restore_b(t_stack **stack, t_var *vars)
 	{
 		rrr = vars->rb;
 		rrx = vars->ra - rrr;
-		list_iter(&(*stack)->a, "ra", reverse_rotate, rrx);
+		stack_iter(stack, "rra", reverse_rotate, rrx);
 	}
 	else
 	{
 		rrr = vars->ra;
 		rrx = vars->rb - rrr;
-		list_iter(&(*stack)->b, "rb", reverse_rotate, rrx);
+		stack_iter(stack, "rrb", rotate, rrx);
 	}
-	stacks_iter(&(*stack)->a, &(*stack)->b, reverse_rotate_double, rrr);
+	stack_iter(stack, "rrr", reverse_rotate, rrr);
 }
 
 void	divide_stack_b(t_stack **stack, t_var *vars, int *times)
@@ -59,7 +59,7 @@ void	divide_stack_b(t_stack **stack, t_var *vars, int *times)
 	{
 		push(stack, "pa");
 		vars->pa++;
-		rotate_double(&(*stack)->a, &(*stack)->b);
+		rotate(stack, "rr");
 		vars->ra++;
 		vars->rb++;
 		(*times)--;
@@ -67,7 +67,7 @@ void	divide_stack_b(t_stack **stack, t_var *vars, int *times)
 	}
 	if ((*stack)->b->num <= vars->small_pivot)
 	{
-		rotate(&(*stack)->b, "rb");
+		rotate(stack, "rb");
 		vars->rb++;
 		return ;
 	}
@@ -75,7 +75,7 @@ void	divide_stack_b(t_stack **stack, t_var *vars, int *times)
 	vars->pa++;
 	if ((*stack)->a->num <= vars->big_pivot)
 	{
-		rotate(&(*stack)->a, "ra");
+		rotate(stack, "ra");
 		vars->ra++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 06:23:50 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/14 17:57:18 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/15 14:40:59 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,24 @@
 static void	min_bot_b(t_stack **stack, int n)
 {
 	if ((*stack)->b->next->num == n)
-		swap(&(*stack)->b, "sb");
+		swap(stack, "sb");
 }
 
 static void	min_mid_b(t_stack **stack, int n)
 {
 	if ((*stack)->size_b == 3)
 	{
-		reverse_rotate(&(*stack)->b, "rrb");
+		reverse_rotate(stack, "rrb");
 		if ((*stack)->b->next->num == n)
-			swap(&(*stack)->b, "sb");
+			swap(stack, "sb");
 	}
 	else
 	{
-		rotate(&(*stack)->b, "rb");
-		swap(&(*stack)->b, "sb");
-		reverse_rotate(&(*stack)->b, "rrb");
+		rotate(stack, "rb");
+		swap(stack, "sb");
+		reverse_rotate(stack, "rrb");
 		if ((*stack)->b->next->num == n)
-			swap(&(*stack)->b, "sb");
+			swap(stack, "sb");
 	}
 }
 
@@ -40,18 +40,18 @@ static void	min_top_b(t_stack **stack, int n)
 {
 	if ((*stack)->size_b == 3)
 	{
-		rotate(&(*stack)->b, "rb");
+		rotate(stack, "rb");
 		if ((*stack)->b->next->num == n)
-			swap(&(*stack)->b, "sb");
+			swap(stack, "sb");
 	}
 	else
 	{
-		swap(&(*stack)->b, "sb");
-		rotate(&(*stack)->b, "rb");
-		swap(&(*stack)->b, "sb");
-		reverse_rotate(&(*stack)->b, "rrb");
+		swap(stack, "sb");
+		rotate(stack, "rb");
+		swap(stack, "sb");
+		reverse_rotate(stack, "rrb");
 		if ((*stack)->b->next->num == n)
-			swap(&(*stack)->b, "sb");
+			swap(stack, "sb");
 	}
 }
 
@@ -86,10 +86,10 @@ void	sort_stack_b(t_stack **stack, int size)
 			push(stack, "pa");
 		else
 		{
-			rotate(&(*stack)->b, "rb");
+			rotate(stack, "rb");
 			rotates++;
 		}
 	}
 	if ((*stack)->size_b > rotates)
-		list_iter(&(*stack)->b, "rrb", reverse_rotate, rotates);
+		stack_iter(stack, "rrb", reverse_rotate, rotates);
 }

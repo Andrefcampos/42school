@@ -6,40 +6,40 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 08:15:46 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/14 18:03:05 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/15 11:11:42 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static void	min_bot_a(t_node **head, int n)
+static void	min_bot_a(t_stack **stack, int n)
 {
-	if ((*head)->next->num == n)
-		swap(head, "sa");
-	rotate(head, "ra");
-	swap(head, "sa");
-	reverse_rotate(head, "rra");
-	swap(head, "sa");
+	if ((*stack)->a->next->num == n)
+		swap(stack, "sa");
+	rotate(stack, "ra");
+	swap(stack, "sa");
+	reverse_rotate(stack, "rra");
+	swap(stack, "sa");
 }
 
-static void	min_mid_a(t_node **head, int n)
+static void	min_mid_a(t_stack **stack, int n)
 {
-   swap(head, "sa");
-   if ((*head)->next->num == n)
+   swap(stack, "sa");
+   if ((*stack)->a->next->num == n)
    {
-      rotate(head, "ra");
-      swap(head, "sa");
-      reverse_rotate(head, "rra");
+      rotate(stack, "ra");
+      swap(stack, "sa");
+      reverse_rotate(stack, "rra");
    }
 }
 
-static void	min_top_a(t_node **head, int n)
+static void	min_top_a(t_stack **stack, int n)
 {
-	if ((*head)->next->num == n)
+	if ((*stack)->a->next->num == n)
 	{
-		rotate(head, "ra");
-		swap(head, "sa");
-		reverse_rotate(head, "rra");
+		rotate(stack, "ra");
+		swap(stack, "sa");
+		reverse_rotate(stack, "rra");
 	}
 }
 
@@ -51,13 +51,13 @@ void	sort_three_a(t_stack **stack)
 	min_a = min_node(&(*stack)->a, 3);
 	max_a = max_node(&(*stack)->a, 3);
 	if ((*stack)->size_a == 3)
-		sort_three(&(*stack)->a, 3);
+		sort_three(stack);
 	if ((*stack)->a->num == min_a)
-		min_top_a(&(*stack)->a, max_a);
+		min_top_a(stack, max_a);
 	else if ((*stack)->a->next->num == min_a)
-		min_mid_a(&(*stack)->a, max_a);
+		min_mid_a(stack, max_a);
 	else if ((*stack)->a->next->next->num == min_a)
-		min_bot_a(&(*stack)->a, max_a);
+		min_bot_a(stack, max_a);
 }
 
 void	sort_stack_a(t_stack **stack, int size)
@@ -75,10 +75,10 @@ void	sort_stack_a(t_stack **stack, int size)
 			push(stack, "pb");
 		else
 		{
-			rotate(&(*stack)->a, "ra");
+			rotate(stack, "ra");
 			rotates++;
 		}
 	}
 	if ((*stack)->size_a > rotates)
-		list_iter(&(*stack)->a, "rra", reverse_rotate, rotates);
+		stack_iter(stack, "rra", reverse_rotate, rotates);
 }

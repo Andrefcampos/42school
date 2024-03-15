@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 01:23:05 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/14 17:17:07 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/15 16:24:05 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,4 @@ void	init_vars(t_node *stack, t_var *vars, int size)
 	vars->pa = 0;
 	vars->rb = 0;
 	vars->pb = 0;
-
 }
