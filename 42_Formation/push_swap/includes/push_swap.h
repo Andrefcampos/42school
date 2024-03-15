@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 15:20:43 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/14 16:20:22 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/14 22:03:05 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	restore_a(t_stack **stack, t_var *vars, int *count);
 void	sort_b(t_stack **stack, int *count, int size);
 void	restore_b(t_stack **stack, t_var *vars);
 void	divide_stack_b(t_stack **stack, t_var *vars, int *times);
-void	sort_three(t_node **head, int size);
+void	sort_three(t_stack **stack, int size);
 void	sort_four(t_stack **stack);
 void	sort_five(t_stack **stack);
 void	sort_three_a(t_stack **stack);
@@ -89,11 +89,11 @@ void	send_in_list(t_node **head1, t_node **head2);
 void	send_last_to_first(t_node **head);
 
 //Movements:
-void	swap(t_node **head, char *move);
+void	swap(t_stack **stack, char *move);
 void	push(t_stack **stack, char *move);
 void	rotate(t_node **head, char *move);
 void	reverse_rotate(t_node **head, char *move);
-void	swap_double(t_node **head1, t_node **head2);
+//void	swap_double(t_node **head1, t_node **head2);
 void	rotate_double(t_node **head1, t_node **head2);
 void	reverse_rotate_double(t_node **head1, t_node **head2);
 /*void	retain_last_three(t_stack *head);*/

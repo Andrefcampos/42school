@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 09:50:55 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/14 12:25:38 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/14 21:05:27 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	sort_a(t_stack **stack, int *count, int size)
 	init_vars((*stack)->a, &vars, size);
 	while (size--)
 		divide_stack_a(stack, &vars, &size);
+
 	restore_a(stack, &vars, count);
 	sort_a(stack, count, vars.ra);
 	sort_b(stack, count, vars.rb);
@@ -62,20 +63,23 @@ void	divide_stack_a(t_stack **stack, t_var *vars, int *times)
 void	restore_a(t_stack **stack, t_var *vars, int *count)
 {
 	int	rrr;
+	int	rrx;
 
 	if (vars->ra > vars->rb)
 	{
 		rrr = vars->rb;
+		rrx = vars->ra - rrr;
 		if ((*count) > 0)
-			list_iter(&(*stack)->a, "rra", reverse_rotate, (vars->ra - rrr));
+			list_iter(&(*stack)->a, "rra", reverse_rotate, rrx);
 		else
 			list_iter(&(*stack)->b, "rrb", reverse_rotate, rrr);
 	}
 	else
 	{
 		rrr = vars->ra;
+		rrx = vars->rb - rrr;
 		if ((*count) > 0)
-			list_iter(&(*stack)->b, "rrb", reverse_rotate, (vars->rb - rrr));
+			list_iter(&(*stack)->b, "rrb", reverse_rotate, rrx);
 		else
 			list_iter(&(*stack)->b, "rrb", reverse_rotate, vars->rb);
 	}

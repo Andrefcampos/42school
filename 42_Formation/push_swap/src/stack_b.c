@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 11:18:13 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/14 12:26:24 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/14 18:09:42 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,19 @@ void	sort_b(t_stack **stack, int *count, int size)
 void	restore_b(t_stack **stack, t_var *vars)
 {
 	int	rrr;
+	int	rrx;
 
 	if (vars->ra > vars->rb)
 	{
 		rrr = vars->rb;
-		list_iter(&(*stack)->a, "ra", reverse_rotate, (vars->ra - rrr));
+		rrx = vars->ra - rrr;
+		list_iter(&(*stack)->a, "ra", reverse_rotate, rrx);
 	}
 	else
 	{
 		rrr = vars->ra;
-		list_iter(&(*stack)->b, "rb", reverse_rotate, (vars->rb - rrr));
+		rrx = vars->rb - rrr;
+		list_iter(&(*stack)->b, "rb", reverse_rotate, rrx);
 	}
 	stacks_iter(&(*stack)->a, &(*stack)->b, reverse_rotate_double, rrr);
 }

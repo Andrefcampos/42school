@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 22:43:04 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/14 12:58:35 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/14 20:47:28 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,7 @@ int	mid_node(t_node *head, int range, int size)
 	int		min;
 	int		big_n;
 	int		small_n;
-
-	if (!head || !(head)->next)
-		return (0);
+	
 	big_n = max_node(&head, size);
 	small_n = min_node(&head, size);
 	while (--range)

@@ -6,52 +6,52 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 06:23:50 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/14 15:54:10 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/14 17:57:18 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	min_bot_b(t_node **head, char *move, int n)
+static void	min_bot_b(t_stack **stack, int n)
 {
-	if ((*head)->next->num == n)
-		swap(head, move);
+	if ((*stack)->b->next->num == n)
+		swap(&(*stack)->b, "sb");
 }
 
-void	min_mid_b(t_node **head, int size, int n)
+static void	min_mid_b(t_stack **stack, int n)
 {
-	if (size == 3)
+	if ((*stack)->size_b == 3)
 	{
-		reverse_rotate(head, "rrb");
-		if ((*head)->next->num == n)
-			swap(head, "sb");
+		reverse_rotate(&(*stack)->b, "rrb");
+		if ((*stack)->b->next->num == n)
+			swap(&(*stack)->b, "sb");
 	}
 	else
 	{
-		rotate(head, "rb");
-		swap(head, "sb");
-		reverse_rotate(head, "rrb");
-		if ((*head)->next->num == n)
-			swap(head, "sb");
+		rotate(&(*stack)->b, "rb");
+		swap(&(*stack)->b, "sb");
+		reverse_rotate(&(*stack)->b, "rrb");
+		if ((*stack)->b->next->num == n)
+			swap(&(*stack)->b, "sb");
 	}
 }
 
-void	min_top_b(t_node **head, int size, int n)
+static void	min_top_b(t_stack **stack, int n)
 {
-	if (size == 3)
+	if ((*stack)->size_b == 3)
 	{
-		rotate(head, "rb");
-		if ((*head)->next->num == n)
-			swap(head, "sb");
+		rotate(&(*stack)->b, "rb");
+		if ((*stack)->b->next->num == n)
+			swap(&(*stack)->b, "sb");
 	}
 	else
 	{
-		swap(head, "sb");
-		rotate(head, "rb");
-		swap(head, "sb");
-		reverse_rotate(head, "rrb");
-		if ((*head)->next->num == n)
-			swap(head, "sb");
+		swap(&(*stack)->b, "sb");
+		rotate(&(*stack)->b, "rb");
+		swap(&(*stack)->b, "sb");
+		reverse_rotate(&(*stack)->b, "rrb");
+		if ((*stack)->b->next->num == n)
+			swap(&(*stack)->b, "sb");
 	}
 }
 
@@ -63,11 +63,11 @@ void	sort_three_b(t_stack **stack)
 	min_b = min_node(&(*stack)->b, 3);
 	max_b = max_node(&(*stack)->b, 3);
 	if ((*stack)->b->num == min_b)
-		min_top_b(&(*stack)->b, (*stack)->size_b, max_b);
+		min_top_b(stack, max_b);
 	else if ((*stack)->b->next->num == min_b)
-		min_mid_b(&(*stack)->b, (*stack)->size_b, max_b);
+		min_mid_b(stack, max_b);
 	else if ((*stack)->b->next->next->num == min_b)
-		min_bot_b(&(*stack)->b, "sb", max_b);
+		min_bot_b(stack, max_b);
 	stack_iter(stack, "pa", push, 3);
 }
 

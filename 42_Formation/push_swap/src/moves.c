@@ -6,16 +6,31 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 14:49:20 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/14 12:37:54 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/14 21:58:29 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 #include <libft.h>
 
-void	swap(t_node **stack, char *move)
+void	swap(t_stack **stack, char *move)
 {
-	swap_first_second_node(stack);
+	if ((move[1] == 'a' && (*stack)->size_a < 2) \
+		|| (move[1] == 'b' && (*stack)->size_b < 2))
+		return ;
+	if (((*stack)->size_b > 1 && (*stack)->b->num < (*stack)->b->next->num \
+		&& move[1] == 'a') || ((*stack)->size_a > 1 && \
+		(*stack)->a->num > (*stack)->a->next->num && move[1] == 'b'))
+		move = "ss";
+	if (move[1] == 's')
+	{
+		swap_first_second_node(&(*stack)->a);
+		swap_first_second_node(&(*stack)->b);
+	}
+	else if (move[1] == 'a')
+		swap_first_second_node(&(*stack)->a);
+	else if (move[1] == 'b')
+		swap_first_second_node(&(*stack)->b);
 	ft_putendl_fd(move, 1);
 }
 

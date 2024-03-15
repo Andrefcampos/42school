@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 08:15:46 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/14 16:23:11 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/14 18:03:05 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,5 @@ void	sort_stack_a(t_stack **stack, int size)
 		}
 	}
 	if ((*stack)->size_a > rotates)
-	{
-		while (rotates--)
-			reverse_rotate(&(*stack)->a, "rra");
-	}
+		list_iter(&(*stack)->a, "rra", reverse_rotate, rotates);
 }

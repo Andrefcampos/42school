@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 16:52:32 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/14 15:18:26 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/14 19:05:05 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,41 +84,20 @@ void	send_in_list(t_node **stack1, t_node **stack2)
 void	list_iter(t_node **lst, char *s, \
 		void (*f)(t_node **, char *), int size)
 {
-	int	index;
-
-	if (*lst)
-	{
-		index = 0;
-		while (index < size)
-		{
-			(*f)(lst, s);
-			index++;
-		}
-	}
+	while (size--)
+		(*f)(lst, s);
 }
 
 void	stacks_iter(t_node **lst1, t_node **lst2, \
 		void (*f)(t_node **, t_node **), int size)
 {
-	int	index;
-
-	index = 0;
-	while (index < size)
-	{
+	while (size--)
 		(*f)(lst1, lst2);
-		index++;
-	}
 }
 
 void	stack_iter(t_stack **stack, char *move, \
 		void (*f)(t_stack **, char *), int size)
 {
-	int	index;
-
-	index = 0;
-	while (index < size)
-	{
+	while (size--)
 		(*f)(stack, move);
-		index++;
-	}
 }

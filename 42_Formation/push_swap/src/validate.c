@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 02:28:40 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/14 16:37:33 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/14 17:59:48 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int	check_sort(t_node **head)
 
 int	check_n_sort(t_node **head, char c, int size)
 {
-	t_node *temp;
+	t_node	*temp;
 
 	temp = *head;
 	while (temp && --size)
