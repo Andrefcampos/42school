@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 11:18:13 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/15 16:22:25 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/15 17:20:12 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	restore_b(t_stack **stack, t_var *vars)
 	{
 		rrr = vars->ra;
 		rrx = vars->rb - rrr;
-		stack_iter(stack, "rrb", rotate, rrx);
+		stack_iter(stack, "rrb", reverse_rotate, rrx);
 	}
 	stack_iter(stack, "rrr", reverse_rotate, rrr);
 }

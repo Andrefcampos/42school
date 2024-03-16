@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 09:50:55 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/15 16:22:37 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/15 17:12:21 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	divide_stack_a(t_stack **stack, t_var *vars, int *times)
 	}
 	push(stack, "pb");
 	vars->pb++;
-	if ((*stack)->b->num < vars->small_pivot)
+	if ((*stack)->b->num > vars->small_pivot)
 	{
 		rotate(stack, "rb");
 		vars->rb++;
