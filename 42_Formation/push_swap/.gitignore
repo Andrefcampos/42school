@@ -1,6 +1,9 @@
 // ignore all types files:
 *.json
 
+// ignore file:
+checker_linux
+
 // ignore this dir:
 push_swap_visualizer/
 .cache/
