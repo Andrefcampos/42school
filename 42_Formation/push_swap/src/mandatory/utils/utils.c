@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 16:58:05 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/17 14:04:28 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/17 16:29:08 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	send_last_to_first(t_node **head)
 	t_node	*last;
 	t_node	*second_last;
 
-	if (*head == NULL || (*head)->next == NULL)
+	if (*head == NULL)
 		return ;
 	first = *head;
 	last = *head;
