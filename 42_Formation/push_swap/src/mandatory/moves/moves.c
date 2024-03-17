@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 14:49:20 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/15 18:15:24 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/17 14:29:43 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	swap(t_stack **stack, char *move)
 		else if (move[1] == 'b' && (*stack)->size_a > 1 \
 				&& (*stack)->a->num > (*stack)->a->next->num)
 			move = "ss";
-		if (move[1] == 'a' || move [1]== 's')
+		if (move[1] == 'a' || move [1] == 's')
 			swap_first_second_node(&(*stack)->a);
 		if (move[1] == 'b' || move[1] == 's')
 			swap_first_second_node(&(*stack)->b);
@@ -51,7 +51,7 @@ void	push(t_stack **stack, char *move)
 			(*stack)->size_b--;
 		}
 		else
-		return ;
+			return ;
 		ft_putendl_fd(move, 1);
 	}
 }

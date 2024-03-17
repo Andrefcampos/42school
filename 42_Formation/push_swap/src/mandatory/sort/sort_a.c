@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 08:15:46 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/15 11:11:42 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/17 14:16:06 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	min_bot_a(t_stack **stack, int n)
 {
-	if ((*stack)->a->next->num == n)
+	if ((*stack)->a->num == n)
 		swap(stack, "sa");
 	rotate(stack, "ra");
 	swap(stack, "sa");
@@ -24,13 +24,13 @@ static void	min_bot_a(t_stack **stack, int n)
 
 static void	min_mid_a(t_stack **stack, int n)
 {
-   swap(stack, "sa");
-   if ((*stack)->a->next->num == n)
-   {
-      rotate(stack, "ra");
-      swap(stack, "sa");
-      reverse_rotate(stack, "rra");
-   }
+	swap(stack, "sa");
+	if ((*stack)->a->next->num == n)
+	{
+		rotate(stack, "ra");
+		swap(stack, "sa");
+		reverse_rotate(stack, "rra");
+	}
 }
 
 static void	min_top_a(t_stack **stack, int n)

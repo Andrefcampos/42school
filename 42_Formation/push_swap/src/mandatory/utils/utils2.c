@@ -1,17 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils3.c                                           :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/08 16:52:32 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/15 18:22:00 by andrefil         ###   ########.fr       */
+/*   Created: 2024/03/06 15:30:33 by andrefil          #+#    #+#             */
+/*   Updated: 2024/03/17 14:10:57 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 #include <libft.h>
+#include <stdio.h>
+
+t_node	*list_last(t_node **stack)
+{
+	t_node	*temp;
+	t_node	*last;
+
+	if (!*stack || !(*stack)->next)
+		return (*stack);
+	temp = *stack;
+	last = NULL;
+	while (temp)
+	{
+		last = temp;
+		temp = temp->next;
+	}
+	return (last);
+}
 
 void	send_first_to_last(t_node **head)
 {
@@ -20,7 +38,7 @@ void	send_first_to_last(t_node **head)
 	t_node	*last;
 
 	if (*head == NULL || (*head)->next == NULL)
-    	return;
+		return ;
 	first = *head;
 	last = *head;
 	second = last->next;
@@ -41,7 +59,7 @@ void	swap_first_second_node(t_node **head)
 	t_node	*second;
 
 	if (*head == NULL || (*head)->next == NULL)
-		return;
+		return ;
 	first = *head;
 	second = (*head)->next;
 	first->next = second->next;
@@ -59,12 +77,12 @@ void	send_in_list(t_node **stack1, t_node **stack2)
 	t_node	*current_node;
 
 	if (*stack1 == NULL || stack1 == NULL)
-		return;
+		return ;
 	if ((*stack1)->next == NULL)
 	{
 		list_add_next_first(stack2, *stack1);
 		*stack1 = NULL;
-		return;
+		return ;
 	}
 	first_stack1 = *stack1;
 	current_node = first_stack1;
@@ -76,28 +94,22 @@ void	send_in_list(t_node **stack1, t_node **stack2)
 	if (!*stack2)
 	{
 		*stack2 = current_node;
-		return;
+		return ;
 	}
 	list_add_next_first(stack2, current_node);
 }
 
-void	list_iter(t_node **lst, char *s, \
-		void (*f)(t_node **, char *), int size)
+// TODO: delete function:
+void	print_list(t_node **list)
 {
-	while (size--)
-		(*f)(lst, s);
-}
+	t_node	*temp;
 
-void	stacks_iter(t_node **lst1, t_node **lst2, \
-		void (*f)(t_node **, t_node **), int size)
-{
-	while (size--)
-		(*f)(lst1, lst2);
-}
-
-void	stack_iter(t_stack **stack, char *move, \
-		void (*f)(t_stack **, char *), int size)
-{
-	while (size--)
-		(*f)(stack, move);
+	if (!*list)
+		return ;
+	temp = *list;
+	while (temp)
+	{
+		printf("nó: %d\n", temp->num);
+		temp = temp->next;
+	}
 }

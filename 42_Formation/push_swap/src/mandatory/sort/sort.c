@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:27:35 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/15 11:13:38 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/17 14:13:48 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	sort_four(t_stack **stack)
 		swap(stack, "sa");
 	else if ((*stack)->a->next->next->num == small)
 		stack_iter(stack, "ra", rotate, 2);
-	else if ((*stack)->a->next->next->next->num ==  small)
+	else if ((*stack)->a->next->next->next->num == small)
 		reverse_rotate(stack, "rra");
 	if (check_sort(&(*stack)->a) && !(*stack)->b)
 		return ;
@@ -74,7 +74,7 @@ void	sort_five(t_stack **stack)
 		stack_iter(stack, "ra", rotate, 2);
 	else if ((*stack)->a->next->next->next->num == small)
 		stack_iter(stack, "rra", reverse_rotate, 2);
-	else if ((*stack)->a->next->next->next->next->num ==  small)
+	else if ((*stack)->a->next->next->next->next->num == small)
 		reverse_rotate(stack, "rra");
 	if (check_sort(&(*stack)->a) && !(*stack)->b)
 		return ;

@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 02:28:40 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/14 17:59:48 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/17 14:03:20 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,21 @@ int	check_args(char **av)
 	int	x;
 
 	y = 1;
-	if (av[y] == NULL || ft_strlen(av[y]) == 0)
+	if (av[y] == NULL || ft_strlen(av[y]) == 0 || ft_strlen(av[y]) > 11)
 		return (0);
 	while (av[y])
 	{
 		x = 0;
 		while (av[y][x])
 		{
-			if (av[y][0] == '-' || av[y][0] == '+' || ft_isdigit(av[y][x]))
-				x++;
+			if (av[y][0] == '-' || av[y][0] == '+')
+			{
+				if (!ft_isdigit(av[y][1]))
+					return (0);
+			}
 			else if (!ft_isdigit(av[y][x]))
-			return (0);
+				return (0);
+			x++;
 		}
 		y++;
 	}
@@ -46,7 +50,8 @@ int	check_args_dup(char **av)
 	y = 1;
 	while (av[y])
 	{
-		if (ft_atol(av[y]) > INT_MAX || ft_atol(av[y]) < INT_MIN)
+		if (ft_strlen(av[y]) > 11 && (ft_atol(av[y]) > INT_MAX \
+			|| ft_atol(av[y]) < INT_MIN))
 			return (0);
 		x = y + 1;
 		while (av[x])
@@ -62,9 +67,9 @@ int	check_args_dup(char **av)
 
 void	validate_args(int ac, char **av)
 {
-	if (ac == 2 && check_args(av))
-		exit(EXIT_SUCCESS);
-	else if (ac == 1 || !check_args(av) || !check_args_dup(av))
+	if (ac == 1 || (ac == 2 && check_args(av)))
+		exit(EXIT_FAILURE);
+	else if (!check_args(av) || !check_args_dup(av))
 	{
 		ft_putendl_fd("Error", 2);
 		exit(EXIT_FAILURE);
@@ -75,7 +80,7 @@ int	check_sort(t_node **head)
 {
 	t_node	*temp;
 	t_node	*current_node;
-	
+
 	if (!*head || !(*head)->next)
 		return (1);
 	current_node = *head;

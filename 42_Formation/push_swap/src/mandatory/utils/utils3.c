@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils4.c                                           :+:      :+:    :+:   */
+/*   utils3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 22:43:04 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/14 20:47:28 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/17 14:11:37 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	size_list(t_node **head)
 {
 	int		index;
 	t_node	*temp;
-	
+
 	index = 0;
 	if (!*head)
 		return (index);
@@ -75,7 +75,7 @@ int	mid_node(t_node *head, int range, int size)
 	int		min;
 	int		big_n;
 	int		small_n;
-	
+
 	big_n = max_node(&head, size);
 	small_n = min_node(&head, size);
 	while (--range)

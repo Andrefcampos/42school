@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 11:18:13 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/15 17:20:12 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/17 14:12:06 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	sort_b(t_stack **stack, int *count, int size)
 {
 	t_var	vars;
-	
+
 	(*count)++;
 	if (size < 8)
 	{

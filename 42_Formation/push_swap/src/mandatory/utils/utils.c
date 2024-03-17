@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 16:58:05 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/13 02:25:32 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/17 14:04:28 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ t_node	*create_node(int stack)
 void	list_add_next_last(t_node **head, t_node *new_node)
 {
 	t_node	*upd;
+
 	if (!new_node)
 		return ;
 	if (!*head)
@@ -60,14 +61,14 @@ void	list_add_next_first(t_node **head, t_node *new_node)
 	*head = new_node;
 }
 
-void send_last_to_first(t_node **head)
+void	send_last_to_first(t_node **head)
 {
 	t_node	*first;
 	t_node	*last;
 	t_node	*second_last;
- 
+
 	if (*head == NULL || (*head)->next == NULL)
-		return;
+		return ;
 	first = *head;
 	last = *head;
 	second_last = NULL;
@@ -94,4 +95,3 @@ void	create_list(char **av, t_node **stack)
 		y++;
 	}
 }
-
