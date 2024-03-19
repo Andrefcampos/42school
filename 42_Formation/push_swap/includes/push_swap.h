@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 15:20:43 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/15 16:43:25 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/19 11:48:38 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,6 @@ void	stacks_iter(t_node **lst1, t_node **lst2, \
 		void (*f)(t_node **, t_node **), int size);
 void	stack_iter(t_stack **stack, char *move, \
 		void (*f)(t_stack **, char *), int size);
-//void	del_one_node(t_node **head, int val);
 
 //Free stack and list:
 void	free_stack(t_stack **stack);

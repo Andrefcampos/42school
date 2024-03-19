@@ -6,11 +6,11 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:27:35 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/17 14:13:48 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/19 11:51:20 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "push_swap.h"
 #include <libft.h>
 
 void	push_swap(int ac, t_stack **stack)

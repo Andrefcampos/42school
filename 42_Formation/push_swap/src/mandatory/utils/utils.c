@@ -6,13 +6,12 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 16:58:05 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/17 16:29:08 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/19 11:48:14 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 #include <libft.h>
-#include <stdio.h>
 
 t_node	*create_node(int stack)
 {
