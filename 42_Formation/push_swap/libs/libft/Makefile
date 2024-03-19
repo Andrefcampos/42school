@@ -6,7 +6,7 @@
 #    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 11:57:28 by andrefil          #+#    #+#              #
-#    Updated: 2024/01/31 17:27:45 by andrefil         ###   ########.fr        #
+#    Updated: 2024/03/18 17:53:41 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,10 @@ FILES = \
 			ft_lstdelone.c \
 			ft_lstclear.c \
 			ft_lstiter.c \
-			ft_lstmap.c
+			ft_lstmap.c \
+			get_next_line.c \
+			get_next_line_utils.c
+
 OBJS += $(FILES:%.c=%.o)
 
 all: $(NAME)
