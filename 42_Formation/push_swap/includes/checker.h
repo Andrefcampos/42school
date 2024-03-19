@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 14:31:31 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/18 20:29:53 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/19 11:46:09 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,11 @@ struct	s_stack
 	t_node	*b;
 };
 
-// Init functions:
-void	init_stack(t_stack **stack, char **av);
-
 // Validate functions:
 void	validate_args(int ac, char **av);
 int		check_args(char **av);
 int		check_args_dup(char **av);
 int		check_sort(t_node **head);
-
 
 // Movements:
 void	swap(t_stack **stack, char *move);

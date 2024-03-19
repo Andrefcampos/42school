@@ -6,7 +6,7 @@
 #    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/29 15:20:31 by andrefil          #+#    #+#              #
-#    Updated: 2024/03/18 20:12:25 by andrefil         ###   ########.fr        #
+#    Updated: 2024/03/19 11:46:47 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,7 @@ INCLUDES			:=	includes/ \
 						libs/libft/
 
 INCLUDES_BONUS		:=	includes/ \
-						libs/libft/ \
-						libs/gnl/
+						libs/libft/
 
 LIBS				:=	libs/libft/libft.a
 OBJS_DIR			:=	objs/
@@ -64,8 +63,7 @@ SRCS_FILES_BONUS	+= $(addprefix src/bonus/moves/, \
 
 SRCS_FILES_BONUS	+= $(addprefix src/bonus/utils/, \
 						utils.c \
-						utils2.c \
-						utils3.c)
+						utils2.c)
 
 SRCS_FILES_BONUS	+= $(addprefix src/bonus/clear/, \
 						clear.c)

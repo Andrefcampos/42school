@@ -6,12 +6,12 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:30:33 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/18 20:05:37 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/19 11:43:29 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
-#include <stdio.h> //TODO: apagar depois
+#include <stdio.h>
 
 t_node	*list_last(t_node **stack)
 {
@@ -98,17 +98,19 @@ void	send_in_list(t_node **stack1, t_node **stack2)
 	list_add_next_first(stack2, current_node);
 }
 
-// TODO: delete function:
-void	print_list(t_node **list)
+int	size_list(t_node **head)
 {
+	int		index;
 	t_node	*temp;
 
-	if (!*list)
-		return ;
-	temp = *list;
+	index = 0;
+	if (!*head)
+		return (index);
+	temp = *head;
 	while (temp)
 	{
-		printf("nó: %d\n", temp->num);
+		index++;
 		temp = temp->next;
 	}
+	return (index);
 }

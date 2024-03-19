@@ -6,13 +6,22 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 14:30:41 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/18 21:25:31 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/19 11:45:35 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "get_next_line.h"
 #include "checker.h"
+
+static void	init_stack(t_stack **stack, char **av)
+{
+	*stack = (t_stack *)ft_calloc(1, sizeof(t_stack));
+	if (!*stack)
+		return ;
+	create_list(av, &(*stack)->a);
+	(*stack)->b = NULL;
+}
 
 static int	get_moves(t_stack **stack, char *move)
 {
