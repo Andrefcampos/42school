@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 14:30:41 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/19 11:45:35 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/19 15:06:52 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,16 @@ static int	get_moves(t_stack **stack, char *move)
 		else if (move[0] == 'r' && (move[1] == 'a' || move[1] == 'b' \
 				|| move[1] == 'r') && move[2] == '\n')
 			rotate(stack, move);
+		else
+			return (0);
 	}
 	else if (ft_strlen(move) == 4)
 	{
 		if (move[0] == 'r' && move[1] == 'r' && (move[2] == 'a' \
 			|| move[2] == 'b' || move[2] == 'r') && move[3] == '\n')
 			reverse_rotate(stack, move);
+		else
+			return (0);
 	}
 	else
 		return (0);
