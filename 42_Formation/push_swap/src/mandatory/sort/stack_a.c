@@ -6,31 +6,13 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 09:50:55 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/17 14:13:10 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/19 12:19:34 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	sort_a(t_stack **stack, int *count, int size)
-{
-	t_var	vars;
-
-	if (size < 8)
-	{
-		sort_stacks(stack, 'A', size);
-		return ;
-	}
-	init_vars((*stack)->a, &vars, size);
-	while (size--)
-		divide_stack_a(stack, &vars, &size);
-	restore_a(stack, &vars, count);
-	sort_a(stack, count, vars.ra);
-	sort_b(stack, count, vars.rb);
-	sort_b(stack, count, vars.pb - vars.rb);
-}
-
-void	divide_stack_a(t_stack **stack, t_var *vars, int *times)
+static void	a_to_b(t_stack **stack, t_var *vars, int *times)
 {
 	if (*times && (*stack)->a->num < vars->big_pivot \
 		&& (*stack)->a->next->num > vars->big_pivot \
@@ -59,7 +41,7 @@ void	divide_stack_a(t_stack **stack, t_var *vars, int *times)
 	}
 }
 
-void	restore_a(t_stack **stack, t_var *vars, int *count)
+static void	ordering_stacks(t_stack **stack, t_var *vars, int *count)
 {
 	int	rrr;
 	int	rrx;
@@ -84,4 +66,22 @@ void	restore_a(t_stack **stack, t_var *vars, int *count)
 	}
 	if ((*count) > 0)
 		stack_iter(stack, "rrr", reverse_rotate, rrr);
+}
+
+void	sort_a(t_stack **stack, int *count, int size)
+{
+	t_var	vars;
+
+	if (size < 8)
+	{
+		sort_stacks(stack, 'A', size);
+		return ;
+	}
+	init_vars((*stack)->a, &vars, size);
+	while (size--)
+		a_to_b(stack, &vars, &size);
+	ordering_stacks(stack, &vars, count);
+	sort_a(stack, count, vars.ra);
+	sort_b(stack, count, vars.rb);
+	sort_b(stack, count, vars.pb - vars.rb);
 }

@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 15:20:43 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/19 11:48:38 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/19 12:08:18 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,7 @@ void	init_vars(t_node *stack, t_var *vars, int size);
 //Sort algorithm:
 void	push_swap(int ac, t_stack **stack);
 void	sort_a(t_stack **stack, int *count, int size);
-void	divide_stack_a(t_stack **stack, t_var *vars, int *times);
-void	restore_a(t_stack **stack, t_var *vars, int *count);
 void	sort_b(t_stack **stack, int *count, int size);
-void	restore_b(t_stack **stack, t_var *vars);
-void	divide_stack_b(t_stack **stack, t_var *vars, int *times);
 void	sort_three(t_stack **stack);
 void	sort_four(t_stack **stack);
 void	sort_five(t_stack **stack);
@@ -66,7 +62,6 @@ void	sort_three_b(t_stack **stack);
 void	sort_stacks(t_stack **stack, char c, int size);
 void	sort_stack_a(t_stack **stack, int size);
 void	sort_stack_b(t_stack **stack, int size);
-void	restore_a(t_stack **stack, t_var *vars, int *count);
 
 //Check sort:
 int		check_sort(t_node **head);

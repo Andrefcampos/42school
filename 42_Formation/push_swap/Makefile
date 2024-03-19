@@ -6,7 +6,7 @@
 #    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/29 15:20:31 by andrefil          #+#    #+#              #
-#    Updated: 2024/03/19 11:46:47 by andrefil         ###   ########.fr        #
+#    Updated: 2024/03/19 12:26:13 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,8 +55,7 @@ SRCS_FILES			+=	$(addprefix src/mandatory/sort/, \
 
 SRCS_FILES_BONUS	+=	$(addprefix src/bonus/init/, \
 						checker.c \
-						validate.c \
-						init.c)
+						validate.c)
 							
 SRCS_FILES_BONUS	+= $(addprefix src/bonus/moves/, \
 						moves.c)
