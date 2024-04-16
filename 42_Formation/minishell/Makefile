@@ -6,7 +6,7 @@
 #    By: andrefil <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/24 14:25:11 by andrefil          #+#    #+#              #
-#    Updated: 2024/04/16 16:20:37 by andrefil         ###   ########.fr        #
+#    Updated: 2024/04/16 20:54:27 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ SRC_FILES	+=	$(addprefix src/mandatory/utils/, \
 
 OBJS		:=	$(SRC_FILES:%.c=$(OBJS_DIR)%.o)
 
-all:
+all: LIBFT $(NAME)
 
 LIBFT:
 	@$(MAKE) -C libs/libft
@@ -45,11 +45,13 @@ $(NAME): $(OBJS)
 
 clean:
 	@rm -rf $(OBJS_DIR)
-	@(MAKE) clean -C libs/libft
+	@$(MAKE) clean -C libs/libft
 
 fclean: clean
 	@rm -rf $(NAME)
-	@(MAKE) fclean -C libs/libft
+	@$(MAKE) fclean -C libs/libft
+
+re: fclean all
 
 .PHONY: all clean fclean bonus
 .SILENT:

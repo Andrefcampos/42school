@@ -1,0 +1,822 @@
+[
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_isalpha.c",
+   "-o",
+   "ft_isalpha.o"
+  ],
+  "file": "ft_isalpha.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_isdigit.c",
+   "-o",
+   "ft_isdigit.o"
+  ],
+  "file": "ft_isdigit.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_isalnum.c",
+   "-o",
+   "ft_isalnum.o"
+  ],
+  "file": "ft_isalnum.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_isascii.c",
+   "-o",
+   "ft_isascii.o"
+  ],
+  "file": "ft_isascii.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_isprint.c",
+   "-o",
+   "ft_isprint.o"
+  ],
+  "file": "ft_isprint.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_strlen.c",
+   "-o",
+   "ft_strlen.o"
+  ],
+  "file": "ft_strlen.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_memset.c",
+   "-o",
+   "ft_memset.o"
+  ],
+  "file": "ft_memset.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_bzero.c",
+   "-o",
+   "ft_bzero.o"
+  ],
+  "file": "ft_bzero.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_memcpy.c",
+   "-o",
+   "ft_memcpy.o"
+  ],
+  "file": "ft_memcpy.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_memmove.c",
+   "-o",
+   "ft_memmove.o"
+  ],
+  "file": "ft_memmove.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_strlcpy.c",
+   "-o",
+   "ft_strlcpy.o"
+  ],
+  "file": "ft_strlcpy.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_strlcat.c",
+   "-o",
+   "ft_strlcat.o"
+  ],
+  "file": "ft_strlcat.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_toupper.c",
+   "-o",
+   "ft_toupper.o"
+  ],
+  "file": "ft_toupper.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_tolower.c",
+   "-o",
+   "ft_tolower.o"
+  ],
+  "file": "ft_tolower.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_strchr.c",
+   "-o",
+   "ft_strchr.o"
+  ],
+  "file": "ft_strchr.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_strrchr.c",
+   "-o",
+   "ft_strrchr.o"
+  ],
+  "file": "ft_strrchr.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_strncmp.c",
+   "-o",
+   "ft_strncmp.o"
+  ],
+  "file": "ft_strncmp.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_memchr.c",
+   "-o",
+   "ft_memchr.o"
+  ],
+  "file": "ft_memchr.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_memcmp.c",
+   "-o",
+   "ft_memcmp.o"
+  ],
+  "file": "ft_memcmp.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_strnstr.c",
+   "-o",
+   "ft_strnstr.o"
+  ],
+  "file": "ft_strnstr.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_atoi.c",
+   "-o",
+   "ft_atoi.o"
+  ],
+  "file": "ft_atoi.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_atol.c",
+   "-o",
+   "ft_atol.o"
+  ],
+  "file": "ft_atol.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_strdup.c",
+   "-o",
+   "ft_strdup.o"
+  ],
+  "file": "ft_strdup.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_calloc.c",
+   "-o",
+   "ft_calloc.o"
+  ],
+  "file": "ft_calloc.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_substr.c",
+   "-o",
+   "ft_substr.o"
+  ],
+  "file": "ft_substr.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_strjoin.c",
+   "-o",
+   "ft_strjoin.o"
+  ],
+  "file": "ft_strjoin.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_strtrim.c",
+   "-o",
+   "ft_strtrim.o"
+  ],
+  "file": "ft_strtrim.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_split.c",
+   "-o",
+   "ft_split.o"
+  ],
+  "file": "ft_split.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_itoa.c",
+   "-o",
+   "ft_itoa.o"
+  ],
+  "file": "ft_itoa.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_strmapi.c",
+   "-o",
+   "ft_strmapi.o"
+  ],
+  "file": "ft_strmapi.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_striteri.c",
+   "-o",
+   "ft_striteri.o"
+  ],
+  "file": "ft_striteri.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_putchar_fd.c",
+   "-o",
+   "ft_putchar_fd.o"
+  ],
+  "file": "ft_putchar_fd.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_putstr_fd.c",
+   "-o",
+   "ft_putstr_fd.o"
+  ],
+  "file": "ft_putstr_fd.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_putendl_fd.c",
+   "-o",
+   "ft_putendl_fd.o"
+  ],
+  "file": "ft_putendl_fd.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_putnbr_fd.c",
+   "-o",
+   "ft_putnbr_fd.o"
+  ],
+  "file": "ft_putnbr_fd.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_lstnew.c",
+   "-o",
+   "ft_lstnew.o"
+  ],
+  "file": "ft_lstnew.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_lstadd_front.c",
+   "-o",
+   "ft_lstadd_front.o"
+  ],
+  "file": "ft_lstadd_front.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_lstsize.c",
+   "-o",
+   "ft_lstsize.o"
+  ],
+  "file": "ft_lstsize.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_lstlast.c",
+   "-o",
+   "ft_lstlast.o"
+  ],
+  "file": "ft_lstlast.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_lstadd_back.c",
+   "-o",
+   "ft_lstadd_back.o"
+  ],
+  "file": "ft_lstadd_back.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_lstdelone.c",
+   "-o",
+   "ft_lstdelone.o"
+  ],
+  "file": "ft_lstdelone.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_lstclear.c",
+   "-o",
+   "ft_lstclear.o"
+  ],
+  "file": "ft_lstclear.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_lstiter.c",
+   "-o",
+   "ft_lstiter.o"
+  ],
+  "file": "ft_lstiter.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "ft_lstmap.c",
+   "-o",
+   "ft_lstmap.o"
+  ],
+  "file": "ft_lstmap.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "get_next_line.c",
+   "-o",
+   "get_next_line.o"
+  ],
+  "file": "get_next_line.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell/libs/libft",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-I",
+   ".",
+   "-c",
+   "get_next_line_utils.c",
+   "-o",
+   "get_next_line_utils.o"
+  ],
+  "file": "get_next_line_utils.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-Iincludes/",
+   "-Ilibs/libft/",
+   "-MMD",
+   "-MP",
+   "-o",
+   "objs/src/mandatory/init/main.o",
+   "-c",
+   "src/mandatory/init/main.c"
+  ],
+  "file": "src/mandatory/init/main.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-Iincludes/",
+   "-Ilibs/libft/",
+   "-MMD",
+   "-MP",
+   "-o",
+   "objs/src/mandatory/utils/node.o",
+   "-c",
+   "src/mandatory/utils/node.c"
+  ],
+  "file": "src/mandatory/utils/node.c"
+ }
+]
