@@ -1,21 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   node.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/13 10:59:54 by andrefil          #+#    #+#             */
-/*   Updated: 2024/04/16 16:40:19 by andrefil         ###   ########.fr       */
+/*   Created: 2024/04/16 16:10:20 by andrefil          #+#    #+#             */
+/*   Updated: 2024/04/16 16:20:41 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
+#include "minishell.h"
+#include "libft.h"
+
+t_node	*create_node(char *str)
 {
-	while (*s != (unsigned char )c)
+	t_node	*aux;
+
+	if (!str)
+		retunr (NULL);
+	aux = malloc(sizeof(t_node) * 1);
+	if (!aux)
+		return (NULL);
+	aux->content = malloc(sizeof(char) * ft_strlen(str) + 1);
+	if (!aux->content)
 	{
-		if (!*s++)
-			return ((void *) 0);
+		free (aux);
+		return (NULL);
 	}
-	return ((char *)s);
+	ft_strcpy(aux->content, str);
+	aux->prev = NULL;
+	aux->next = NULL;
+	return (aux);
 }

@@ -6,25 +6,28 @@
 #    By: andrefil <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/24 14:25:11 by andrefil          #+#    #+#              #
-#    Updated: 2024/04/16 14:54:46 by andrefil         ###   ########.fr        #
+#    Updated: 2024/04/16 16:20:37 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:=	minishell
 
+INCLUDES	:=	includes/ \
+				libs/libft/
+
 CC			:=	cc
 CFLAGS		:=	-Wall -Wextra -Werror -g3
 CPP_FLAGS	:=	$(addprefix -I, $(INCLUDES)) -MMD -MP
-
-INCLUDES	:=	includes/ \
-				libs/libft/
 
 LIBS		:=	libs/libft/libft.a
 
 OBJS_DIR	:=	objs/
 
-SRC_FILES	+=	$(addprefix src/mandatory/, \
-			   )
+SRC_FILES	+=	$(addprefix src/mandatory/init/, \
+			   main.c)
+
+SRC_FILES	+=	$(addprefix src/mandatory/utils/, \
+			   node.c)
 
 OBJS		:=	$(SRC_FILES:%.c=$(OBJS_DIR)%.o)
 

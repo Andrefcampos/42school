@@ -6,11 +6,13 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 14:35:40 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/18 17:49:32 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/04/16 16:51:48 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <unistd.h>
+#include <fcntl.h>
 #include <stdlib.h>
 
 char	*ft_make_line(t_vars *lst)

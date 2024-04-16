@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 12:25:09 by andrefil          #+#    #+#             */
-/*   Updated: 2023/10/28 21:43:27 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/04/16 16:42:04 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlen(const	char *str)
 {
-	int	count;
+	size_t	count;
 
 	count = 0;
 	while (str[count])

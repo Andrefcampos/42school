@@ -1,21 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/13 10:59:54 by andrefil          #+#    #+#             */
-/*   Updated: 2024/04/16 16:40:19 by andrefil         ###   ########.fr       */
+/*   Created: 2024/04/16 16:18:31 by andrefil          #+#    #+#             */
+/*   Updated: 2024/04/16 16:20:03 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
-{
-	while (*s != (unsigned char )c)
-	{
-		if (!*s++)
-			return ((void *) 0);
-	}
-	return ((char *)s);
-}
+#include "minishell.h"
+#include "libft.h"
+
+
