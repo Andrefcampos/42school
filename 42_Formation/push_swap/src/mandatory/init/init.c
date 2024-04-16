@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 01:23:05 by andrefil          #+#    #+#             */
-/*   Updated: 2024/03/15 18:15:18 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/03/19 20:29:52 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	init_stack(t_stack **stack, char **av)
 
 void	init_vars(t_node *stack, t_var *vars, int size)
 {
-	vars->big_pivot = mid_node(stack, size / 2, size);
-	vars->small_pivot = mid_node(stack, size / 4 * 3, size);
+	vars->big_pivot = mid_node(stack, (size / 2), size);
+	vars->small_pivot = mid_node(stack, (size / 4) * 3, size);
 	vars->ra = 0;
 	vars->pa = 0;
 	vars->rb = 0;
