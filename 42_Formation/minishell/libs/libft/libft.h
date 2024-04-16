@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:41:34 by andrefil          #+#    #+#             */
-/*   Updated: 2024/04/16 16:52:55 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/04/16 16:54:29 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	*ft_memset(void *str, int ch, size_t num);
 void	ft_bzero(void *str, size_t num);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 
-// Alloc and free (strings) functions:
+// Alloc functions:
 void	*ft_calloc(size_t n, size_t size);
 
 // List functions:
