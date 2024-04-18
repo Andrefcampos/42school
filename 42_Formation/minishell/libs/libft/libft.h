@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:41:34 by andrefil          #+#    #+#             */
-/*   Updated: 2024/04/16 16:54:29 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/04/17 23:49:42 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define LIBFT_H
 
 # include <stdlib.h>
-# include <limits.h>
 
 typedef struct s_list	t_list;
 struct s_list

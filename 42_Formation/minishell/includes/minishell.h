@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 16:00:35 by andrefil          #+#    #+#             */
-/*   Updated: 2024/04/16 20:55:54 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/04/17 22:29:14 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ struct s_data
 t_node	*create_node(char *str);
 void	add_last_node(t_node **head, t_node *node);
 t_node	*last_node(t_node	**head);
+void	put_pwd(void);
 
 #endif

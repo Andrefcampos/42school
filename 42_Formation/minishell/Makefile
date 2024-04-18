@@ -6,7 +6,7 @@
 #    By: andrefil <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/24 14:25:11 by andrefil          #+#    #+#              #
-#    Updated: 2024/04/16 20:54:27 by andrefil         ###   ########.fr        #
+#    Updated: 2024/04/17 23:38:42 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,12 +19,15 @@ CC			:=	cc
 CFLAGS		:=	-Wall -Wextra -Werror -g3
 CPP_FLAGS	:=	$(addprefix -I, $(INCLUDES)) -MMD -MP
 
-LIBS		:=	libs/libft/libft.a
+LIBS		:=	libs/libft/libft.a -lreadline
 
 OBJS_DIR	:=	objs/
 
 SRC_FILES	+=	$(addprefix src/mandatory/init/, \
 			   main.c)
+
+SRC_FILES	+=	$(addprefix src/mandatory/builtins/, \
+			   put_pwd.c)
 
 SRC_FILES	+=	$(addprefix src/mandatory/utils/, \
 			   node.c)
