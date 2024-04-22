@@ -6,7 +6,7 @@
 #    By: andrefil <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/24 14:25:11 by andrefil          #+#    #+#              #
-#    Updated: 2024/04/17 23:38:42 by andrefil         ###   ########.fr        #
+#    Updated: 2024/04/21 21:09:23 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,13 +24,13 @@ LIBS		:=	libs/libft/libft.a -lreadline
 OBJS_DIR	:=	objs/
 
 SRC_FILES	+=	$(addprefix src/mandatory/init/, \
-			   main.c)
+				main.c)
 
 SRC_FILES	+=	$(addprefix src/mandatory/builtins/, \
-			   put_pwd.c)
+				dir.c)
 
 SRC_FILES	+=	$(addprefix src/mandatory/utils/, \
-			   node.c)
+				node.c)
 
 OBJS		:=	$(SRC_FILES:%.c=$(OBJS_DIR)%.o)
 
