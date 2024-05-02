@@ -6,11 +6,11 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 16:10:20 by andrefil          #+#    #+#             */
-/*   Updated: 2024/04/16 20:53:22 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/05/01 20:38:14 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/minishell.h"
+/*#include "../../../includes/minishell.h"
 #include "../../../libs/libft/libft.h"
 #include <stdlib.h>
 
@@ -66,4 +66,4 @@ void	add_last_node(t_node **head, t_node *node)
 	node->prev = temp;
 	temp->next = node;
 	*head = temp;
-}
+}*/

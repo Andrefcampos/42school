@@ -6,7 +6,7 @@
 #    By: andrefil <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/24 14:25:11 by andrefil          #+#    #+#              #
-#    Updated: 2024/04/21 21:10:38 by andrefil         ###   ########.fr        #
+#    Updated: 2024/05/02 00:35:14 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,25 @@ SRC_FILES	+=	$(addprefix src/mandatory/init/, \
 SRC_FILES	+=	$(addprefix src/mandatory/builtins/, \
 				dir.c)
 
+SRC_FILES	+=	$(addprefix src/mandatory/error/, \
+				close_free.c)
+
+SRC_FILES	+=	$(addprefix src/mandatory/abstract_syntax_tree/, \
+				ast_constructor.c \
+				ast_utils.c \
+				ast_utils2.c)
+
+SRC_FILES	+=	$(addprefix src/mandatory/tokenizer/, \
+				token_constructor.c \
+				token_utils.c)
+
+SRC_FILES	+=	$(addprefix src/mandatory/parser/, \
+				syntax_checker.c \
+				syntax_checker_utils.c)
+
 SRC_FILES	+=	$(addprefix src/mandatory/utils/, \
-				node.c)
+				node.c \
+				print.c)
 
 OBJS		:=	$(SRC_FILES:%.c=$(OBJS_DIR)%.o)
 

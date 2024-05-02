@@ -6,37 +6,60 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 16:18:31 by andrefil          #+#    #+#             */
-/*   Updated: 2024/04/21 21:10:44 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/05/02 00:59:55 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/minishell.h"
-#include "../../../libs/libft/libft.h"
+#include "minishell.h"
+#include "libft.h"
 #include <readline/readline.h>
 #include <readline/history.h>
 #include <stdlib.h>
 
+void	initialize_data(t_token **token_list, t_ast **ast_list)
+{
+	*token_list = malloc(sizeof(t_token *) + 1);
+	*ast_list = malloc(sizeof(t_ast *) + 1);
+	*token_list = NULL;
+	*ast_list = NULL;
+}
+
+int		get_input(void)
+{
+	char		*input;
+	t_token		*token_list;
+	t_ast		*ast_list;
+
+	initialize_data(&token_list, &ast_list);
+	input = readline("minishell>: ");
+	if (!ft_strncmp(input, "", 1))
+		return (0);
+	add_history(input);
+	if (syntax_checker(input))
+	{
+		if (build_token(input, &token_list) == ERROR)
+			return (0);
+		scan_token_list(&token_list, &ast_list);
+		if (call_builtins(input))
+			return (1);
+		if (ft_strncmp(input, "exit", 5) == 0)
+			return (END);
+		free (input);
+	}
+	else
+	{
+		ft_putendl_fd("Error in syntax.", 2);
+		return (0);
+	}
+	//free_data(&ast_list, &token_list); -> vou arrumar ainda, tá dando segfault (HAHAHAHAHA);
+	return (1);
+}
+
 int	main(void)
 {
-	t_data	*data;
-	t_node	*last_lst;
-
-	data = malloc(sizeof(t_data *) * 1);
-	data->cmd = malloc(sizeof(t_llist) *1);
 	while (1)
 	{
-		add_last_node(&data->cmd->list, create_node(readline("minishell: ")));
-		last_lst = last_node(&data->cmd->list);
-//		ft_putendl_fd((char *)data->cmd->list->content, 1);
-		if (ft_strncmp(last_lst->content, "", 1))
-			add_history(last_lst->content);
-		if (ft_strncmp(last_lst->content, "clear", 6) == 0)
-			ft_putendl_fd("\e[2J\e[H", 1);
-		else if (ft_strncmp(last_lst->content, "pwd", 4) == 0)
-			put_pwd();
-		else if (ft_strncmp(last_lst->content, "cd", 2) == 0)
-			change_dir(last_lst->content);
-		else if (ft_strncmp(last_lst->content, "exit", 5) == 0)
+		if (get_input() == END)
 			break ;
 	}
 	rl_clear_history();
