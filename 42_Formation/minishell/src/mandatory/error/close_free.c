@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 04:41:49 by andrefil          #+#    #+#             */
-/*   Updated: 2024/05/02 00:49:16 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/05/02 23:30:01 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,16 @@ void	free_matrix(char **matrix)
 
 void	free_data(t_ast **ast_list, t_token **token_list)
 {
-	ast_lstclear(ast_list);
-	token_lstclear(token_list);
-	free (ast_list);
-	free(token_list);
-	*ast_list = NULL;
-	*token_list = NULL;
+	if (ast_list)
+	{
+		ast_lstclear(ast_list);
+		free (*ast_list);
+		*ast_list = NULL;
+	}
+	if (token_list)
+	{
+		token_lstclear(token_list);
+		free(*token_list);
+		*token_list = NULL;
+	}
 }

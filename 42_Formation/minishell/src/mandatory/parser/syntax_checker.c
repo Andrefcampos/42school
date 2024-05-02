@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 15:09:40 by andrefil          #+#    #+#             */
-/*   Updated: 2024/05/02 01:04:58 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/05/03 01:18:03 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,6 @@ static int	check_pipe(const char *input)
 	return (1);
 }
 
-
-//Falta corrigir a função inteira devido a validação não estar atuando corretamente.
 static int	check_redirect(char const *input)
 {
 	int	index;
@@ -89,12 +87,18 @@ static int	check_redirect(char const *input)
 			double_q++;
 		if ((input[index] == '>' || input[index] == '<') && (single_q % 2 == 0) && (double_q % 2 == 0))
 		{
-			if (input[index + 1] != input[index] || is_space(input[index + 1]) || !ft_isalnum(input[index + 1]))
-				return (0);
-			index++;
+			if (input[index] != input[index + 1])
+			{
+				if (!is_space(input[index + 1]))
+				{
+					if (ft_isalnum(input[index + 1]))
+						return (1);
+					else
+						return (0);
+				}
+			}
 		}
-		else
-			index++;
+		index++;
 	}
 	return (1);
 }

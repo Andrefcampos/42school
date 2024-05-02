@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 13:58:40 by andrefil          #+#    #+#             */
-/*   Updated: 2024/05/02 01:01:42 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/05/03 00:58:44 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int		is_space(char c)
 {
-	return (c == ' ' || c ==  '\t');
+	if (c != ' ' || c != '\t')
+		return (0);
+	return (1);
 }
 
 //void	upd_count_quots()

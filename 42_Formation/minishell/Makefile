@@ -6,7 +6,7 @@
 #    By: andrefil <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/24 14:25:11 by andrefil          #+#    #+#              #
-#    Updated: 2024/05/02 00:35:14 by andrefil         ###   ########.fr        #
+#    Updated: 2024/05/03 00:36:52 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,9 @@ SRC_FILES	+=	$(addprefix src/mandatory/init/, \
 SRC_FILES	+=	$(addprefix src/mandatory/builtins/, \
 				dir.c)
 
+SRC_FILES	+=	$(addprefix src/mandatory/env_vars/, \
+				env_vars.c)
+
 SRC_FILES	+=	$(addprefix src/mandatory/error/, \
 				close_free.c)
 
@@ -40,6 +43,13 @@ SRC_FILES	+=	$(addprefix src/mandatory/abstract_syntax_tree/, \
 SRC_FILES	+=	$(addprefix src/mandatory/tokenizer/, \
 				token_constructor.c \
 				token_utils.c)
+
+SRC_FILES	+=	$(addprefix src/mandatory/execution/, \
+				begin_executing.c \
+				execute_command.c \
+				execute_here_doc.c \
+				execute_pipe.c \
+				execute_redirect.c)
 
 SRC_FILES	+=	$(addprefix src/mandatory/parser/, \
 				syntax_checker.c \
@@ -75,5 +85,3 @@ re: fclean all
 
 .PHONY: all clean fclean bonus
 .SILENT:
-
-

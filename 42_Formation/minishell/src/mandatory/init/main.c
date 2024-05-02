@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 16:18:31 by andrefil          #+#    #+#             */
-/*   Updated: 2024/05/02 00:59:55 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/05/02 23:31:18 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int		get_input(void)
 		if (build_token(input, &token_list) == ERROR)
 			return (0);
 		scan_token_list(&token_list, &ast_list);
+		begin_executing(&ast_list, &token_list);
 		if (call_builtins(input))
 			return (1);
 		if (ft_strncmp(input, "exit", 5) == 0)
@@ -51,7 +52,7 @@ int		get_input(void)
 		ft_putendl_fd("Error in syntax.", 2);
 		return (0);
 	}
-	//free_data(&ast_list, &token_list); -> vou arrumar ainda, tá dando segfault (HAHAHAHAHA);
+	free_data(&ast_list, &token_list);
 	return (1);
 }
 
