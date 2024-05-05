@@ -6,7 +6,7 @@
 /*   By: mavitori <mavitori@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 16:51:11 by mavitori          #+#    #+#             */
-/*   Updated: 2024/05/02 00:59:09 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/05/05 12:45:54 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,14 +109,13 @@ void	continue_division_right(tokens operator, t_ast *ast_current_node, t_ast **a
 int	start_ast(t_token **token_list, tokens operator, t_ast **ast_list)
 {
 	t_token	*current;
-	t_ast	*first_node;
 
 	current = token_lstlast(*token_list);
 	while (current->prev != NULL)
 	{
 		if (current->token == operator)
 		{
-			first_node = break_in_two(current, ast_list, 0); // verificar a utilização dessa variavel, pois ao que parece ela não está sendo usada.
+			break_in_two(current, ast_list, 0); // verificar a utilização dessa variavel, pois ao que parece ela não está sendo usada.
 			return (TRUE) ;
 		}
 		else

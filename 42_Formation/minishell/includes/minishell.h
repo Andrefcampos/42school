@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 16:00:35 by andrefil          #+#    #+#             */
-/*   Updated: 2024/05/02 23:25:25 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/05/05 01:47:05 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,13 @@ struct s_env_var
 	t_env_var	*next;
 };
 
+typedef struct s_cmd	t_cmd;
+struct s_cmd
+{
+	char	*bin;
+	char	**cmd_flag;
+};
+
 /*----- TOKENIZER: -----*/
 t_token	*build_redirect_token(int *i, char *cmd_line);
 t_token	*build_word_token(int *i, char *cmd_line);
@@ -128,19 +135,25 @@ void	put_pwd(void);
 void	change_dir(char *cmd);
 
 /*----- EXECUTION: -----*/
-int	execute_operator(t_ast *operator);
+int		execute_operator(t_ast *operator);
 void	execute_ast(t_ast *node, t_ast **ast_list, t_token **token_list);
-void	execute_single_cmd(t_ast *node, t_ast **ast_list, t_token **token_list);
+void	execute_single_cmd(t_ast *node, t_token **token_list);
 void	begin_executing(t_ast **ast_list, t_token **token_list);
 char	**get_command_args(char *content);
-int	execute_command(char *content);
-int	execute_here_doc(t_ast *operator);
+int		execute_command(char *content);
+int		execute_here_doc(t_ast *operator);
 void	execute_redirect(t_ast *operator, int file_fd, int redirection_flag);
-int	execute_pipe(t_ast *operator);
-int	execute_redirect_input(t_ast *operator);
-int	execute_redirect_output(t_ast *operator);
-int	execute_redirect_append(t_ast *operator);
+int		execute_pipe(t_ast *operator);
+int		execute_redirect_input(t_ast *operator);
+int		execute_redirect_output(t_ast *operator);
+int		execute_redirect_append(t_ast *operator);
 
+/*----- ENVIRON: -----*/
+void		get_envp(t_env_var **envp);
+t_env_var	*env_lstnew(char *key, char *value);
+void		env_lstadd_back(t_env_var **lst, t_env_var *new);
+void		env_lstclear(t_env_var **lst);
+t_env_var	*env_lstsearch(t_env_var **lst, char *key);
 
 /*----- PARSER: -----*/
 int		syntax_checker(const char *input);

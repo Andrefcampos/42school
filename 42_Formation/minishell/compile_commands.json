@@ -818,5 +818,328 @@
    "src/mandatory/utils/node.c"
   ],
   "file": "src/mandatory/utils/node.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-Iincludes/",
+   "-Ilibs/libft/",
+   "-MMD",
+   "-MP",
+   "-o",
+   "objs/src/mandatory/builtins/dir.o",
+   "-c",
+   "src/mandatory/builtins/dir.c"
+  ],
+  "file": "src/mandatory/builtins/dir.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-Iincludes/",
+   "-Ilibs/libft/",
+   "-MMD",
+   "-MP",
+   "-o",
+   "objs/src/mandatory/env_vars/env_vars.o",
+   "-c",
+   "src/mandatory/env_vars/env_vars.c"
+  ],
+  "file": "src/mandatory/env_vars/env_vars.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-Iincludes/",
+   "-Ilibs/libft/",
+   "-MMD",
+   "-MP",
+   "-o",
+   "objs/src/mandatory/error/close_free.o",
+   "-c",
+   "src/mandatory/error/close_free.c"
+  ],
+  "file": "src/mandatory/error/close_free.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-Iincludes/",
+   "-Ilibs/libft/",
+   "-MMD",
+   "-MP",
+   "-o",
+   "objs/src/mandatory/abstract_syntax_tree/ast_constructor.o",
+   "-c",
+   "src/mandatory/abstract_syntax_tree/ast_constructor.c"
+  ],
+  "file": "src/mandatory/abstract_syntax_tree/ast_constructor.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-Iincludes/",
+   "-Ilibs/libft/",
+   "-MMD",
+   "-MP",
+   "-o",
+   "objs/src/mandatory/abstract_syntax_tree/ast_utils.o",
+   "-c",
+   "src/mandatory/abstract_syntax_tree/ast_utils.c"
+  ],
+  "file": "src/mandatory/abstract_syntax_tree/ast_utils.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-Iincludes/",
+   "-Ilibs/libft/",
+   "-MMD",
+   "-MP",
+   "-o",
+   "objs/src/mandatory/abstract_syntax_tree/ast_utils2.o",
+   "-c",
+   "src/mandatory/abstract_syntax_tree/ast_utils2.c"
+  ],
+  "file": "src/mandatory/abstract_syntax_tree/ast_utils2.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-Iincludes/",
+   "-Ilibs/libft/",
+   "-MMD",
+   "-MP",
+   "-o",
+   "objs/src/mandatory/tokenizer/token_constructor.o",
+   "-c",
+   "src/mandatory/tokenizer/token_constructor.c"
+  ],
+  "file": "src/mandatory/tokenizer/token_constructor.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-Iincludes/",
+   "-Ilibs/libft/",
+   "-MMD",
+   "-MP",
+   "-o",
+   "objs/src/mandatory/tokenizer/token_utils.o",
+   "-c",
+   "src/mandatory/tokenizer/token_utils.c"
+  ],
+  "file": "src/mandatory/tokenizer/token_utils.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-Iincludes/",
+   "-Ilibs/libft/",
+   "-MMD",
+   "-MP",
+   "-o",
+   "objs/src/mandatory/execution/begin_executing.o",
+   "-c",
+   "src/mandatory/execution/begin_executing.c"
+  ],
+  "file": "src/mandatory/execution/begin_executing.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-Iincludes/",
+   "-Ilibs/libft/",
+   "-MMD",
+   "-MP",
+   "-o",
+   "objs/src/mandatory/execution/execute_command.o",
+   "-c",
+   "src/mandatory/execution/execute_command.c"
+  ],
+  "file": "src/mandatory/execution/execute_command.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-Iincludes/",
+   "-Ilibs/libft/",
+   "-MMD",
+   "-MP",
+   "-o",
+   "objs/src/mandatory/execution/execute_here_doc.o",
+   "-c",
+   "src/mandatory/execution/execute_here_doc.c"
+  ],
+  "file": "src/mandatory/execution/execute_here_doc.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-Iincludes/",
+   "-Ilibs/libft/",
+   "-MMD",
+   "-MP",
+   "-o",
+   "objs/src/mandatory/execution/execute_pipe.o",
+   "-c",
+   "src/mandatory/execution/execute_pipe.c"
+  ],
+  "file": "src/mandatory/execution/execute_pipe.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-Iincludes/",
+   "-Ilibs/libft/",
+   "-MMD",
+   "-MP",
+   "-o",
+   "objs/src/mandatory/execution/execute_redirect.o",
+   "-c",
+   "src/mandatory/execution/execute_redirect.c"
+  ],
+  "file": "src/mandatory/execution/execute_redirect.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-Iincludes/",
+   "-Ilibs/libft/",
+   "-MMD",
+   "-MP",
+   "-o",
+   "objs/src/mandatory/parser/syntax_checker.o",
+   "-c",
+   "src/mandatory/parser/syntax_checker.c"
+  ],
+  "file": "src/mandatory/parser/syntax_checker.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-Iincludes/",
+   "-Ilibs/libft/",
+   "-MMD",
+   "-MP",
+   "-o",
+   "objs/src/mandatory/parser/syntax_checker_utils.o",
+   "-c",
+   "src/mandatory/parser/syntax_checker_utils.c"
+  ],
+  "file": "src/mandatory/parser/syntax_checker_utils.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-Iincludes/",
+   "-Ilibs/libft/",
+   "-MMD",
+   "-MP",
+   "-o",
+   "objs/src/mandatory/utils/print.o",
+   "-c",
+   "src/mandatory/utils/print.c"
+  ],
+  "file": "src/mandatory/utils/print.c"
+ },
+ {
+  "directory": "/nfs/homes/andrefil/42school/42_Formation/minishell",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g3",
+   "-Iincludes/",
+   "-Ilibs/libft/",
+   "-MMD",
+   "-MP",
+   "-o",
+   "objs/src/mandatory/env_vars/get_env.o",
+   "-c",
+   "src/mandatory/env_vars/get_env.c"
+  ],
+  "file": "src/mandatory/env_vars/get_env.c"
  }
 ]

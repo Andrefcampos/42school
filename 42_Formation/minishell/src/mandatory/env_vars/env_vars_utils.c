@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env_vars.c                                         :+:      :+:    :+:   */
+/*   env_vars_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 16:54:21 by andrefil          #+#    #+#             */
-/*   Updated: 2024/05/02 16:55:23 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/05/05 06:18:23 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,12 @@ t_env_var	*env_lstnew(char *key, char *value)
 	node = (t_env_var *)malloc(sizeof(t_env_var));
 	if (node == NULL)
 		return (NULL);
-	node->key = key;
-	node->value = value;
+	node->key = ft_strdup(key);
+	node->value = ft_strdup(value);
 	node->next = NULL;
 	return (node);
 }
+
 void	env_lstadd_back(t_env_var **lst, t_env_var *new)
 {
 	t_env_var	*current;
@@ -60,6 +61,7 @@ void	env_lstclear(t_env_var **lst)
 	}
 	*lst = NULL;
 }
+
 t_env_var	*env_lstsearch(t_env_var **lst, char *key)
 {
 	t_env_var	*current;

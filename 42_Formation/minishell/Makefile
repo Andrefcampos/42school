@@ -6,7 +6,7 @@
 #    By: andrefil <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/24 14:25:11 by andrefil          #+#    #+#              #
-#    Updated: 2024/05/03 00:36:52 by andrefil         ###   ########.fr        #
+#    Updated: 2024/05/04 23:01:06 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ SRC_FILES	+=	$(addprefix src/mandatory/builtins/, \
 				dir.c)
 
 SRC_FILES	+=	$(addprefix src/mandatory/env_vars/, \
-				env_vars.c)
+				env_vars_utils.c \
+				get_env.c)
 
 SRC_FILES	+=	$(addprefix src/mandatory/error/, \
 				close_free.c)

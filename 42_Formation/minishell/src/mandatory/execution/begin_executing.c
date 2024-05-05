@@ -6,7 +6,7 @@
 /*   By: mavitori <mavitori@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 16:53:23 by mavitori          #+#    #+#             */
-/*   Updated: 2024/05/02 23:30:23 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/05/03 21:15:18 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	execute_ast(t_ast *node, t_ast **ast_list, t_token **token_list)
 	execute_ast(node->right, ast_list, token_list);
 }
 
-void	execute_single_cmd(t_ast *node, t_ast **ast_list, t_token **token_list)
+void	execute_single_cmd(t_ast *node, t_token **token_list)
 {
 	pid_t	pid;
 	int		status;
@@ -60,7 +60,7 @@ void	execute_single_cmd(t_ast *node, t_ast **ast_list, t_token **token_list)
 	if (ft_strncmp(node->content, "exit", 5) == 0)
 	{
 		printf("exit\n");
-		free_data(ast_list, token_list);
+		free_data(&node, token_list);
 		exit(EXIT_SUCCESS);
 	}
 	pid = fork();
@@ -73,7 +73,7 @@ void	execute_single_cmd(t_ast *node, t_ast **ast_list, t_token **token_list)
 	{
 		if (execute_command(node->content) == FALSE)
 		{
-			free_data(ast_list, token_list);
+			free_data(&node, token_list);
 			exit(EXIT_SUCCESS);
 		}
 	}
@@ -95,7 +95,7 @@ void	begin_executing(t_ast **ast_list, t_token **token_list)
 		return ;
 	root = *ast_list;
 	if (root->right == NULL && root->left == NULL)
-		execute_single_cmd(root, ast_list, token_list);
+		execute_single_cmd(root, token_list);
 	else
 		execute_ast(root, ast_list, token_list);
 }
