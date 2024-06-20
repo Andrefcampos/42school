@@ -6,14 +6,13 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 16:13:14 by andrefil          #+#    #+#             */
-/*   Updated: 2024/06/19 04:16:50 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/06/20 04:47:51 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 #include <unistd.h>
 #include <stdlib.h>
-
 
 void	get_args(t_vars *vars, char **av)
 {
@@ -32,9 +31,12 @@ void	get_args(t_vars *vars, char **av)
 
 int	main(int ac, char **av)
 {
+	t_monitor	master;
+
 	if (!validation_args(ac, av))
 		return (1);
-	start_threads(av);
+	if (!init_monitor(&master, av))
+		return (1);
+	create_join_threads(&master);
 	return (0);
 }
-

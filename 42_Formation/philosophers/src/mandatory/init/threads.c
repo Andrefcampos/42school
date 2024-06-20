@@ -6,7 +6,7 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 23:49:48 by andrefil          #+#    #+#             */
-/*   Updated: 2024/06/19 05:04:41 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/06/20 04:36:40 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,23 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-static void	join_threads(pthread_t *threads, int n_philo)
-{
-	int	index;
-
-	if (!threads)
-		return ;
-	index = -1;
-	while (++index < n_philo)
-		pthread_join(threads[index], NULL);
-}
-
-static void	destroy_mutex(t_monitor monitor)
+static void	destroy_mutex(t_monitor *monitor)
 {
 	int	index;
 
 	index = -1;
-	while (++index < monitor.args.n_philo)
-		pthread_mutex_destroy(&monitor.m_forks[index]);
-	pthread_mutex_destroy(&monitor.m_print);
-	pthread_mutex_destroy(&monitor.m_time);
-	pthread_mutex_destroy(&monitor.dead);
+	while (++index < monitor->args.n_philo)
+	{
+		pthread_mutex_destroy(&monitor->m_forks[index]);
+		pthread_mutex_destroy(&monitor->m_meal_philos[index]);
+	}
+	pthread_mutex_destroy(&monitor->m_print);
+	pthread_mutex_destroy(&monitor->m_time);
+	pthread_mutex_destroy(&monitor->death);
+	pthread_mutex_destroy(&monitor->m_eat_end);
 }
 
-static int	*alloc_var_time(void)
+static int	*alloc_int(void)
 {
 	int	*time;
 
@@ -48,48 +41,70 @@ static int	*alloc_var_time(void)
 	return (time);
 }
 
-void	create_new_philo(t_monitor *monitor, t_philo *philo, int index)
+static void	create_new_philo(t_monitor *master, int index)
 {
-	int			position;
-	
-	position = index;
-	philo->philo_id = index + 1;
-	philo->start_time = &monitor->start_time;
-	philo->args = monitor->args;
-	philo->die = &monitor->die;
-	philo->m_print = &(monitor->m_print);
-	philo->m_time = &(monitor->m_time);
-	philo->life_time = alloc_var_time();
-	*(philo->life_time) = get_time() - *(philo->start_time);
-	philo->last_meal = alloc_var_time();
-	*(philo->last_meal) = get_time() - *(philo->start_time);
-	philo->dead = &(monitor->dead);
-	philo->m_forkl = &(monitor->m_forks[position]);
-	if (philo->args.n_philo > 1 && position + 1 == monitor->args.n_philo)
-		position = -1;
-	philo->m_forkr = &(monitor->m_forks[position + 1]);
-	if (philo->args.n_philo < 1)
-		philo->m_forkr = NULL;
+	master->philosophers[index].philo_id = index + 1;
+	master->philosophers[index].args = master->args;
+	master->philosophers[index].start_time = master->start_time;
+	master->philosophers[index].last_meal = alloc_int();
+	*(master->philosophers[index].last_meal) = get_time() - master->start_time;
+	master->philosophers[index].life_time = alloc_int();
+	*(master->philosophers[index].life_time) = get_time() - master->start_time;
+	master->philosophers[index].died = &master->died;
+	master->philosophers[index].m_forkl = &master->m_forks[index];
+	if (master->args.n_philo < 2)
+		master->philosophers[index].m_forkr = NULL;
+	else if (index + 1 == master->args.n_philo)
+		master->philosophers[index].m_forkr = &(master->m_forks[0]);
+	else
+		master->philosophers[index].m_forkr = &(master->m_forks[index + 1]);
+	master->philosophers[index].m_print = &master->m_print;
+	master->philosophers[index].death = &master->death;
+	master->philosophers[index].m_time = &master->m_time;
+	master->philosophers[index].m_eat_end = &master->m_eat_end;
+	master->philosophers[index].m_meal = &master->m_meal_philos[index];
+	master->philosophers[index].n_meal = 0;
+	master->philosophers[index].end_meal = alloc_int();
+	*(master->philosophers[index].end_meal) = 0;
 }
 
-void	start_threads(char **av)
+static void	loop_init_mutex(pthread_mutex_t *mutex, int n_threads)
 {
-	pthread_t		*threads;
-	t_monitor		monitor;
-	int				index;
+	int	i;
 
-	threads = NULL;
-	if (!init_monitor(&monitor, av))
+	if (!mutex)
 		return ;
-	threads = malloc(sizeof(pthread_t) * monitor.args.n_philo);
-	if (!threads)
-		return ;
-	index = -1;
-	while (++index < monitor.args.n_philo)
+	i = -1;
+	while (++i < n_threads)
 	{
-		create_new_philo(&monitor, &monitor.philosophers[index], index);
-		pthread_create(&threads[index], NULL, &routine, &monitor.philosophers[index]);
+		if (pthread_mutex_init(&mutex[i], NULL))
+			return ;
 	}
-	join_threads(threads, monitor.args.n_philo);
-	destroy_mutex(monitor);
+}
+
+void	create_join_threads(t_monitor *master)
+{
+	int					index;
+	t_philo				philo[200];
+	pthread_mutex_t		mutex_meal[200];
+	pthread_mutex_t		mutex_forks[200];
+
+	master->philosophers = philo;
+	master->m_forks = mutex_forks;
+	loop_init_mutex(master->m_forks, master->args.n_philo);
+	master->m_meal_philos = mutex_meal;
+	loop_init_mutex(master->m_meal_philos, master->args.n_philo);
+	index = -1;
+	while (++index < master->args.n_philo)
+	{
+		create_new_philo(master, index);
+		pthread_create(&master->philosophers[index].philo, NULL, &routine, \
+						&master->philosophers[index]);
+	}
+	pthread_create(&master->inspector, NULL, &watching, master);
+	index = -1;
+	pthread_join(master->inspector, NULL);
+	while (++index < master->args.n_philo)
+		pthread_join(master->philosophers[index].philo, NULL);
+	destroy_mutex(master);
 }

@@ -6,7 +6,7 @@
 #    By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/09 15:00:37 by andrefil          #+#    #+#              #
-#    Updated: 2024/06/19 01:46:20 by andrefil         ###   ########.fr        #
+#    Updated: 2024/06/20 03:16:21 by andrefil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,8 @@ SRC_FILES	+=	$(addprefix src/mandatory/actions/, \
 					think.c \
 					die.c)
 
+SRC_FILES	+=	$(addprefix src/mandatory/free/, \
+					free.c)
 
 SRC_FILES	+=	$(addprefix src/mandatory/validations/, \
 				validation_args.c)

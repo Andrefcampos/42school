@@ -6,14 +6,14 @@
 /*   By: andrefil <andrefil@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 19:19:48 by andrefil          #+#    #+#             */
-/*   Updated: 2024/06/19 05:04:35 by andrefil         ###   ########.fr       */
+/*   Updated: 2024/06/19 21:37:44 by andrefil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 #include <unistd.h>
 
-void	thinking(t_philo ph)
+void	thinking(t_philo *ph)
 {
 	print_log(THIKING, ph);
 }
